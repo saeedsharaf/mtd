@@ -40,6 +40,9 @@ width: 81%;
 #te{
 transition: 0.5s;
 margin-left:70px;
+color:#ec006b;
+font-size: 20px;
+font-family: cursive;
 
 }
 
@@ -50,23 +53,30 @@ transition: 0.5s;
 
 
 .sidenave{
-height:79%;
-width:150px;
+height:100%;
+width:60px;
 position:fixed;
-background-color: #111;
+background-color: #111111a6;
 z-index: 1;
-top: 65px; /* Stay at the top */
-left: -125px;
+top: 50px; /* Stay at the top */
+/*left: -125px;*/
 border-radius:5px;
 overflow-x: hidden; /* Disable horizontal scroll */
 padding-top: 60px; /* Place content 60px from the top */
 transition: 0.5s;
+filter: grayscale(100%);
 }
 
 .sidenave a:hover{
 color:white;
 
 }
+
+.sidenave:hover{
+left:0px;
+
+}
+
 
 
 
@@ -121,7 +131,9 @@ height : 50px;
 margin-bottom : 20px;
 box-shadow:-3px 4px 15px 4px #00000047;
 min-width: 200px;
-background-color: #252d3a; 
+background-color: #22262dc2;
+position: fixed ;
+top: 0;
 }
 
 
@@ -142,7 +154,8 @@ float: right;
 }
 
 #main{
-width: 88%;
+margin-top: 50px;
+width: 70%;
 display: flex;
 flex-wrap: wrap;
 margin: 0 auto;
@@ -151,24 +164,55 @@ padding: 20px;
 }
 
 .sidenave a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 50px 32px;
     text-decoration: none;
     font-size: 15px;
-    color: #818181;
+   
     display: block;
     transition: 0.3s;
-	width: 75px;
+	width: 30px;
+   
+    margin-bottom: 70px;
+    padding-bottom: 0px;
 }
 
-.sidenav a:hover {
-    color: #f1f1f1;
-}
+
 
 .hhh{
 min-width: 100%;
  height: 45px;
  background-color: #252d3a;
  margin-bottom:20px;
+}
+
+
+a.report{
+    color:#f9cc00;
+    margin-left: -100px;
+}
+
+a.test:hover{
+    color: white;
+
+}
+
+a.performance{
+color:#a7ff00;
+margin-left: -150px;
+
+}
+a.performance:hover{
+    color:white;
+
+}
+
+.nps{
+
+    color: #00e5ff;
+    margin-left: -100px;
+}
+a.nps:hover{
+    color: white;
 }
 
 /*
@@ -191,6 +235,8 @@ margin-top: 55px;
 
 
 }
+
+
 
 
 .chart1{
@@ -346,6 +392,17 @@ color : white;
         
     position: fixed;
     bottom: 40px;
-    left: 35px;
+    left: 45px;
 }
+
+#close{
+float:right;
+color:white;
+margin-left:-5;
+position: absolute;
+top: 45%;
+left: 65%;
+
+}
+
 </style>

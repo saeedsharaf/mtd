@@ -59,7 +59,7 @@ if(!isset($_SESSION['username'])){
 		<div id="mySidenav" class="sidenave" onmouseover="mouseOver()" onmouseout="mouseOut()" > 
 
 				<!--<span id="close"> <img src="../style/right.png" style="width:25px;"> </span> -->
-				<img src="../style/ii.png" style="width: 25px;position: absolute;left: 15px;"> <a href="report.php" class="report" id="report"  > Report </a>
+				<!--<img src="../style/ii.png" style="width: 25px;position: absolute;left: 15px;"> <a href="report.php" class="report" id="report"  > Report </a> -->
 				<img src="../style/aa.png" style="width: 25px;position: absolute;left: 13px;" ><a href="performance.php" class="performance" id="performance" > Performance  </a> 
 				<img src="../style/nps.png" style="width: 40px;position: absolute;left: 5px;"> <a href="../config/redirect_page.php" class="nps" id="npss"> Nps  </a>
 		</div>
@@ -88,9 +88,8 @@ if(!isset($_SESSION['username'])){
 		
 
 		function mouseOver(){
-			document.getElementById('mySidenav').style.width = "150px";
+			document.getElementById('mySidenav').style.width = "150px"
 			document.getElementById('mySidenav').style.filter = "grayscale(0%)";
-			document.getElementById('report').style.marginLeft = "15px";
 			document.getElementById('performance').style.marginLeft = "15px";
 			document.getElementById('npss').style.marginLeft = "15px";
 		}
@@ -98,7 +97,6 @@ if(!isset($_SESSION['username'])){
 		function mouseOut(){
 			document.getElementById('mySidenav').style.width = "60px"
 			document.getElementById('mySidenav').style.filter = "grayscale(100%)";
-			document.getElementById('report').style.marginLeft = "-100px";
 			document.getElementById('performance').style.marginLeft = "-150px";
 			document.getElementById('npss').style.marginLeft = "-100px";
 
