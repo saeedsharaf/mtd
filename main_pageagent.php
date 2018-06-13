@@ -95,7 +95,7 @@ if(!isset($_SESSION['username'])){
 		}
 
 		function mouseOut(){
-			document.getElementById('mySidenav').style.width = "60px"
+			document.getElementById('mySidenav').style.width = "55px"
 			document.getElementById('mySidenav').style.filter = "grayscale(100%)";
 			document.getElementById('performance').style.marginLeft = "-150px";
 			document.getElementById('npss').style.marginLeft = "-100px";
