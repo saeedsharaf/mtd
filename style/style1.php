@@ -63,7 +63,7 @@ top: 50px; /* Stay at the top */
 border-radius:5px;
 overflow-x: hidden; /* Disable horizontal scroll */
 padding-top: 60px; /* Place content 60px from the top */
-transition: 0.5s;
+transition: 0.3s;
 filter: grayscale(100%);
 }
 
@@ -189,6 +189,7 @@ min-width: 100%;
 a.report{
     color:#f9cc00;
     margin-left: -100px;
+    transition: 0.4s;
 }
 
 a.test:hover{
@@ -199,6 +200,7 @@ a.test:hover{
 a.performance{
 color:#a7ff00;
 margin-left: -150px;
+transition: 0.5s;
 
 }
 a.performance:hover{
@@ -206,10 +208,11 @@ a.performance:hover{
 
 }
 
-.nps{
+a.nps{
 
     color: #00e5ff;
     margin-left: -100px;
+    transition: 0.6s;
 }
 a.nps:hover{
     color: white;
