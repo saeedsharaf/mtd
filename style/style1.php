@@ -54,7 +54,7 @@ transition: 0.5s;
 
 .sidenave{
 height:100%;
-width:60px;
+width:55px;
 position:fixed;
 background-color: #111111a6;
 z-index: 1;
