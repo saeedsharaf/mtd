@@ -1,8 +1,6 @@
 <?php
 //error_reporting(0);
-
 $error="";
-
 if(isset($_POST['submit'])){
 	if(empty($_POST['username'])){
 		$error = 'Please write your username';
@@ -18,7 +16,7 @@ if(isset($_POST['submit'])){
 			$row = $saeed->fetch_assoc();
 			
 			
-			if(strcasecmp($username,$row['user_name']) == 0 && strcasecmp($password,$row['password']) == 0 ) {
+			if(strncasecmp($username == $row['user_name']) == 0 && strncasecmp($password == $row['password']) == 0 ){
 				session_start();
 				$_SESSION['username'] = $row['user_name'];
 				$_SESSION['id'] = $row['id'];
@@ -37,15 +35,7 @@ if(isset($_POST['submit'])){
 	
 		
 		}
-
 		$cont->close();
 	}
 }
-
-
-
-
-
-
-
 ?>
