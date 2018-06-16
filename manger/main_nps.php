@@ -105,9 +105,12 @@ include'../main_page.php';
 ?>
 </table>
 
+		<div class="inbound" style="width: 100%; height:250px;">
+			<canvas id="daily" width="500" height="140"></canvas>
+		</div>
 
 		<div class="inbound">
-			<canvas id="nps" width="500"></canvas>
+			<canvas id="nps" width="500" height="140"></canvas>
 		</div>	
 		
 		<div class="inbound" >
@@ -118,7 +121,7 @@ include'../main_page.php';
 	<?php 
 
 	
-	
+	include'js/res.php';
 	include'js/nps.php';
 	include'js/pro.php' ;
 		

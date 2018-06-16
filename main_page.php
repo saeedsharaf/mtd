@@ -17,6 +17,8 @@ if(!isset($_SESSION['username'])){
 <script src="../js/chart.js" ></script>
 <script src="../js/datalabels.js" ></script>
 <script src="../js/index.js" ></script>
+<script src="../js/a.js" ></script>
+<script src="../js/b.js" ></script>
 
 
 </head>

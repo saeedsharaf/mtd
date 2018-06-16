@@ -52,8 +52,8 @@ include'../main_page.php';
 				<td class="light"> 4% </th>
 				<td class="light"> 7% </th>
 				<td class="light"> 96% </th>
-				<td class="light"> TPD </th>
-				<td class="light"> TPD</th>
+				<td class="light"> TBD </th>
+				<td class="light"> TBD</th>
 			</tr>	
 			<tr class="silver">
 			
@@ -67,8 +67,8 @@ include'../main_page.php';
 				<td class="light"> 3% </th>
 				<td class="light"> 6% </th>
 				<td class="light"> 98% </th>
-				<td class="light"> TPD </th>
-				<td class="light"> TPD </th>
+				<td class="light"> TBD </th>
+				<td class="light"> TBD </th>
 			</tr>
 		</tbody>
 		</table>
@@ -129,7 +129,7 @@ include'../main_page.php';
 				<td> 97.14% </th>
 				<td> 46.73% </th>
 				<td rowspan="3"> Previous Month Status </th>
-				<td rowspan="3"> TPD </th>
+				<td rowspan="3"> TBD </th>
 				
 			</tr>
 			<tr>
@@ -191,19 +191,19 @@ include'../main_page.php';
 			</table>
 		
 		
-		<div class="inbound">
+		<div class="inbound" style="height: 200px">
 			<canvas id="inbound" width="535"></canvas>
 		</div>	
 		
-		<div class="inbound" >
+		<div class="inbound" style="height: 200px" >
 			<canvas id="t_in" width="535" ></canvas>
 		</div> 
 		
-		<div class="inbound">
+		<div class="inbound" style="height: 200px">
 			<canvas id="acw" width="535" ></canvas>
 		</div>
 	
-		<div class="inbound">
+		<div class="inbound" style="height: 200px">
 			<canvas id="hh" width="535" ></canvas>
 		</div>
 	

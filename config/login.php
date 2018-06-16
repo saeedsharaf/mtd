@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
 			$row = $saeed->fetch_assoc();
 			
 			
-			if($username == $row['user_name'] && $password == $row['password']){
+			if(strcasecmp($username,$row['user_name']) == 0 && strcasecmp($password,$row['password']) == 0 ) {
 				session_start();
 				$_SESSION['username'] = $row['user_name'];
 				$_SESSION['id'] = $row['id'];

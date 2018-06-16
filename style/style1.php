@@ -60,7 +60,7 @@ background-color: #111111a6;
 z-index: 1;
 top: 50px; /* Stay at the top */
 /*left: -125px;*/
-border-radius:5px;
+border-radius:0px 9px 9px 0px;
 overflow-x: hidden; /* Disable horizontal scroll */
 padding-top: 60px; /* Place content 60px from the top */
 transition: 0.3s;
@@ -155,7 +155,7 @@ float: right;
 
 #main{
 margin-top: 50px;
-width: 70%;
+width: 88%;
 display: flex;
 flex-wrap: wrap;
 margin: 0 auto;
