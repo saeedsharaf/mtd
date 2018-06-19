@@ -104,7 +104,7 @@ include'../main_page.php';
 			 
 ?>
 </table>
-
+<!--
 		<div class="inbound" style="width: 100%; height:250px;">
 			<canvas id="daily" width="500" height="140"></canvas>
 		</div>
@@ -116,14 +116,24 @@ include'../main_page.php';
 		<div class="inbound" >
 			<canvas id="t_in" width="535" ></canvas>
 		</div> 
+-->
 
-		
+		<div class="inbound" style="width: 100%; height:250px;">
+			<canvas id="ezz" width="500" height="140"></canvas>
+		</div>
+		<div class="inbound" style="width: 100%; height:250px;">
+			<canvas id="abdalha" width="500" height="140"></canvas>
+		</div>
+		<script src="js/first1.js"></script>
 	<?php 
 
 	
-	include'js/res.php';
-	include'js/nps.php';
-	include'js/pro.php' ;
+	
+	include'js/abdalha_daily.php';
+	include'js/ezz_daily.php';
+	
+	
+	//include'js/pro.php' ;
 		
 	?>
 

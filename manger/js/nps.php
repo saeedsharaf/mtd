@@ -4,7 +4,7 @@ var saeed5 = document.getElementById("nps");
 var char = new Chart(saeed5,  {
 	type : 'line',
 	data : {
-		labels: ['Jan 2018','Feb 2018','March 2018','April 2018','May 2018','June 2018','July 2018', 'Aug 2018', 'Sep 2018','Oct 2018','Nov 2018','Dec 2018'],
+		labels: ['Jan','Feb','March','April','May','June','July', 'Aug', 'Sep','Oct','Nov','Dec'],
 		
 		datasets: [{
 			label: 'Ezz',

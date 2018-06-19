@@ -2,17 +2,16 @@
 //error_reporting(0);
 
 
-$month = array ('5/1/2018','5/2/2018','5/3/2018','5/4/2018','5/5/2018','5/6/2018','5/7/2018','5/8/2018','5/9/2018','5/10/2018','5/11/2018','5/12/2018','5/13/2018','5/14/2018','5/15/2018','5/17/2018','5/18/2018','5/19/2018','5/20/2018','5/21/2018');
+$month = array ('5/1/2018','5/2/2018','5/3/2018','5/4/2018','5/5/2018','5/6/2018','5/7/2018','5/8/2018','5/9/2018','5/10/2018','5/11/2018','5/12/2018','5/13/2018','5/14/2018','5/15/2018');
 
 
 ?>
 
 
 <script>
-var barChartData = {
+var barChartData1 = {
 			labels: ['5/1','5/2','5/3','5/4','5/5','5/6','5/7',
-			'5/8','5/9','5/10','5/11','5/12','5/13','5/14','5/15','5/16',
-			'5/17','5/18','5/19','5/20'
+			'5/8','5/9','5/10','5/11','5/12','5/13','5/14','5/15'
 			],
 			datasets: [
 
@@ -23,24 +22,29 @@ var barChartData = {
         borderColor: 'red',
         borderWidth: 1,
         fill: false,
+
         data: [
          <?php
          	foreach ($month  as $date ){
-			$t = "select * from nps where date = '$date'"; // to select total rows				
-			$p = "select * from nps where nps_rating >= 9 and date = '$date' "; // select promoter
-			$d = "select * from nps where nps_rating <= 6 and date = '$date' "; // select dertactor
-			$tq = $cont->query($t); 
-			$pq = $cont->query($p); 
-			$dq = $cont-> query ($d);
+			$e_t = "select * from nps where date = '$date' and manger_id ='111'"; // to select total rows				
+			$e_p = "select * from nps where manger_id= '111' and nps_rating >= 9 and date = '$date' "; // select promoter
+			$e_d = "select * from nps where manger_id ='111' and nps_rating <= 6 and date = '$date' "; // select dertactor
+			$e_tq = $cont->query($e_t); 
+			$e_pq = $cont->query($e_p); 
+			$e_dq = $cont-> query ($e_d);
 
-			$eq = (($pq->num_rows - $dq->num_rows) / $tq->num_rows) * 100 ; // get result of nps 
-			echo round($eq) . ','; 
+			$e_eq = (($e_pq->num_rows - $e_dq->num_rows) / $e_tq->num_rows) * 100 ; // get result of nps 
+			echo round($e_eq) . ','; 
 			}
 			
          ?>
 
         ],
         yAxisID: 'y-axis-1',
+         datalabels:{
+      display:true,
+      color: 'black',
+      },
 
       },
 
@@ -53,12 +57,12 @@ var barChartData = {
         data: [
           <?php
           	foreach ($month  as $date ){
-          		$t1 = "select * from nps where date = '$date'"; // to select total rows
-          		$fcr = "select * from nps where ir = '1' and date ='$date' " ;
-          		$tq1 = $cont->query($t1);
-          		$fcr_q = $cont->query($fcr);
-          		$eq1 = ($fcr_q->num_rows / $tq1->num_rows) * 100 ;
-          		echo round($eq1) . ',';
+          		$e_t1 = "select * from nps where manger_id='111' and date = '$date'"; // to select total rows
+          		$e_fcr = "select * from nps where manger_id = '111' and ir = '1' and date ='$date' " ;
+          		$e_tq1 = $cont->query($e_t1);
+          		$e_fcr_q = $cont->query($e_fcr);
+          		$e_eq1 = ($e_fcr_q->num_rows / $e_tq1->num_rows) * 100 ;
+          		echo round($e_eq1) . ',';
           	}
 
           ?>
@@ -76,12 +80,12 @@ var barChartData = {
         data: [
          <?php
          	foreach($month as $date){
-         		$t2 = "select * from nps where date = '$date'";
-         		$ir = "select * from nps where ir <=2 and date ='$date' ";
-         		$tq2 = $cont->query ($t2);
-         		$irq = $cont->query($ir);
-         		$eql2 = ($irq->num_rows / $tq2->num_rows) * 100 ;
-         		echo round($eql2) . ',';
+         		$e_t2 = "select * from nps where manger_id='111' and date = '$date'";
+         		$e_ir = "select * from nps where manger_id='111' and ir <=2 and date ='$date' ";
+         		$e_tq2 = $cont->query ($e_t2);
+         		$e_irq = $cont->query($e_ir);
+         		$e_eql2 = ($e_irq->num_rows / $e_tq2->num_rows) * 100 ;
+         		echo round($e_eql2) . ',';
 
          	}
 
@@ -119,9 +123,9 @@ var barChartData = {
         data: [
           <?php
           	foreach($month as $date){
-          		$t3 = "select * from nps where date = '$date'";
-          		$tq3 = $cont->query($t3);
-          		echo $tq3->num_rows . ',';
+          		$e_t3 = "select * from nps where manger_id='111' and date = '$date'";
+          		$e_tq3 = $cont->query($e_t3);
+          		echo $e_tq3->num_rows . ',';
           	}
           ?>
         ],
@@ -129,16 +133,22 @@ var barChartData = {
         
       }]} ;
 
-		window.onload = function() {
-			var ctx = document.getElementById('daily').getContext('2d');
-			window.myBar = new Chart(ctx, {
+		//window.onload = function() {
+			var saeed = document.getElementById('ezz').getContext('2d');
+			window.myBar1 = new Chart(saeed, {
 				type: 'bar',
-				data: barChartData,
+				data: barChartData1,
 				options: {
+          plugins: {
+          datalabels: {
+            display:true,
+          }
+        },
+
 					responsive: true,
 					title: {
 						display: true,
-						text: 'HV Daily'
+						text: 'Ezz Ashour'
 					},
 					tooltips: {
 						mode: 'index',
@@ -176,6 +186,7 @@ var barChartData = {
 					
 				}
 			});
-		};
+		//}
+    ;
 </script>
 		

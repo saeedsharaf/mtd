@@ -15,7 +15,7 @@ if(!isset($_SESSION['username'])){
 <link rel="stylesheet" href="../style/style1.php" >
 <link rel="shortcut icon" href="../style/icon.png" />
 <script src="../js/chart.js" ></script>
-<script src="../js/datalabels.js" ></script>
+<script src="../js/chartjs-plugin-datalabels.js" ></script>
 <script src="../js/index.js" ></script>
 <script src="../js/a.js" ></script>
 <script src="../js/b.js" ></script>
