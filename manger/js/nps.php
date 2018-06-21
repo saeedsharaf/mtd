@@ -1,6 +1,6 @@
 
 <script>
-var saeed5 = document.getElementById("nps");
+var saeed5 = document.getElementById("abdalha");
 var char = new Chart(saeed5,  {
 	type : 'line',
 	data : {

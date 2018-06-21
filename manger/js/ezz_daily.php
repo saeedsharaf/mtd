@@ -18,8 +18,9 @@ var barChartData1 = {
 			{
 
         type: 'line',
-        label: 'Nps %',
+        label: 'Nps',
         borderColor: 'red',
+        
         borderWidth: 1,
         fill: false,
 
@@ -42,15 +43,20 @@ var barChartData1 = {
         ],
         yAxisID: 'y-axis-1',
          datalabels:{
-      display:true,
-      color: 'black',
-      },
+          backgroundColor : '#ff008b',
+          borderRadius: 9,
+          color: 'white',
+          align: 'end',
+          anchor: 'end',
+      
+
+      }
 
       },
 
 			{
         type: 'line',
-        label: 'FCR %',
+        label: 'FCR',
         borderColor: 'green',
         borderWidth: 1,
         fill: false,
@@ -68,6 +74,13 @@ var barChartData1 = {
           ?>
         ],
         yAxisID: 'y-axis-1',
+          datalabels:{
+      display:true,
+      //color: 'black',
+      borderColor: 'green',
+      borderRadius: 9,
+      backgroundColor : '#82e0aa'
+      },
       },
 
 
@@ -92,6 +105,10 @@ var barChartData1 = {
          ?>
         ],
         yAxixID: 'y-axis-1',
+          datalabels:{
+      display:false,
+      color: 'black',
+      },
       },
 
 
@@ -110,6 +127,10 @@ var barChartData1 = {
           ?>
         ],
         yAxixID: 'y-axis-1',
+          datalabels:{
+      display:false,
+      color: 'black',
+      },
       },
 
 	
@@ -130,6 +151,10 @@ var barChartData1 = {
           ?>
         ],
         yAxisID: 'y-axis-2',
+        datalabels:{
+      display:false,
+      color: 'black',
+      },
         
       }]} ;
 
@@ -139,11 +164,43 @@ var barChartData1 = {
 				type: 'bar',
 				data: barChartData1,
 				options: {
-          plugins: {
+
+
+          hover: {
+          mode: 'index',
+          intersect: false
+        },
+        plugins: {
           datalabels: {
-            display:true,
+            backgroundColor: function(context) {
+              return context.active ? context.dataset.backgroundColor : 'white';
+            },
+            borderColor: function(context) {
+              return context.dataset.backgroundColor;
+                        },
+            borderRadius: function(context) {
+              return context.active ? 0 : 32;
+                        },
+                        borderWidth: 1,
+            color: function(context) {
+              return context.active ? 'black' : context.dataset.backgroundColor;
+            },
+            font: {
+              weight: 'bold'
+            },
+                        formatter: function(value, context) {
+              value = Math.round(value * 100) / 100;
+                            return context.active
+                                ? context.dataset.label + '\n' + value + '%'
+                                : Math.round(value);
+            },
+            offset: 8,
+                        textAlign: 'center'
           }
         },
+
+          
+        
 
 					responsive: true,
 					title: {
@@ -156,6 +213,7 @@ var barChartData1 = {
 					},
 					scales: {
 						yAxes: [{
+
 							type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
 							display: true,
 							position: 'left',

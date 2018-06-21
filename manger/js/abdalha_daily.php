@@ -40,8 +40,14 @@ var barChartData = {
 
         ],
         yAxisID: 'y-axis-1',
+     datalabels:{
+          backgroundColor : '#ff008b',
+          borderRadius: 9,
+          color: 'white',
+          align: 'end',
+          anchor: 'end',
 
-      },
+      }},
 
 			{
         type: 'line',
@@ -63,6 +69,10 @@ var barChartData = {
           ?>
         ],
         yAxisID: 'y-axis-1',
+        datalabels:{
+      display:false,
+      color: 'black',
+      },
       },
 
 
@@ -87,6 +97,10 @@ var barChartData = {
          ?>
         ],
         yAxixID: 'y-axis-1',
+        datalabels:{
+      display:false,
+      color: 'black',
+      },
       },
 
 
@@ -105,6 +119,10 @@ var barChartData = {
           ?>
         ],
         yAxixID: 'y-axis-1',
+        datalabels:{
+      display:false,
+      color: 'black',
+      },
       },
 
 	
@@ -125,6 +143,10 @@ var barChartData = {
           ?>
         ],
         yAxisID: 'y-axis-2',
+        datalabels:{
+      display:false,
+      color: 'black',
+      },
         
       }]} ;
 

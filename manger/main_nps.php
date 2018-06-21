@@ -118,10 +118,10 @@ include'../main_page.php';
 		</div> 
 -->
 
-		<div class="inbound" style="width: 100%; height:250px;">
+		<div class="inbound1" style="width: 100%; height:500px;">
 			<canvas id="ezz" width="500" height="140"></canvas>
 		</div>
-		<div class="inbound" style="width: 100%; height:250px;">
+		<div class="inbound1" style="width: 100%; height:500px;">
 			<canvas id="abdalha" width="500" height="140"></canvas>
 		</div>
 		<script src="js/first1.js"></script>

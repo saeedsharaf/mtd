@@ -17,7 +17,7 @@ if( $row['super'] == 1 ){
 	<?php
 } else if( $row['super'] == 111 or $row['super'] == 222) {
 	?>
-	<script> window.location.href='../manger/main_nps.php' </script>
+	<script> window.location.href='../manger/hv.php' </script>
 	<?php
 
 } else {

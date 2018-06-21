@@ -2,7 +2,7 @@
 //error_reporting(0);
 
 
-$month = array ('5/1/2018','5/2/2018','5/3/2018','5/4/2018','5/5/2018','5/6/2018','5/7/2018','5/8/2018','5/9/2018','5/10/2018','5/11/2018','5/12/2018','5/13/2018','5/14/2018','5/15/2018','5/17/2018','5/18/2018','5/19/2018','5/20/2018','5/21/2018');
+$month = array ('5/1/2018','5/2/2018','5/3/2018','5/4/2018','5/5/2018','5/6/2018','5/7/2018','5/8/2018','5/9/2018','5/10/2018','5/11/2018','5/12/2018','5/13/2018','5/14/2018','5/15/2018','5/17/2018','5/18/2018');
 
 
 ?>
@@ -41,6 +41,16 @@ var barChartData = {
 
         ],
         yAxisID: 'y-axis-1',
+        datalabels:{
+          backgroundColor : '#ff008b',
+          borderRadius: 9,
+          color: 'white',
+          align: 'end',
+          anchor: 'end',
+      
+
+      }
+        
 
       },
 
@@ -64,6 +74,9 @@ var barChartData = {
           ?>
         ],
         yAxisID: 'y-axis-1',
+        datalabels:{
+          display:false,
+        }
       },
 
 
@@ -88,6 +101,9 @@ var barChartData = {
          ?>
         ],
         yAxixID: 'y-axis-1',
+        datalabels:{
+          display:false,
+        }
       },
 
 
@@ -106,6 +122,9 @@ var barChartData = {
           ?>
         ],
         yAxixID: 'y-axis-1',
+        datalabels:{
+          display:false,
+        }
       },
 
 	
@@ -126,6 +145,9 @@ var barChartData = {
           ?>
         ],
         yAxisID: 'y-axis-2',
+        datalabels:{
+          display:false,
+        }
         
       }]} ;
 
