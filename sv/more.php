@@ -16,7 +16,7 @@ include'../main_page.php';
 		
 			<table class="tf">
 			
-			<caption style="background-color:#a90101; padding:9px; color: white;">May 2018</caption>
+			<caption style="background-color:#a90101; padding:9px; color: white;">Jun 2018</caption>
 			<thead>
 			
 			<tr>
@@ -31,8 +31,8 @@ include'../main_page.php';
 				<th class="noborder"> Promoter % </th>
 				<th class="noborder"> Detractor % </th>
 				<th class="noborder"> Passive %  </th>
-				<th class="noborder"> CS TTB </th>
-				<th class="noborder"> CS BB</th>
+				<th class="noborder" style="width:41px;"> CS TTB </th>
+				<th class="noborder" style="width:41px;"> CS BB</th>
 				<th class="noborder"> Agent TTB</th>
 				<th class="noborder"> Agent BB</th>
 				<th class="noborder"> FCR</th>

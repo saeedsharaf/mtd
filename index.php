@@ -23,7 +23,7 @@ include 'config/login.php';
 	<span> <?php echo $error; ?> </span>
 </div>
 <div class="footer" >
-<span >For any inquiries or support (Don’t hesitate to <a style="text-decoration:none;" href='mailto:XCC-Tamer  Kassem; XCC.Mostafa.Magdy@te.eg?cc=XCC-Saeed Sharaf; XCC-Adel Abdelaziz&subject=TelecomEgypt  WE-eye "Application Support"'>Contact Developers</a> )</span>
+<span >For any inquiries or support (Don’t hesitate to <a style="text-decoration:none;" href='mailto:XCC-Tamer  Kassem; ?cc=XCC-Saeed Sharaf;&subject=TelecomEgypt  WE-eye "Application Support"'>Contact Developers</a> )</span>
 </div>
 
 

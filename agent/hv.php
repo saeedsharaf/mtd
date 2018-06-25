@@ -74,7 +74,7 @@ include'../main_page.php';
 			 
 			?>
 				
-				<td class="light"> <a href="main_nps.php" style="color:blue;" title="click here for more details">High Value </a> </td>
+				<td class="light"> <a href="nps.php" style="color:blue;" title="click here for more details">High Value </a> </td>
 				<td class="light"> <?php echo $totalsurvey ;?></td>
 				<td class="light"> <?php echo $pro ;?> </td>
 				<td class="light"> <?php echo $de ;?> </td>

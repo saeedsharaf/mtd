@@ -324,6 +324,7 @@ th, td {
 .noborder{
 border:none;
 background-color: #cccccc;
+
 }
 
 .silver{

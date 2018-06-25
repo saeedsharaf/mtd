@@ -14,8 +14,11 @@ if(!isset($_SESSION['username'])){
 <title> We Eye </title>
 <link rel="stylesheet" href="../style/style1.php" >
 <link rel="shortcut icon" href="../style/icon.png" />
+<script src="../js/b.js" ></script>
+
 <script src="../js/chart.js" ></script>
 <script src="../js/datalabels.js" ></script>
+
 <script src="../js/index.js" ></script>
 
 
@@ -43,6 +46,16 @@ if(!isset($_SESSION['username'])){
 			</map>
 			<a href="../config/redirect_page.php" title="home" > <img src="../style/home.png" class="left1" width="25px" style="margin-top:11px;margin-right: 21px;" ></a>
 
+			<?php 
+
+			if($_SESSION['id'] != 111 and $_SESSION['id'] != 222 and $_SESSION['id'] != 333 and $_SESSION['id'] != 444 and $_SESSION['id'] != 555  ){
+				
+				?>
+				<a href="../manger/hv.php" title="OverView" > <img src="../style/all.png" class="left1" width="25px" style="margin-top:11px;margin-right: 21px;" ></a>
+				<?php
+			}
+			?>
+
 			<span style="margin-right: 20px; color: white; margin-top: 15px;float:right;"> <?php echo $_SESSION['username']; ?> </span>
 			</div>
 			<!--
@@ -60,7 +73,7 @@ if(!isset($_SESSION['username'])){
 
 				<!--<span id="close"> <img src="../style/right.png" style="width:25px;"> </span> -->
 				<!--<img src="../style/ii.png" style="width: 25px;position: absolute;left: 15px;"> <a href="report.php" class="report" id="report"  > Report </a> -->
-				<img src="../style/aa.png" style="width: 25px;position: absolute;left: 13px;" ><a href="performance.php" class="performance" id="performance" > Performance  </a> 
+				<img src="../style/aa.png" style="width: 25px;position: absolute;left: 13px;" ><a href="performance.php" class="performance" id="performance" > Score  </a> 
 				<img src="../style/nps.png" style="width: 40px;position: absolute;left: 5px;"> <a href="../config/redirect_page.php" class="nps" id="npss"> Nps  </a>
 		</div>
 		

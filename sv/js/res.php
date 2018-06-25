@@ -207,6 +207,13 @@ var barChartData = {
         yAxisID: 'y-axis-2',
         datalabels:{
           display:false,
+          borderRadius: 9,
+          color: 'black',
+           anchor : 'center',
+          align: 'center',
+
+          
+
         }
         
       }]} ;
@@ -220,7 +227,7 @@ var barChartData = {
 
            layout: {
             padding: {
-                left: 50,
+                left: 0,
                 right: 0,
                 top: 10,
                 bottom: 0

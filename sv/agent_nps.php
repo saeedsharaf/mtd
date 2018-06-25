@@ -16,7 +16,7 @@ include'../main_page.php';
 		
 			<table class="tf">
 			
-			<caption style="background-color:#a90101; padding:9px; color: white;">May 2018</caption>
+			<caption style="background-color:#a90101; padding:9px; color: white;">June 2018</caption>
 			<thead>
 			
 			<tr>
@@ -141,7 +141,7 @@ include'../main_page.php';
 			
 			?>
 				<td class="light"> <?php echo $row['agent_id'] ;?> </th>
-				<td class="light"> <?php echo $row['agent_name'] ;?>  </th>
+				<td class="light"><a href="agent_more.php" style="color:blue;"> <?php echo $row['agent_name'] ;?> </a> </th>
 				<td class="light"> <?php echo $row['s_v']; ?> </th>
 				<td class="light"> <?php echo $result->num_rows ;?></th>
 				
@@ -171,15 +171,8 @@ include'../main_page.php';
 			
 			?>
 
-		<div class="inbound" style="height:240px;margin-top:20px;">
-			<canvas id="nps" width="500"></canvas>
-		</div>	
 		
-		<div class="inbound" style="height:240px; margin-top:20px;" >
-			<canvas id="t_in" width="535" ></canvas>
-		</div> 
-		
-		<div class="inbound" style="width: 100%; height:250px; margin-top:20px;">
+		<div class="inbound" style="width: 100%; height:400px; margin-top:20px;">
 			<canvas id="calls" width="535" ></canvas>
 		</div>
 	<!--
@@ -190,11 +183,10 @@ include'../main_page.php';
 	
 		-->
 	<?php
-	include'../agent/js/daily_calls.php' ;
-	include'../agent/js/nps.php';
-	include'../agent/js/pro.php' ;
+	include'../agent/js/daily.php' ;
+	
 	?>
-	<a href="agent_more.php" class="more" style="color:blue; position: absolute; right: 30;bottom: 45px;"> More >> </a> 
+	
 	
 	
 		</div>

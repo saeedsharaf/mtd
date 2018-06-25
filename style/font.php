@@ -5,14 +5,14 @@ if($nps < 40 ){
 $nps_color = 'color: #ff0000';
 
 } else {
-$nps_color = 'color : #108003ab';
+$nps_color = 'color : #108003db';
 };
 
 
 if($fcr_pre < 60){
 	$fcr_color = 'color: #ff0000';
 }else {
-	$fcr_color = 'color : #108003ab';
+	$fcr_color = 'color : #108003db';
 
 };
 
@@ -22,14 +22,45 @@ if($per_agttb < 80 ){
 
 }else {
 
-	$ag_tt = 'color : #108003ab';
+	$ag_tt = 'color : #108003db';
 
 }
 
 if($ir_pre < 60 ){
 	$ir_color = 'color: #ff0000';
 }else {
-	$ir_color = 'color : #108003ab';
+	$ir_color = 'color : #108003db';
 };
+
+
+if($aht > 60){
+	$aht_color = 'color: #ff0000';
+
+} else{
+	$aht_color = 'color : #108003db';
+}
+
+
+if($hold_percentage > 5){
+	$hold_color = 'color: #ff0000';
+
+} else{
+	$hold_color = 'color: #108003db';
+}
+
+
+if($acw_percentage > 5){
+	$acw_color = 'color: #ff0000';
+
+} else{
+	$acw_color = 'color: #108003db';
+}
+
+
+if($sl < 80 ){
+	$sl_color = 'color: #ff0000';
+} else{
+	$sl_color = 'color: #108003db';
+}
 
 ?>

@@ -2,7 +2,6 @@
 //error_reporting(0);
 
 
-$month = array ('5/1/2018','5/2/2018','5/3/2018','5/4/2018','5/5/2018','5/6/2018','5/7/2018','5/8/2018','5/9/2018','5/10/2018','5/11/2018','5/12/2018','5/13/2018','5/14/2018','5/15/2018');
 
 
 ?>
@@ -10,15 +9,20 @@ $month = array ('5/1/2018','5/2/2018','5/3/2018','5/4/2018','5/5/2018','5/6/2018
 
 <script>
 var barChartData = {
-			labels: ['5/1','5/2','5/3','5/4','5/5','5/6','5/7',
-			'5/8','5/9','5/10','5/11','5/12','5/13','5/14','5/15'
+			labels: [
+      <?php
+        $arraylenght = count($month);
+        for($x = 0; $x < $arraylenght; $x++) {
+          echo '"' . $month[$x] . '"' . ',' ;
+        }
+        ?>
 			],
 			datasets: [
 
 			{
 
         type: 'line',
-        label: 'Nps %',
+        label: 'Nps',
         borderColor: 'red',
         borderWidth: 1,
         fill: false,
@@ -31,8 +35,12 @@ var barChartData = {
 			$tq = $cont->query($t); 
 			$pq = $cont->query($p); 
 			$dq = $cont-> query ($d);
-
-			$eq = (($pq->num_rows - $dq->num_rows) / $tq->num_rows) * 100 ; // get result of nps 
+      if($tq->num_rows == 0 ){
+       $eq = 0;
+      } else{
+        $eq = (($pq->num_rows - $dq->num_rows) / $tq->num_rows) * 100 ; // get result of nps
+      }
+			 
 			echo round($eq) . ','; 
 			}
 			
@@ -44,14 +52,61 @@ var barChartData = {
           backgroundColor : '#ff008b',
           borderRadius: 9,
           color: 'white',
-          align: 'end',
+          align: 'center',
           anchor: 'end',
+      
 
       }},
 
+      {
+
+        type: 'line',
+        label: 'A-TTB',
+        borderColor: '#283747',
+        borderWidth: 1,
+        fill: false,
+        data: [
+         <?php
+          foreach ($month  as $date ){
+      $t = "select * from nps where date = '$date' and manger_id ='222'"; // to select total rows       
+      $ag_ttb = "select * from nps where manger_id = '222' and agent_satisfaction > 3 and date='$date' "; // select agent tob box 
+      
+      $tq = $cont->query($t); 
+
+      $result_agttb = $cont->query($ag_ttb);
+      $ge_ttb1 = $result_agttb->num_rows; // query agent top box
+      
+      if($tq->num_rows == 0){
+        $agent = 0;
+      } else{
+
+
+      $agent = ($ge_ttb1 / $tq->num_rows) * 100 ; // get result of nps 
+       }
+      echo round($agent) . ','; 
+      }
+      
+         ?>
+
+        ],
+        yAxisID: 'y-axis-1',
+     datalabels:{
+          backgroundColor : '#283747',
+          borderRadius: 9,
+          color: 'white',
+          align: 'center',
+          anchor: 'end',
+      
+
+      }},
+
+
+
+
+
 			{
         type: 'line',
-        label: 'FCR %',
+        label: 'FCR',
         borderColor: 'green',
         borderWidth: 1,
         fill: false,
@@ -62,7 +117,12 @@ var barChartData = {
           		$fcr = "select * from nps where manger_id = '222' and ir = '1' and date ='$date' " ;
           		$tq1 = $cont->query($t1);
           		$fcr_q = $cont->query($fcr);
-          		$eq1 = ($fcr_q->num_rows / $tq1->num_rows) * 100 ;
+              if($tq1->num_rows == 0){
+                $eq1 = 0;
+              } else{
+                $eq1 = ($fcr_q->num_rows / $tq1->num_rows) * 100 ;
+              }
+          		
           		echo round($eq1) . ',';
           	}
 
@@ -70,15 +130,20 @@ var barChartData = {
         ],
         yAxisID: 'y-axis-1',
         datalabels:{
-      display:false,
-      color: 'black',
-      },
+          backgroundColor : '#82e0aa',
+          borderRadius: 9,
+          color: 'black',
+          align: 'center',
+          anchor: 'center',
+      
+
+      }
       },
 
 
        {
         type: 'line',
-        label: 'IR %',
+        label: 'IR',
         borderColor: window.chartColors.orange,
         borderWidth: 1,
         fill: false,
@@ -89,7 +154,12 @@ var barChartData = {
          		$ir = "select * from nps where manger_id='222' and ir <=2 and date ='$date' ";
          		$tq2 = $cont->query ($t2);
          		$irq = $cont->query($ir);
-         		$eql2 = ($irq->num_rows / $tq2->num_rows) * 100 ;
+            if($tq2->num_rows == 0){
+              $eql2 = 0;
+            }else{
+              $eql2 = ($irq->num_rows / $tq2->num_rows) * 100 ;
+            }
+         		
          		echo round($eql2) . ',';
 
          	}
@@ -98,9 +168,14 @@ var barChartData = {
         ],
         yAxixID: 'y-axis-1',
         datalabels:{
-      display:false,
-      color: 'black',
-      },
+          backgroundColor : '#F7DC6F  ',
+          borderRadius: 9,
+          color: 'black',
+          align: 'center',
+          anchor: 'end',
+      
+
+      }
       },
 
 
@@ -156,12 +231,58 @@ var barChartData = {
 				type: 'bar',
 				data: barChartData,
 				options: {
+
+           layout: {
+            padding: {
+                left: 50,
+                right: 0,
+                top: 50,
+                bottom: 0
+            }
+        },
+         maintainAspectRatio: false,
+
+
+           hover: {
+          mode: 'index',
+          intersect: false
+        },
+        plugins: {
+          datalabels: {
+            backgroundColor: function(context) {
+              return context.active ? context.dataset.backgroundColor : 'white';
+            },
+            borderColor: function(context) {
+              return context.dataset.backgroundColor;
+                        },
+            borderRadius: function(context) {
+              return context.active ? 0 : 32;
+                        },
+                        borderWidth: 1,
+            color: function(context) {
+              return context.active ? 'black' : context.dataset.backgroundColor;
+            },
+            font: {
+              weight: 'bold'
+            },
+                        formatter: function(value, context) {
+              value = Math.round(value * 100) / 100;
+                            return context.active
+                                ? context.dataset.label + '\n' + value + '%'
+                                : Math.round(value);
+            },
+            offset: 8,
+                        textAlign: 'center'
+          }
+        },
+          
 					responsive: true,
 					title: {
 						display: true,
 						text: 'Mohamed Abdallah'
 					},
 					tooltips: {
+            enabled:false,
 						mode: 'index',
 						intersect: true
 					},

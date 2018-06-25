@@ -15,7 +15,7 @@ include'../main_page.php';
 		
 			<table class="tf">
 			
-			<caption style="background-color:#a90101; padding:9px; color: white;">May 2018</caption>
+			<caption style="background-color:#a90101; padding:9px; color: white;">Jun 2018</caption>
 			<thead>
 			
 			<tr>
@@ -170,7 +170,7 @@ include'../main_page.php';
 		
 			
 			?>
-
+<!--
 		<div class="inbound">
 			<canvas id="nps" width="500"></canvas>
 		</div>	
@@ -178,7 +178,7 @@ include'../main_page.php';
 		<div class="inbound" >
 			<canvas id="t_in" width="535" ></canvas>
 		</div> 
-		
+		-->
 		<div class="inbound" style="width: 100%;">
 			<canvas id="calls" width="535" ></canvas>
 		</div>
@@ -190,14 +190,14 @@ include'../main_page.php';
 	
 		-->
 	<?php
-	include'../sv/js/daily_calls.php' ;
-	include'../sv/js/nps.php';
-	include'../sv/js/pro.php' ;
+	include'../sv/js/sv_daily.php' ;
+	//include'../sv/js/nps.php';
+	//include'../sv/js/pro.php' ;
 	?>
 	
 	
 	
 		</div>
-					<
+					
 	</div>
 	</div>

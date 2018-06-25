@@ -14,12 +14,16 @@ if(isset($_POST['submit'])){
 			
 			$saeed = $cont->query("SELECT * FROM member WHERE user_name = '$username' AND password = '$password'");
 			$row = $saeed->fetch_assoc();
+			$user = $row['user_name'];
+			$pass = $row['password'];
+			echo $row['user_name'];
+
 			
-			
-			if(strncasecmp($username == $row['user_name']) == 0 && strncasecmp($password == $row['password']) == 0 ){
+			if(strcasecmp($username,$user) == 0 && strcasecmp($password,$pass) == 0 ){
 				session_start();
 				$_SESSION['username'] = $row['user_name'];
 				$_SESSION['id'] = $row['id'];
+				
 				?>
 				<script> window.location.href='config/redirect_page.php' </script>
 			

@@ -2,17 +2,23 @@
 //error_reporting(0);
 
 
-$month = array ('5/1/2018','5/2/2018','5/3/2018','5/4/2018','5/5/2018','5/6/2018','5/7/2018','5/8/2018','5/9/2018','5/10/2018','5/11/2018','5/12/2018','5/13/2018','5/14/2018','5/15/2018');
-
 
 ?>
 
 
 <script>
+
 var barChartData1 = {
-			labels: ['5/1','5/2','5/3','5/4','5/5','5/6','5/7',
-			'5/8','5/9','5/10','5/11','5/12','5/13','5/14','5/15'
+			labels: [
+      <?php
+        $arraylenght = count($month);
+        for($x = 0; $x < $arraylenght; $x++) {
+          echo '"' . $month[$x] . '"' . ',' ;
+        }
+        ?>
 			],
+
+
 			datasets: [
 
 			{
@@ -33,8 +39,12 @@ var barChartData1 = {
 			$e_tq = $cont->query($e_t); 
 			$e_pq = $cont->query($e_p); 
 			$e_dq = $cont-> query ($e_d);
-
-			$e_eq = (($e_pq->num_rows - $e_dq->num_rows) / $e_tq->num_rows) * 100 ; // get result of nps 
+      if($e_tq->num_rows == 0){
+        $e_eq = 0;
+      } else {
+        $e_eq = (($e_pq->num_rows - $e_dq->num_rows) / $e_tq->num_rows) * 100 ; // get result of nps 
+      }
+			
 			echo round($e_eq) . ','; 
 			}
 			
@@ -42,17 +52,61 @@ var barChartData1 = {
 
         ],
         yAxisID: 'y-axis-1',
-         datalabels:{
+          datalabels:{
           backgroundColor : '#ff008b',
           borderRadius: 9,
           color: 'white',
-          align: 'end',
+          align: 'center',
           anchor: 'end',
       
 
       }
 
       },
+
+
+      {
+
+        type: 'line',
+        label: 'A-TTB',
+        borderColor: '#283747',
+        borderWidth: 1,
+        fill: false,
+        data: [
+         <?php
+          foreach ($month  as $date ){
+      $t = "select * from nps where date = '$date' and manger_id ='111'"; // to select total rows       
+      $ag_ttb = "select * from nps where manger_id = '111' and agent_satisfaction > 3 and date='$date' "; // select agent tob box 
+      
+      $tq = $cont->query($t); 
+
+      $result_agttb = $cont->query($ag_ttb);
+      $ge_ttb1 = $result_agttb->num_rows; // query agent top box
+      
+      if($tq->num_rows == 0){
+        $agent = 0;
+      } else{
+
+
+      $agent = ($ge_ttb1 / $tq->num_rows) * 100 ; // get result of nps 
+       }
+      echo round($agent) . ','; 
+      }
+      
+         ?>
+
+        ],
+        yAxisID: 'y-axis-1',
+     datalabels:{
+          backgroundColor : '#283747',
+          borderRadius: 9,
+          color: 'white',
+          align: 'center',
+          anchor: 'end',
+      
+
+      }},
+
 
 			{
         type: 'line',
@@ -67,7 +121,12 @@ var barChartData1 = {
           		$e_fcr = "select * from nps where manger_id = '111' and ir = '1' and date ='$date' " ;
           		$e_tq1 = $cont->query($e_t1);
           		$e_fcr_q = $cont->query($e_fcr);
-          		$e_eq1 = ($e_fcr_q->num_rows / $e_tq1->num_rows) * 100 ;
+              if($e_tq1->num_rows == 0){
+                $e_eq1 = 0;
+              } else {
+                $e_eq1 = ($e_fcr_q->num_rows / $e_tq1->num_rows) * 100 ;
+              }
+          		
           		echo round($e_eq1) . ',';
           	}
 
@@ -75,18 +134,20 @@ var barChartData1 = {
         ],
         yAxisID: 'y-axis-1',
           datalabels:{
-      display:true,
-      //color: 'black',
-      borderColor: 'green',
-      borderRadius: 9,
-      backgroundColor : '#82e0aa'
-      },
+          backgroundColor : '#82e0aa',
+          borderRadius: 9,
+          color: 'black',
+          align: 'center',
+          anchor: 'end',
+      
+
+      }
       },
 
 
        {
         type: 'line',
-        label: 'IR %',
+        label: 'IR',
         borderColor: window.chartColors.orange,
         borderWidth: 1,
         fill: false,
@@ -97,7 +158,12 @@ var barChartData1 = {
          		$e_ir = "select * from nps where manger_id='111' and ir <=2 and date ='$date' ";
          		$e_tq2 = $cont->query ($e_t2);
          		$e_irq = $cont->query($e_ir);
-         		$e_eql2 = ($e_irq->num_rows / $e_tq2->num_rows) * 100 ;
+            if($e_tq2->num_rows == 0){
+              $e_eql2 = 0;
+            } else{
+              $e_eql2 = ($e_irq->num_rows / $e_tq2->num_rows) * 100 ;
+            }
+         		
          		echo round($e_eql2) . ',';
 
          	}
@@ -105,10 +171,15 @@ var barChartData1 = {
          ?>
         ],
         yAxixID: 'y-axis-1',
-          datalabels:{
-      display:false,
-      color: 'black',
-      },
+         datalabels:{
+          backgroundColor : '#F7DC6F  ',
+          borderRadius: 9,
+          color: 'black',
+          align: 'center',
+          anchor: 'end',
+      
+
+      }
       },
 
 
@@ -164,7 +235,19 @@ var barChartData1 = {
 				type: 'bar',
 				data: barChartData1,
 				options: {
+         
+             layout: {
+            padding: {
+                left: 50,
+                right: 0,
+                top: 50,
+                bottom: 0
+            }
+        },
+         maintainAspectRatio: false,
 
+
+ 
 
           hover: {
           mode: 'index',
@@ -208,6 +291,7 @@ var barChartData1 = {
 						text: 'Ezz Ashour'
 					},
 					tooltips: {
+            enabled:false,
 						mode: 'index',
 						intersect: true
 					},
