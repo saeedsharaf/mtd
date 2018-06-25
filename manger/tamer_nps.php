@@ -56,14 +56,14 @@ include'../main_page.php';
 			
 			
 			
-		$ids = array(111,222,333,444);
-		foreach($ids as $id){
+	
+	
 		
-		$sql1 = "select user_name from member where super = '$id'";	
+		$sql1 = "select user_name from member where super = '555'";	
 		$result1 = $cont->query($sql1);
 		$rows = $result1->fetch_assoc();
-		
-		include'calculation.php';	
+		 	
+		include'tamer_seif.php';	
 		include'../style/font.php';
 			
 
@@ -74,7 +74,7 @@ include'../main_page.php';
 			 
 			?>
 				
-				<td class="light"> <a href="more.php?id=<?php echo $id; ?>" style="color:blue;" title="click here for more details"><?php echo $rows['user_name']  ;?> </a> </th>
+				<td class="light"> <a href="more.php?id=555" style="color:blue;" title="click here for more details"><?php echo $rows['user_name']  ;?> </a> </th>
 				<td class="light"> <?php echo $totalsurvey ;?></th>
 				<td class="light"> <?php echo $pro ;?> </th>
 				<td class="light"> <?php echo $de ;?> </th>
@@ -99,7 +99,7 @@ include'../main_page.php';
 
 			}
 			
-			}
+		
 		
 			 
 ?>
@@ -119,19 +119,16 @@ include'../main_page.php';
 -->
 
 		<div class="inbound1" style="width: 100%; height:500px;">
-			<canvas id="ezz" width="500" height="140"></canvas>
+			<canvas id="tamer" width="500" height="140"></canvas>
 		</div>
-		<div class="inbound1" style="width: 100%; height:500px;">
-			<canvas id="abdalha" width="500" height="140"></canvas>
-		</div>
+	
 		
 	<?php 
 
 	
 	
-	include'js/abdalha_daily.php';
-	include'js/ezz_daily.php';
-	
+	include'js/tamer.php';
+
 	
 	
 		

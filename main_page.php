@@ -78,7 +78,7 @@ if(!isset($_SESSION['username'])){
 
 				<!--<span id="close"> <img src="../style/right.png" style="width:25px;"> </span> -->
 				<img src="../style/ii.png" style="width: 25px;position: absolute;left: 15px;"> <a href="../dash_board/report.php" class="report" id="report"  > Dashboard </a>
-				<img src="../style/aa.png" style="width: 25px;position: absolute;left: 13px;" ><a href="performance.php" class="performance" id="performance" > Score   </a> 
+				<img src="../style/aa.png" style="width: 25px;position: absolute;left: 13px;" ><a href="../score/performance.php" class="performance" id="performance" > Score   </a> 
 				<img src="../style/nps.png" style="width: 40px;position: absolute;left: 5px;"> <a href="../config/redirect_page.php" class="nps" id="npss"> Nps  </a>
 		</div>
 

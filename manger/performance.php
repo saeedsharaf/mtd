@@ -12,9 +12,39 @@ include'../main_page.php';
 		
 		<div class="reset" id="main">
 			
-			
+		<table>
+			<thead>
+				<tr>
+					<th> quilty accurcy</th>.
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+					<th> quilty accurcy</th>
+				</tr>	
+
+
+		</table>		
 		
-			<span style="margin: 0 auto;font-size: 30px;">TBD</span>
+			
 	
 	
 

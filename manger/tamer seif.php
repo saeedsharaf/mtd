@@ -2,7 +2,7 @@
 
 //error_reporting(0);
 
-$sql = "select * from nps where manger_id != '555'";
+$sql = "select * from nps where manger_id = '555'";
 	
 			$result = $cont->query($sql);
 			$totalsurvey =  $result->num_rows ;

@@ -97,12 +97,33 @@ include'../main_page.php';
 			
 			<?php
 
-			//}
+			include'tamer_seif.php';
+
+			?>
+			<tr>	
+				<td class="light"> <a href="tamer_nps.php" style="color:blue;" title="click here for more details">Tamer Seif </a> </td>
+				<td class="light"> <?php echo $totalsurvey ;?></td>
+				<td class="light"> <?php echo $pro ;?> </td>
+				<td class="light"> <?php echo $de ;?> </td>
+				<td class="light"> <?php echo $pass ;?>  </td>
+				<td class="light" style="<?php echo $nps_color ; ?> " > <?php echo round($nps) ;?>%  </td>
+				<td class="light" style="<?php echo $p_color ; ?> "> <?php echo round($pro_pr) ;?>% </td>
+				<td class="light" style="<?php echo $de_color ; ?> "> <?php echo round($de_pr) ;?>%  </td>
+				<td class="light" style="<?php echo $pa_color ; ?> "> <?php echo round($pass_pr) ;?>%  </td>
+				<td class="light" style="<?php echo $cs_tt ; ?> "> <?php echo round($per_csttb) ; ?> % </td>
+				<td class="light" style="<?php echo $cs_bb ; ?> "> <?php echo round($per_csbb) ; ?> % </td>
+				<td class="light" style="<?php echo $ag_tt ; ?> "> <?php echo round($per_agttb) ; ?> %  </td>
+				<td class="light" style="<?php echo $ag_bb ; ?> "> <?php echo round($per_agbb) ; ?> % </td>
+				<td class="light" style="<?php echo $fcr_color ; ?> "> <?php echo round($fcr_percentage); ?>% </td>
+				<td class="light" style="<?php echo $ir_color ; ?> "> <?php echo round($ir_percentage); ?>%  </td>
+				<td class="light"> <?php echo $fcr1 ;?></td>
+				<td class="light"> <?php echo $ir1 ; ?> </td>
+				
 			
-			//}
-		
+			</tr>	
+
 			 
-?>
+
 </table>
 
 		<div class="inbound" style="width: 100%; height:500px; margin-top: 10px;">
