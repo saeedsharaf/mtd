@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include'connect.php';
+include'../../config/connect.php';
 
 $id = $_SESSION['id'];
 
@@ -13,17 +13,18 @@ $row = $sql->fetch_assoc();
 
 if( $row['super'] == 1 ){
 	?>
-	<script>window.location.href='../monthly/jun/score/sv_score_more.php' </script>
+	<script>window.location.href='score/sv_score_more.php' </script>
 	<?php
 } else if( $row['super'] == 111 or $row['super'] == 222) {
 	?>
-	<script> window.location.href='../monthly/jun/score/manger_score_more.php' </script>
+	<script> window.location.href='score/manger_score_more.php' </script>
 	<?php
 
 } else {
 ?>
-	<script> window.location.href='../monthly/jun/score/sv_score.php' </script>
+	<script> window.location.href='score/sv_score.php' </script>
 	<?php
 
 }
+
 ?>

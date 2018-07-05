@@ -16,6 +16,7 @@ if(isset($_POST['submit'])){
 			$row = $saeed->fetch_assoc();
 			$user = $row['user_name'];
 			$pass = $row['password'];
+
 			echo $row['user_name'];
 
 			
@@ -24,6 +25,7 @@ if(isset($_POST['submit'])){
 				$_SESSION['username'] = $row['user_name'];
 				$_SESSION['id'] = $row['id'];
 				$_SESSION['login_id'] = $row['login_id'];
+				$_SESSION['super'] = $row['super'];
 				
 				?>
 				<script> window.location.href='config/score_redirect_page.php' </script>

@@ -204,12 +204,12 @@ if(!isset($_SESSION['username'])){
 
 		</div></a>
 
-		<a href="../../../config/score_redirect_page.php" > <div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #1b1b1b38 ; top: 290px; text-align: center;">
+		<a href="../../may/score_redirect_page.php" > <div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #1b1b1b38 ; top: 290px; text-align: center;">
 			<span class="month" style="">May </span>
 			
 		</div></a>
 
-		<a href="../../jun/score/sv_score.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 340px; text-align: center;">
+		<a href="../../jun/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 340px; text-align: center;">
 			<span class="month" style="">Jun </span>
 			
 		</div> </a>

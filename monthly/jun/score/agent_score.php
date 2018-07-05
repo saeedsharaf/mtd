@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
@@ -40,21 +40,23 @@ div{
 <?php
 include'../../../config/connect.php';
 
-
+$id = $_GET['id'];
 $id = $_SESSION['login_id'];
 
 
-$sql="select * from score where login_id = '$id'";
+$sql="select * from jun where login_id = '$id'";
 $result=$cont->query($sql);
 $row = $result->fetch_assoc();
 
-
+/*
 $aht = ($row['acd_time'] + $row['hold_time'] + $row['acw_time']) / $row['acd_calls'];
 $acw = ($row['acw_time']) / ($row['hold_time'] + $row['acw_time'] + $row['acd_time']) * 100;
 $hold = ($row['hold_time']) / ($row['hold_time'] + $row['acw_time'] + $row['acd_time']) * 100 ;
 $outbound_aht = ($row['aux_out_time'] + $row['acw_out_time']) / ($row['acw_out_time'] + $row['aux_out_calls']) ;
 
-
+*/
+$aht = $row['aht'] * 24 * 3600 ;
+$acw = $row['acw'] * 24 * 3600 ;
 
 
 

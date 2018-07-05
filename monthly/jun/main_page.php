@@ -1,5 +1,3 @@
-
-
 <?php
 error_reporting(0);
 session_start();
@@ -39,7 +37,7 @@ if(!isset($_SESSION['username'])){
     display: block;
     position: absolute;
     background-color: #0000009e;
-    min-width: 75px;
+    min-width: 90px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     
@@ -133,7 +131,7 @@ if(!isset($_SESSION['username'])){
 			
 
 				<div class="drop" >
-					<a href="../../../monthly/jun/score/performance.php" title="Score OverView" class="drop"> <img src="../../../style/all.png" class="left1" width="25px" style="margin-top:11px;" ></a>
+					<a href="../../../monthly/may/score/performance.php" title="Score OverView" class="drop"> <img src="../../../style/all.png" class="left1" width="25px" style="margin-top:11px;" ></a>
 
 					<?php 
 
@@ -143,7 +141,7 @@ if(!isset($_SESSION['username'])){
 
 					<div class="triangle">
 						<div class="drop_content" style="margin-top: 55px">
-							<a href="../../../monthly/jun/score/performance.php" title="Score OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
+							<a href="../../../monthly/may/score/performance.php" title="Score OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
 						</div>	
 
 			
@@ -156,6 +154,27 @@ if(!isset($_SESSION['username'])){
 					
 				
 				<?php
+			} else {
+				?>
+
+				<div class="triangle">
+						<div class="drop_content" style="margin-top: 55px">
+							<a href="../../../monthly/jun/score/achiever.php" title="Achiever OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Achiever</span> </a>
+						</div>
+
+						<div class="drop_content" style="margin-top: 90px">
+							<a href="../../../monthly/may/score/performance.php" title="Score OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
+						</div>	
+
+			
+
+						<div class="drop_content" style="height: 25px;margin-top: 125px;">	
+							<a href="../../../manger/hv.php" title=" Nps OverView"> <img src="../../../style/nps.png" style="width: 35px;"> <span class="drop_span" style="left: 40px;">NPS</span> </a>
+
+						</div>
+					</div>
+					<?php
+
 			}
 			?>
 			</div>
@@ -206,12 +225,12 @@ if(!isset($_SESSION['username'])){
 
 		</div></a>
 
-		<a href="../../../config/score_redirect_page.php" > <div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #1b1b1b38 ; top: 290px; text-align: center;">
+		<a href="../../may/score_redirect_page.php" > <div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #1b1b1b38 ; top: 290px; text-align: center;">
 			<span class="month" style="">May </span>
 			
 		</div></a>
 
-		<a href="../../jun/score/sv_score.php"><div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 340px; text-align: center;">
+		<a href="../../jun/score_redirect_page.php"><div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 340px; text-align: center;">
 			<span class="month" style="">Jun </span>
 			
 		</div> </a>
@@ -261,6 +280,7 @@ if(!isset($_SESSION['username'])){
 	</script>
 	
 <a class="back" href="javascript:void(0)" onclick ="back()" > <img src="../../../style/backlogo.png" width="80px" title="Back" ></a>	
+
 
 <div class="s" style="margin-top:60px;">
 			

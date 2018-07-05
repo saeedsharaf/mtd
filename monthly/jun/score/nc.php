@@ -198,7 +198,7 @@ section h1{
 		</header>
 
 		<section>
-		  <h1 > </h1>
+		  <h1 ></h1>
 		</section>
 		
 	</div>
@@ -259,7 +259,7 @@ section h1{
 	<div style="height: 100px; width: 70px;" class="saeed ">
 		<header>
 			  <div class="header__bg green1"></div>
-			  <h1></h1>
+			  <h1>Hold</h1>
 		</header>
 
 		<section>
@@ -272,7 +272,7 @@ section h1{
 	<div style="height: 100px; width: 120px;" class="saeed">
 		<header>
 			  <div class="header__bg brown"></div>
-			  <h1>Quality Score</h1>
+			  <h1>NC </h1>
 		</header>
 
 		<section>
@@ -302,34 +302,23 @@ include'../../../config/connect.php';
 
 
 <?php
-$id = $_SESSION['id'];
-$sql="select * from jun where sv_id = '$id' order by final_score desc";
-$result=$cont->query($sql);
-if($result->num_rows > 0){
+$id = $_GET['id'];
+//$ctc = 0;
+if($id == 2){
+	
+		$sql="select * from jun where nc > 1 ";
+		$result=$cont->query($sql);
+		if($result->num_rows > 0){
 
+			while($row = $result->fetch_assoc()){
+				$aht = $row['aht'] * 24 * 3600 ;
+				$acw = $row['acw'] * 100 ;
+				$hold = $row['hold'] *100;
+				$nc = $row['nc'];
+				$final_score = round($row['final_score']*100);
+			
 
-	while($row = $result->fetch_assoc()){
-		$aht = $row['aht'] * 24 * 3600 ;
-		$acw = $row['acw'] * 100 ;
-		$hold = $row['hold'] *100;
-		$outbound_aht = $row['outbound'] *24 * 3600;
-		$calls_sr = $row['calls_vs_sr'];
-		$absent = $row['absent'] * 100;
-		$adherence = $row['adherance'] * 100;
-		$nps = $row['nps'] * 100;
-		$ctc = $row['ctc'] ;
-		$ctb = $row['ctb'];
-		$nc = $row['nc'];
-		$compliance = $row['compliance'];
-		$quality_score = round($row['quality_score']*100);
-		$attiude = $row['attiude'];
-		$over_promising = $row['over_promising'];
-		$wrong_info = $row['wrong_info'];
-		$wron_transaction = $row['wron_transaction'];
-		$complaint_score = round($row['complaint_score']*100);
-		$final_score = round($row['final_score']*100,2);
-
-		if($aht > 260 ){
+if($aht > 260 ){
 			$aht_score = 0;
 			$aht_color = 'red';
 		}else{
@@ -351,6 +340,12 @@ if($result->num_rows > 0){
 		}else{
 			$acw_score = 10;
 			$acw_color = 'green';
+		}
+
+		if($nc > 1){
+			$ctc_color = 'red';
+		}else{
+			$ctc_color = 'green';
 		}
 
 
@@ -379,25 +374,24 @@ if($result->num_rows > 0){
 	</div>
 
 
-	<div style="height:45px; width: 70px; color :<?php echo $aht_color ;?>; " class="saeed purblech">
+	<div style="height:45px; width: 70px; color :<?php echo $aht_color ;?> " class="saeed purblech">
 		<h1><?php echo round($aht) ?> </h1>
 	</div>
 
 
-	<div style="height:45px; width: 70px; color :<?php echo $acw_color ;?>;" class="saeed graych">
+	<div style="height:45px; width: 70px; color :<?php echo $acw_color ;?> " class="saeed graych">
 		<h1><?php  echo round($acw) ?> % </h1>
 	</div>
 
 
-	<div style="height:45px; width: 70px; color :<?php echo $hold_color ;?>;" class="saeed gray1ch">
+	<div style="height:45px; width: 70px; color :<?php echo $hold_color ;?> " class="saeed gray1ch">
 		<h1><?php  echo round ($hold) ?> %  </h1>
 	</div>
 
 
-	<div style="height:45px; width: 120px;" class="saeed brownch">
-		<h1><?php echo $quality_score; ?> %</h1>
+	<div style="height:45px; width: 120px; color : <?php echo $ctc_color; ?>" class="saeed brownch">
+		<h1><?php echo $nc; ?> </h1>
 	</div>
-
 
 	<div style="height:45px; width: 120px;" class="saeed qch ">
 		<h1><?php echo $final_score; ?> %</h1>
@@ -407,6 +401,115 @@ if($result->num_rows > 0){
 
 							}
 						}
+					}else{
+
+						$sql="select * from jun where nc < 1 ";
+						$result=$cont->query($sql);
+						if($result->num_rows > 0){
+
+							while($row = $result->fetch_assoc()){
+								$aht = $row['aht'] * 24 * 3600 ;
+								$acw = $row['acw'] * 100 ;
+								$hold = $row['hold'] *100;
+								
+								$nc = $row['nc'];;
+							
+								$final_score = round($row['final_score']*100);
+								
+							
+
+				if($aht > 260 ){
+							$aht_score = 0;
+							$aht_color = 'red';
+						}else{
+							$aht_score = 10;
+							$aht_color = 'green';
+						}
+
+						if($hold > 5 ){
+							$hold_score = 0;
+							$hold_color = 'red';
+						}else{
+							$hold_score = 10;
+							$hold_color = 'green';
+						}
+
+						if($acw > 5 ){
+							$acw_score = 0;
+							$acw_color ='red';
+						}else{
+							$acw_score = 10;
+							$acw_color = 'green';
+
+						}
+
+
+						if($nc> 1){
+							$ctc_color = 'red';
+						}else{
+							$ctc_color = 'green';
+						}
+
+
+
+
+		?>
+
+	<div style="height:45px; width: 100px;" class="saeed redch">
+		<h1><a href="more.php?id=<?php echo $row['login_id'] ?>" style="color:blue" title="More"> <?php echo $row['login_id']; ?> </a></h1>
+
+	</div>
+
+
+	<div style="height:45px; width: 200px;" class="saeed yellowch">
+		<h1><?php echo $row['name']; ?> </h1>
+	</div>
+
+
+
+	<div style="height:45px; width: 200px;" class="saeed bluech">
+		<h1><?php echo $row['sv']; ?><h1>
+	</div>
+
+	<div style="height:45px; width: 200px;" class="saeed greench">
+		<h1><?php echo $row['manger']; ?> <h1>
+	</div>
+
+
+	<div style="height:45px; width: 70px; color :<?php echo $aht_color ;?> " class="saeed purblech">
+		<h1><?php echo round($aht) ?> </h1>
+	</div>
+
+
+	<div style="height:45px; width: 70px; color :<?php echo $acw_color ;?> " class="saeed graych">
+		<h1><?php  echo round($acw) ?> % </h1>
+	</div>
+
+
+	<div style="height:45px; width: 70px; color :<?php echo $hold_color ;?> " class="saeed gray1ch">
+		<h1><?php  echo round ($hold) ?> %  </h1>
+	</div>
+
+
+	<div style="height:45px; width: 120px;color :<?php echo $ctc_color; ?>" class="saeed brownch">
+		<h1><?php echo $nc; ?> </h1>
+	</div>
+
+	<div style="height:45px; width: 120px;" class="saeed qch ">
+		<h1><?php echo $final_score; ?> %</h1>
+	</div>
+
+							<?php
+
+							}
+						}
+
+
+					}
+
+
+
+
 
 ?>
 
