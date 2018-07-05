@@ -290,7 +290,7 @@ section h1{
 		
 
 <?php 
-include'../config/connect.php';
+include'../../../config/connect.php';
 ?>
 
 

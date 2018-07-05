@@ -23,9 +23,10 @@ if(isset($_POST['submit'])){
 				session_start();
 				$_SESSION['username'] = $row['user_name'];
 				$_SESSION['id'] = $row['id'];
+				$_SESSION['login_id'] = $row['login_id'];
 				
 				?>
-				<script> window.location.href='config/redirect_page.php' </script>
+				<script> window.location.href='config/score_redirect_page.php' </script>
 			
 			<?php
 			

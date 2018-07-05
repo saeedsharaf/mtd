@@ -77,6 +77,10 @@ flex-wrap: wrap;
 }
 
 
+.saeed:nth-last-child(-n+9){
+	border-bottom: 1px solid #80808063;
+
+}
 
 
 
@@ -164,6 +168,9 @@ section h1{
 	padding-top: 25px;
 }
 
+
+
+
 </style>
 
 
@@ -171,7 +178,7 @@ section h1{
 
 
 
-	<div class="reset " id="main" style="width:91%">
+	<div class="reset " id="main" style="width:91%;">
 			<div style="height: 100px; width: 100px;" class="saeed">
 		<header>
 			  <div class="header__bg red"></div>
@@ -290,13 +297,13 @@ section h1{
 		
 
 <?php 
-include'../config/connect.php';
+include'../../../config/connect.php';
 ?>
 
 
 <?php
-
-$sql="select * from score where manger_id = '111'";
+$id = $_SESSION['id'];
+$sql="select * from score where manger_id = '$id'";
 $result=$cont->query($sql);
 if($result->num_rows > 0){
 

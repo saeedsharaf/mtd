@@ -101,7 +101,7 @@ include'../main_page.php';
 
 			?>
 			<tr>	
-				<td class="light"> <a href="tamer_nps.php" style="color:blue;" title="click here for more details">Tamer Seif </a> </td>
+				<td class="light"> <a href="tamer_nps.php" style="color:blue;" title="click here for more details">Activation</a> </td>
 				<td class="light"> <?php echo $totalsurvey ;?></td>
 				<td class="light"> <?php echo $pro ;?> </td>
 				<td class="light"> <?php echo $de ;?> </td>

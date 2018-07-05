@@ -154,11 +154,12 @@ float: right;
 }
 
 #main{
-margin-top: 50px;
+
 width: 88%;
 display: flex;
 flex-wrap: wrap;
 margin: 0 auto;
+margin-top: 50px;
 transition: 0.5s;
 padding: 20px;
 }

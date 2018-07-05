@@ -1,3 +1,6 @@
+
+
+
 <?php
 error_reporting(0);
 session_start();
@@ -12,15 +15,15 @@ if(!isset($_SESSION['username'])){
 <html>
 <head>
 <title> We Eye </title>
-<link rel="stylesheet" href="../style/style1.php" >
-<link rel="shortcut icon" href="../style/icon.png" />
+<link rel="stylesheet" href="../../../style/style1.php" >
+<link rel="shortcut icon" href="../../../style/icon.png" />
 
-<script src="../js/b.js" ></script>
+<script src="../../../js/b.js" ></script>
 
-<script src="../js/chart.js" ></script>
-<script src="../js/datalabels.js" ></script>
+<script src="../../../js/chart.js" ></script>
+<script src="../../../js/datalabels.js" ></script>
 
-<script src="../js/index.js" ></script>
+<script src="../../../js/index.js" ></script>
 
 <style>
 
@@ -116,22 +119,22 @@ if(!isset($_SESSION['username'])){
 			
 			<div class="bbb">
 			
-			<img class="left1" src="../style/flogout.png" width="30px" height="25px" style="margin:10px; margin-right:25px;" usemap="#logout" />
+			<img class="left1" src="../../../style/flogout.png" width="30px" height="25px" style="margin:10px; margin-right:25px;" usemap="#logout" />
 			<map name="logout">
-			<area shape ="circle" coords="1301,78,1316,93" href="../config/logout.php" title="Log Out">
+			<area shape ="circle" coords="1301,78,1316,93" href="../../../config/logout.php" title="Log Out">
 			</map>
 			
-			<img class="left1" src="../style/set6.png" width="25px" height="25px" style="margin:10px;" usemap="#setting"/> 
+			<img class="left1" src="../../../style/set6.png" width="25px" height="25px" style="margin:10px;" usemap="#setting"/> 
 			<map name="setting" >
-			<area shape="circle"  coords="1259,76,1280,95"  href="../config/password.php" title="Setting">
+			<area shape="circle"  coords="1259,76,1280,95"  href="../../../config/password.php" title="Setting">
 			</map>
-			<a href="../config/redirect_page.php" title="home" > <img src="../style/home.png" class="left1" width="25px" style="margin-top:11px;margin-right: 21px;" ></a>
+			<a href="../../../config/redirect_page.php" title="home" > <img src="../../../style/home.png" class="left1" width="25px" style="margin-top:11px;margin-right: 21px;" ></a>
 
 			
 			
 
 				<div class="drop" >
-					<a href="../config/score_redirect_page.php" title="Score OverView" class="drop"> <img src="../style/all.png" class="left1" width="25px" style="margin-top:11px;" ></a>
+					<a href="../../../monthly/jan/score/performance.php" title="Score OverView" class="drop"> <img src="../../../style/all.png" class="left1" width="25px" style="margin-top:11px;" ></a>
 
 					<?php 
 
@@ -141,13 +144,13 @@ if(!isset($_SESSION['username'])){
 
 					<div class="triangle">
 						<div class="drop_content" style="margin-top: 55px">
-							<a href="../config/score_redirect_page.php" title="Score OverView" ><img src="../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
+							<a href="../../../monthly/jan/score/performance.php" title="Score OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
 						</div>	
 
 			
 
 						<div class="drop_content" style="height: 25px;margin-top: 90px;">	
-							<a href="../manger/hv.php" title=" Nps OverView"> <img src="../style/nps.png" style="width: 35px;"> <span class="drop_span" style="left: 40px;">NPS</span> </a>
+							<a href="../../../manger/hv.php" title=" Nps OverView"> <img src="../../../style/nps.png" style="width: 35px;"> <span class="drop_span" style="left: 40px;">NPS</span> </a>
 
 						</div>
 					</div>	
@@ -173,47 +176,47 @@ if(!isset($_SESSION['username'])){
 		<div id="mySidenav" class="sidenave" onmouseover="mouseOver()" onmouseout="mouseOut()" > 
 
 				<!--<span id="close"> <img src="../style/right.png" style="width:25px;"> </span> -->
-				<img src="../style/ii.png" style="width: 25px;position: absolute;left: 15px;"> <a href="../dash_board/report.php" class="report" id="report"  > Dashboard </a>
-				<img src="../style/aa.png" style="width: 25px;position: absolute;left: 13px;" ><a href="../config/score_redirect_page.php" class="performance" id="performance" > Score   </a> 
-				<img src="../style/nps.png" style="width: 40px;position: absolute;left: 5px;"> <a href="../config/redirect_page.php" class="nps" id="npss"> Nps  </a>
+				<img src="../../../style/ii.png" style="width: 25px;position: absolute;left: 15px;"> <a href="../../../dash_board/report.php" class="report" id="report"  > Dashboard </a>
+				<img src="../../../style/aa.png" style="width: 25px;position: absolute;left: 13px;" ><a href="../../../config/score_redirect_page.php" class="performance" id="performance" > Score   </a> 
+				<img src="../../../style/nps.png" style="width: 40px;position: absolute;left: 5px;"> <a href="../../../config/redirect_page.php" class="nps" id="npss"> Nps  </a>
 		</div>
 
 
 
 
-<!--
-		<div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #01c5ed ; top: 90px; text-align: center;">
+
+		<a href="../../jan/score/sv_score.php"><div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #01c5ed ; top: 90px; text-align: center;">
 			<span class="month" style="">Jan </span>
 			
-		</div>	
+		</div> </a>	
 
-		<div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #09a55c ; top: 140px; text-align: center;">
+		<a href="../../feb/score/sv_score.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #09a55c ; top: 140px; text-align: center;">
 			<span class="month" style="">Feb </span>
 			
-		</div>
+		</div> </a>
 
-		<div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #f39817 ; top: 190px; text-align: center;">
+		<a href="../../mar/score/sv_score.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #f39817 ; top: 190px; text-align: center;">
 			<span class="month" style="">Mar</span>
 			
-		</div>
+		</div> </a>
 
-		<div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #dd4d33 ; top: 240px; text-align: center;">
+		<a href="../../april/score/sv_score.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #dd4d33 ; top: 240px; text-align: center;">
 			<span class="month" style="">April </span>
 
 			
 
-		</div>
+		</div></a>
 
-		<div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #1b1b1b38 ; top: 290px; text-align: center;">
+		<a href="../../../config/score_redirect_page.php" > <div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #1b1b1b38 ; top: 290px; text-align: center;">
 			<span class="month" style="">May </span>
 			
-		</div>
+		</div></a>
 
-		<a href=""><div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 340px; text-align: center;">
+		<a href="../../jun/score/sv_score.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 340px; text-align: center;">
 			<span class="month" style="">Jun </span>
 			
 		</div> </a>
--->
+
 		
 	<script>
 	/*
@@ -258,7 +261,7 @@ if(!isset($_SESSION['username'])){
 		
 	</script>
 	
-<a class="back" href="javascript:void(0)" onclick ="back()" > <img src="../style/backlogo.png" width="80px" title="Back" ></a>	
+<a class="back" href="javascript:void(0)" onclick ="back()" > <img src="../../../style/backlogo.png" width="80px" title="Back" ></a>	
 
 <div class="s" style="margin-top:60px;">
 			
