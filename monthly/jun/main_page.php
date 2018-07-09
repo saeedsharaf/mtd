@@ -69,8 +69,9 @@ if(!isset($_SESSION['username'])){
 
 .triangle{
 	display: none;
-    height: 120px;
+    height: 158px;
     width: 80px;
+  
    
     position: absolute;
     z-index: 1;
@@ -131,7 +132,7 @@ if(!isset($_SESSION['username'])){
 			
 
 				<div class="drop" >
-					<a href="../../../monthly/may/score/performance.php" title="Score OverView" class="drop"> <img src="../../../style/all.png" class="left1" width="25px" style="margin-top:11px;" ></a>
+					<a href="../../../monthly/jun/score/performance.php" title="Score OverView" class="drop"> <img src="../../../style/all.png" class="left1" width="25px" style="margin-top:11px;" ></a>
 
 					<?php 
 
@@ -141,7 +142,7 @@ if(!isset($_SESSION['username'])){
 
 					<div class="triangle">
 						<div class="drop_content" style="margin-top: 55px">
-							<a href="../../../monthly/may/score/performance.php" title="Score OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
+							<a href="../../../monthly/jun/score/performance.php" title="Score OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
 						</div>	
 
 			
@@ -163,7 +164,7 @@ if(!isset($_SESSION['username'])){
 						</div>
 
 						<div class="drop_content" style="margin-top: 90px">
-							<a href="../../../monthly/may/score/performance.php" title="Score OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
+							<a href="../../../monthly/jun/score/performance.php" title="Score OverView" ><img src="../../../style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
 						</div>	
 
 			

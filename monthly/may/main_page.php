@@ -69,7 +69,7 @@ if(!isset($_SESSION['username'])){
 
 .triangle{
 	display: none;
-    height: 120px;
+ 	height: 158px;
     width: 80px;
    
     position: absolute;
