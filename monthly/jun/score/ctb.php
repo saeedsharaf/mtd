@@ -178,7 +178,7 @@ section h1{
 
 
 
-	<div class="reset " id="main" style="width:1227px;">
+	<div class="reset " id="main" style="width:1227px; min-width:1227px ">
 			<div style="height: 100px; width: 100px;" class="saeed">
 		<header>
 			  <div class="header__bg red"></div>

@@ -204,8 +204,8 @@ if($result->num_rows > 0){
 				<img src="../../../style/acw.png" height="35px" width="35px" style="position: absolute; left: 170; top: 60;" >
 				<span class="content" style="top: 40; left:25;font-size: 20px"> <?php echo $acw_achiever ?>  </span>
 				<span class="content" style="top: 5; left: 10"> <?php echo round((($acw_achiever / $total) *100 ),1);?> % </span>
-				<a href="acw.php?id=1" title="Achiever"><span class="font" style="top : 68; left: 10">Achiever </span>
-				<span class="font" style="top : 41; left: 173 ;font-size: 13px;">ACW </span></a>
+				<a href="acw.php?id=1" title="Achiever"><span class="font" style="top : 68; left: 10">Achiever </span> </a>
+				<span class="font" style="top : 41; left: 173 ;font-size: 13px;">ACW </span>
 				<a href="acw.php?id=2" title="Not"><span class="content black" style="left: 120; top: 68; color: black; font-size: 18px">Not</span></a>
 				<span class="content" style="top: 5; left: 115;color: black"> <?php echo round((($acw_notachiever / $total) *100 ),1);?> % </span>
 				<span class="content black" style="left: 125; top: 40 ;color: black;font-size: 20px" > <?php echo $acw_notachiever; ?></span>
