@@ -13,16 +13,16 @@ $row = $sql->fetch_assoc();
 
 if( $row['super'] == 1 ){
 	?>
-	<script>window.location.href='../monthly/jun/score/sv_score_more.php' </script>
+	<script>window.location.href='../monthly/august/score/sv_score_more.php' </script>
 	<?php
 } else if( $row['super'] == 111 or $row['super'] == 222) {
 	?>
-	<script> window.location.href='../monthly/jun/score/manger_score_more.php' </script>
+	<script> window.location.href='../monthly/august/score/manger_score_more.php' </script>
 	<?php
 
 } else {
 ?>
-	<script> window.location.href='../monthly/jun/score/sv_score.php' </script>
+	<script> window.location.href='../monthly/august/score/sv_score.php' </script>
 	<?php
 
 }

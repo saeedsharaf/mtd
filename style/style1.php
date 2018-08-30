@@ -20,7 +20,7 @@ margin: 0px;
 height:100%;
 width: 100%;
 
-background-color: #e7ebee26; 
+/*background-color: #e7ebee26; */
 }
 
 
@@ -56,7 +56,7 @@ transition: 0.5s;
 height:100%;
 width:55px;
 position:fixed;
-background-color: #111111a6;
+background-color: #111111e3;
 z-index: 1;
 top: 50px; /* Stay at the top */
 /*left: -125px;*/

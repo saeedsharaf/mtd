@@ -56,7 +56,7 @@ include'../main_page.php';
 			
 			
 			
-		$ids = array(111,222,333,444);
+		$ids = array(111,222,333);
 		foreach($ids as $id){
 		
 		$sql1 = "select user_name from member where super = '$id'";	

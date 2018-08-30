@@ -46,6 +46,8 @@ if(!isset($_SESSION['username'])){
 			</map>
 			<a href="../config/redirect_page.php" title="home" > <img src="../style/home.png" class="left1" width="25px" style="margin-top:11px;margin-right: 21px;" ></a>
 
+			<a href="../search.php" title="Search" > <img src="../style/search1.png" class="left1" width="29px" style="margin-top:11px;margin-right: 25px;" ></a>
+
 			<?php 
 
 			if($_SESSION['id'] != 111 and $_SESSION['id'] != 222 and $_SESSION['id'] != 333 and $_SESSION['id'] != 444 and $_SESSION['id'] != 555  ){

@@ -105,7 +105,7 @@ if(!isset($_SESSION['username'])){
 
 </head>
 
-<body  >
+<body >
 
 
 	<div class="container" >
@@ -126,6 +126,9 @@ if(!isset($_SESSION['username'])){
 			<area shape="circle"  coords="1259,76,1280,95"  href="../config/password.php" title="Setting">
 			</map>
 			<a href="../config/redirect_page.php" title="home" > <img src="../style/home.png" class="left1" width="25px" style="margin-top:11px;margin-right: 21px;" ></a>
+			
+
+			<a href="../search.php" title="Search" > <img src="../style/search1.png" class="left1" width="29px" style="margin-top:11px;margin-right: 25px;" ></a>
 
 			
 			

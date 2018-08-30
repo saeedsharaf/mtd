@@ -51,11 +51,11 @@ include'../main_page.php';
 			
 
 			if($_GET['id'] == 111){
-			$_SESSION['sv']= array(1,5,7,11,14,18,20,21,24,27,31,38,39,42);
+			$_SESSION['sv']= array(2,4,8,9,10,11,12,18,26,28,29,31);
 			} else if($_GET['id'] == 222){
-			$_SESSION['sv']= array(4,6,8,9,10,12,17,22,23,34,35,41,43);
+			$_SESSION['sv']= array(3,5,6,13,14,21,22,24,25,27,30);
 			}else if($_GET['id'] == 333){
-				$_SESSION['sv'] = array(3,13,15,16,19,26,28,29,30,32,33,36,40,44);
+				$_SESSION['sv'] = array(1,7,15,16,17,19,20,23,32);
 			}else if($_GET['id'] == 444){
 				$_SESSION['sv'] = array(2,25,37);
 			}else if($_GET['id'] == 555){

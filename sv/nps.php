@@ -62,9 +62,9 @@ include'../main_page.php';
 				$ir1 = 0;
 			
 		if ($id == 1){ 
-			$teamid = 1;  // team Abdel Hamed Aly
+			$teamid = 1;  // Ahmed Badaway -Peer Mentor
 			
-			$_SESSION['team'] = array (12231,9749,19363,37920,63480,95167,98550,98849,100622,102098,100502,101190,8407,101172,77922);
+			$_SESSION['team'] = array (639338,639436,639208,639205,639300,639352,639460,639410,639290,639243,639386,639354);
 			
 			
 			
@@ -86,10 +86,10 @@ include'../main_page.php';
 			
 			
 			
-			} else if ($id == 2){ // team Ahmed Abdel Kareem Hamed Mahmoud -Peer Mentor
+			} else if ($id == 2){ // Ahmed El-Desouky 
 			$teamid = 2;
-			$_SESSION['team'] = array (78031,106500,73564,103279,101581,103487,106344,106509,106356,106379,72124,106359,106747,42890,84424,100346);
-			
+			$_SESSION['team'] = array (638928,638932,638220,638178,638187,638186,638409,638484,638535,638206,638482,638860,638176);
+		
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -106,11 +106,11 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 3){ // team Ahmed Badaway -Peer Mentor
+			} else if ($id == 3){ // Ahmed Moharram
 			
 			$teamid = 3;
 			
-			$_SESSION['team'] = array (124478,127765,116164,127215,110347,127801,72357,91278,126620,110255,110708,110763,109034,127554,127553,127863,127550,127551,127552);
+			$_SESSION['team'] = array (638715,638655,638665,638698,638158,638892,638074,638447,638410,638351,638204,638310,638316);
 			
 			
 			include'calculation.php';
@@ -125,8 +125,8 @@ include'../main_page.php';
 			 include'tabel.php';
 			}
 			
-			} else if ($id == 4){ // Ahmed Badawy
-			$_SESSION['team'] = array (19962,20172,19343,11588,19346,19380,125445,125574,122096,108975,117483,125609,92089,126116,20019,105169);
+			} else if ($id == 4){ //Ahmed Saeed
+			$_SESSION['team'] = array (638639,638108,638739,638109,638745,638952,638057,638444,638480,638372,638500,638829,638495,638342);
 			
 			include'calculation.php';
 			
@@ -141,9 +141,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 5){ // Ahmed El-Desouky 
+			} else if ($id == 5){ // Alaa ElAshmawy 
 			$teamid = 5;
-			$_SESSION['team'] = array (98063,106345,68689,81163,97374,98635,100558,102114,102121,98633,95961,100698,101037,105431,45206,98631);
+			$_SESSION['team'] = array (638043,638751,638966,638954,638775,638343,638319,638753,638849,638813,638570,638214,638417);
 			
 			include'calculation.php';
 			
@@ -159,10 +159,10 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 6){ // Ahmed Moharram
+			} else if ($id == 6){ // Aliaa Elgohary
 			$teamid = 6;
-			$_SESSION['team'] = array (62803,19445,19704,19960,19311,98309,98623,98997,100391,100630,105378,97693,98270,98636);
-			
+			$_SESSION['team'] = array (638620,638641,638943,638065,638811,638772,638784,638218,638472,639161,638329,638832);
+		
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -176,9 +176,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 7){ // Ahmed Saeed
+			} else if ($id == 7){ // Amr ElHoseiny -Peer Mentor
 			$teamid = 7;
-			$_SESSION['team'] = array (106799,19259,10294,12960,14367,19952,65923,98021,98576,99048,101616,105407,15006,98549,99039);
+			$_SESSION['team'] = array (639427,639443,639215,639280,639359,639465,639407,639247,639370,639437,639310);
 			
 			include'calculation.php';
 			
@@ -192,9 +192,9 @@ include'../main_page.php';
 				include'tabel.php';
 			}
 			
-			} else if ($id == 8){ // Ahmed Shaban
+			} else if ($id == 8){ // Dalia Salam
 			$teamid = 8;
-			$_SESSION['team'] = array (19482,19260,19475,19447,19458,19448,19444,112312,125455,125581,108683,125735,56473,107542,125219,125340,84132);
+			$_SESSION['team'] = array (638713,638744,638696,638958,638962,638179,638327,638504,638503,638880,638198);
 			
 			include'calculation.php';
 			
@@ -208,9 +208,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 9){ // Alaa ElAshmawy
+			} else if ($id == 9){ // Ghada Mosafa
 			$teamid = 9;
-			$_SESSION['team'] = array (43939,106363,19080,19325,7014,10569,98630,100307,100552,105372,105410,105432,105458,44353,97680,99829);
+			$_SESSION['team'] = array (638701,638917,638991,638066,638022,638334,638023,638488,638469,638267,638205,638454,638884);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -224,9 +224,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 10 ){ // Aliaa Elgohary
+			} else if ($id == 10 ){ // Hatem AbdelAal
 			$teamid = 10;
-			$_SESSION['team'] = array (103458,101503,105577,19696,19956,95771,96639,104203,105376,105379,105394,96383,98611,109326);
+			$_SESSION['team'] = array (638686,638622,638606,638230,638968,638821,638853,638949,638079,638422,638078,638344,638994);
 			include'calculation.php';
 			include'../style/font.php';
 
@@ -238,9 +238,9 @@ include'../main_page.php';
 				include'tabel.php';
 			}
 			
-			} else if ($id == 11 ){ // Amira Hassan
+			} else if ($id == 11 ){ // Hosny Hussein  -Peer Mentor
 			$teamid = 11;
-			$_SESSION['team'] = array (106750,106801,19486,19360,43289,88647,96382,97890,97909,100117,100564,100646,96872,103582,98350,101189);
+			$_SESSION['team'] = array (639452,639334,639415,639255,639282,639309,639293,639271,639438,639399);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -253,9 +253,9 @@ include'../main_page.php';
 				include'tabel.php';
 			}
 			
-			} else if ($id == 12 ){ // Amr Abbas
+			} else if ($id == 12 ){ // Islam Ezzat
 			$teamid = 12;
-			$_SESSION['team'] = array (20558,19735,19338,19452,19423,77902,126092,69801,125907,95682,125898,126103,58395,126104,126105,107658);
+			$_SESSION['team'] = array (638619,638625,638631,638235,638975,638060,638170,638347,638349,638509,638173,638887,638419);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -268,9 +268,9 @@ include'../main_page.php';
 	
 			}
 			
-			} else if ($id == 13 ){// Amr ElHoseiny -Peer Mentor
+			} else if ($id == 13 ){// Karim abdelmenem
 			$teamid = 13;
-			$_SESSION['team'] = array (127069,127756,93361,110764,125938,95901,110260,111757,127770,105164,127785,111394,112077,92746,111839,111591,111826,108554);
+			$_SESSION['team'] = array (638734,638731,638055,638515,638992,638384,638353,638420,638546,638878,638518,638374,638855);
 			include'calculation.php';
 			include'../style/font.php';
 
@@ -283,9 +283,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 14 ){ //Dalia Salam
+			} else if ($id == 14 ){ //Khaled Ali 
 			$teamid = 14;
-			$_SESSION['team'] = array (106724,106353,19734,19441,19394,93885,95758,97694,100497,101099,101293,101497,98559,104872,62044);
+			$_SESSION['team'] = array (638162,638513,638895,638925,638885,638188,638185,638129,638569,638493,638879,638399);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -296,9 +296,9 @@ include'../main_page.php';
 			
 			}
 			
-			 else if ($id == 15 ){ // Essam Hassan -Peer Mentor
+			 else if ($id == 15 ){ // Mohamed Ayman -Peer Mentor
 			$teamid = 15;
-			$_SESSION['team'] = array (127583,101225,127549,91441,93929,127133,127531,127105,128228,121837,112031,127556,105998,127535,127991,127327,111260,111815);
+			$_SESSION['team'] = array (639455,639342,639387,639224,639361,639253,639291,639351,639322,639431);
 			include'calculation.php';
 			
 			
@@ -313,9 +313,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 16 ){ // Fahd Hassan -Peer Mentor
+			} else if ($id == 16 ){ //Mohamed Erfan-Peer Mentor
 			$teamid = 16;
-			$_SESSION['team'] = array (128199,128196,128069,127738,127109,127567,127565,122279,127562,127561,127558,126631,110555,127483,127481,127488,127502,111204,127532);
+			$_SESSION['team'] = array (639327,639332,639421,639203,639254,639348,639363,639276,639295,639444,639258,639372);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -329,9 +329,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 17 ){ // Ghada Mosafa
+			} else if ($id == 17 ){ // Mohamed Hesham -Peer Mentor
 			$teamid = 17;
-			$_SESSION['team'] = array (106746,106860,19350,9695,85714,95445,96361,96549,98700,100500,102024,38688,97941,98637,100714);
+			$_SESSION['team'] = array (639448,639391,639393,639429,639408,639281,639390,639230,639242,639457,639383,639384);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -346,9 +346,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 18 ){ // Hatem AbdelAal
+			} else if ($id == 18 ){ // Mohamed Hosny 
 			$teamid = 18;
-			$_SESSION['team'] = array (47001,19963,20016,19472,19166,44921,105347,105429,106540,97379,101370,104636,11210,100693,104791);
+			$_SESSION['team'] = array (638630,638633,638035,638974,638864,638468,638852,638831,638758,638876,638778,638379,638435,639070);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -362,9 +362,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 19 ){ // Hosny Hussein  -Peer Mentor
+			} else if ($id == 19 ){ // Mohamed Madbouli-Peer Mentor
 			$teamid = 19;
-			$_SESSION['team'] = array (124775,127791,105168,111813,127861,108559,127094,127095,20694,101050,127073,127075,103131,107445,108562,127390,127439,127592,110914);
+			$_SESSION['team'] = array (639209,639220,639226,639353,639406,639277,639296,639411,639389,639235,639442,639307);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -379,9 +379,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 20){ // Ibrahim Hassan
+			} else if ($id == 20){ // Mohamed Mamdouh-Peer Mentor
 			$teamid = 20;
-			$_SESSION['team'] = array (20022,19428,19427,19717,19958,93002,125370,116550,108285,101529,106271,106053,97645,121758,69568,125337,45851);
+			$_SESSION['team'] = array (639341,639428,639217,639252,639395,639357,639401,639251,639447,639238,639439,639266,639229);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -395,9 +395,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 21 ){ // Islam Ezzat
+			} else if ($id == 21 ){ // Mohamed Mokhtar
 			$teamid = 21;
-			$_SESSION['team'] = array (106454,19706,19698,96366,98546,98895,100684,101695,96752,105366,20018,19326,106378,100509,102142);
+			$_SESSION['team'] = array (638709,638627,638748,638392,638989,638364,638147,638548,638804,638830,638764,638331);
 			include'calculation.php';
 			
 			
@@ -411,9 +411,9 @@ include'../main_page.php';
 				include'tabel.php';
 			}
 			
-			} else if ($id == 22){ // Karim abdelmenem
+			} else if ($id == 22){ // Mohamed Morsy
 			$teamid = 22;
-			$_SESSION['team'] = array (106861,19954,20013,39957,99046,100937,101457,101601,101831,103086,91256,101087,105433,101790);
+			$_SESSION['team'] = array (638687,638648,638680,638839,638897,638842,638814,638850,638776,638761,638426,638756,638794);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -427,9 +427,9 @@ include'../main_page.php';
 			
 			}
 			
-			} else if ($id == 23 ){ // Khaled Ali 
+			} else if ($id == 23 ){ // Mohamed Ramadan-Peer Mentor
 			$teamid = 23;
-			$_SESSION['team'] = array (93489,106749,106368,19473,54031,66097,93798,96155,96547,98774,102103,104873,96696,100649,100634);
+			$_SESSION['team'] = array (639450,639330,639336,639425,639432,639216,639275,639396,639469,639202,639286,639240);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -444,9 +444,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 24 ){ // Mayada ElDessoky
+			}else if ($id == 24 ){ // Tamer Kassem  
 			$teamid = 24;
-			$_SESSION['team'] = array (106380,106487,103177,19430,19361,20557,48007,105365,98530,100033,100826,19945,97689);
+			$_SESSION['team'] = array (638668,638207,638935,638550,638064,638140,638145,638359,638496,638424,638077);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -461,9 +461,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 25 ){ // Mennat Allah Ismaiel Saleh Ismaiel-Peer Mentor
+			}else if ($id == 25 ){ //XCC-Ahmed Badawy
 			$teamid = 25;
-			$_SESSION['team'] = array (121892,46510,106360,106522,77928,106361,106508,96806,101347,106346,106362,106430,106533,106748,106752,81437,106385);
+			$_SESSION['team'] = array (638889,638927,638898,638933,638938,638916,638918,638940,638903,638926,638699,638972,638967);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -478,9 +478,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 26 ){ // Mohamed Ayman -Peer Mentor 
+			}else if ($id == 26 ){ // XCC-Ahmed Shaaban
 			$teamid = 26;
-			$_SESSION['team'] = array (127542,126624,111889,91740,101069,127065,128016,128042,127543,127391,128064,128065,127544,127540,112028,127545,114152,127199,111370,111367,116829,127441);
+			$_SESSION['team'] = array (638702,638632,638716,638733,638659,639100,638712,638615,638657,638705,638647,638742,638605);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -495,9 +495,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 27 ){ // Mohamed El Gendy
+			}else if ($id == 27 ){ // XCC-Amr Abbas
 			$teamid = 27;
-			$_SESSION['team'] = array (19468,19312,19369,106355,126091,125338,107612,126106,96467,85959,111187,107830,125372,125742,117481);
+			$_SESSION['team'] = array (638939,638912,638934,638945,638896,638931,638909,638164,638914,638942,638971,638990,638977);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -512,9 +512,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 28 ){ // Mohamed Erfan-Peer Mentor 
+			}else if ($id == 28 ){ // XCC-Ibrahim Hassan 
 			$teamid = 28;
-			$_SESSION['team'] = array (127876,109375,127946,127941,127945,127943,127939,127597,127594,127577,127560,127557,127564,127566,127569,127563,128084,127760,127444);
+			$_SESSION['team'] = array (638660,638729,638308,638051,638464,638901,638844,638802,638840,638777,638951,638572,638508);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -529,9 +529,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 29 ){ // Mohamed Hamdy -Peer Mentor 
+			}else if ($id == 29 ){ // XCC-Mohamed El Gendy 
 			$teamid = 29;
-			$_SESSION['team'] = array (111818,111742,50727,102707,128113,128181,111247,111611,111877,110908,111543,127840,107365,110552,127845,111667,111661,111772,127857);
+			$_SESSION['team'] = array (638708,638722,638936,638502,638136,638321,638320,638189,638803,638820,638135,638520,638808);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -546,9 +546,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 30 ){ // Mohamed Hesham -Peer Mentor
+			}else if ($id == 30 ){ // XCC-Tamer Baioumy 
 			$teamid = 30;
-			$_SESSION['team'] = array (110704,127534,127548,127555,109164,127547,127126,127125,127128,127119,74303,127097,128046,127596,110766,127228,128233,127559,128067);
+			$_SESSION['team'] = array (638908,638906,638929,638910,638920,638924,638941,638894,638891,639082,638957,638981,638956,638959);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -563,9 +563,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 31 ){ // Mohamed Hosny  
+			}else if ($id == 31 ){ // XCC-Tamer Elsherbeny 
 			$teamid = 31;
-			$_SESSION['team'] = array (106486,102852,19367,95418,101822,105346,105421,105426,104181,105403,62411,63659,85472,101188,19112);
+			$_SESSION['team'] = array (638735,638661,638608,638730,638682,638654,638323,638953,638387,638526,638196);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -580,9 +580,9 @@ include'../main_page.php';
 			
 			}
 			
-			}else if ($id == 32 ){ // Mohamed Madbouli -Peer Mentor 
+			}else if ($id == 32 ){ // Youssef Shaaban -Peer Mentor 
 			$teamid = 32;
-			$_SESSION['team'] = array (111252,97712,111797,110115,111856,127099,127098,108984,111592,108539,128119,105447,128226,127134,127436,123298,128184,128176,99702);
+			$_SESSION['team'] = array (639451,639333,639423,639212,639234,639315,639398,639466,639285,639328,639326,639339);
 			include'calculation.php';
 			
 			include'../style/font.php';
@@ -596,7 +596,7 @@ include'../main_page.php';
 		
 			
 			}
-			
+			/*
 			}else if ($id == 33 ){ // Mohamed Mamdouh-Peer Mentor
 			$teamid = 33;
 			$_SESSION['team'] = array (127225,127227,98854,110553,128075,127251,112118,127537,127244,128068,128009,127355,127352,123247,108387,127961,124785);
@@ -936,7 +936,7 @@ include'../main_page.php';
 		
 			
 			}
-			
+			*/
 			};
 
 			?>

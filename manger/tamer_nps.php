@@ -74,7 +74,7 @@ include'../main_page.php';
 			 
 			?>
 				
-				<td class="light"> <a href="more.php?id=555" style="color:blue;" title="click here for more details"><?php echo $rows['user_name']  ;?> </a> </th>
+				<td class="light"> <!--<a href="more.php?id=555" style="color:blue;" title="click here for more details">--><span><?php echo $rows['user_name']  ;?> </span> </th>
 				<td class="light"> <?php echo $totalsurvey ;?></th>
 				<td class="light"> <?php echo $pro ;?> </th>
 				<td class="light"> <?php echo $de ;?> </th>

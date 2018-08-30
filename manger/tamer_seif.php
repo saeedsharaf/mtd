@@ -34,7 +34,7 @@ $sql = "select * from nps where manger_id = '555'";
 			$cs_bb = "select * from nps where sats < 2 and manger_id = '555'";
 			
 			$ag_ttb = "select * from nps where agent_satisfaction > 3 and manger_id = '555' "; // select agent tob box 
-			$ag_bb = "select * from nps where and agent_satisfaction < 2 and manger_id = '555' "; // select agent bottom box 
+			$ag_bb = "select * from nps where agent_satisfaction < 2 and manger_id = '555' "; // select agent bottom box 
 			
 			
 			$result_agttb = $cont->query($ag_ttb);

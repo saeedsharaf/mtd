@@ -33,7 +33,7 @@ if($ir_pre < 60 ){
 };
 
 
-if($aht > 60){
+if($aht > 220){
 	$aht_color = 'color: #ff0000';
 
 } else{

@@ -231,7 +231,7 @@ var barChartData = {
 
    hover: {
           mode: 'index',
-          intersect: false
+          intersect: false,
         },
         plugins: {
           datalabels: {
@@ -269,7 +269,7 @@ var barChartData = {
 						text: 'HV Daily'
 					},
 					tooltips: {
-            enabled:false,
+            enabled:true,
 						mode: 'index',
 						intersect: true
 					},

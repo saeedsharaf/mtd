@@ -128,6 +128,8 @@ if(!isset($_SESSION['username'])){
 			<a href="../../../config/redirect_page.php" title="home" > <img src="../../../style/home.png" class="left1" width="25px" style="margin-top:11px;margin-right: 21px;" ></a>
 
 			
+			<a href="../../../search.php" title="Search" > <img src="../../../style/search1.png" class="left1" width="29px" style="margin-top:11px;margin-right: 25px;" ></a>
+			
 			
 
 				<div class="drop" >
@@ -211,6 +213,17 @@ if(!isset($_SESSION['username'])){
 
 		<a href="../../jun/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 340px; text-align: center;">
 			<span class="month" style="">Jun </span>
+			
+		</div> </a>
+
+		<a href="../../july/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #0d00ff87 ; top: 390px; text-align: center;">
+			<span class="month" style="">July </span>
+			
+		</div> </a>
+
+
+		<a href="../../august/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff0055db ; top: 440px; text-align: center;">
+			<span class="month" style="">Aug </span>
 			
 		</div> </a>
 

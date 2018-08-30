@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 			if(strcasecmp($username,$user) == 0 && strcasecmp($password,$pass) == 0 ){
 				session_start();
 				$_SESSION['username'] = $row['user_name'];
-				$_SESSION['id'] = $row['id'];
+				$_SESSION['id'] = $row['login_id'];
 				$_SESSION['login_id'] = $row['login_id'];
 				$_SESSION['super'] = $row['super'];
 				

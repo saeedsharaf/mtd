@@ -20,7 +20,7 @@ margin: 0px;
 height:100%;
 width: 100%;
 
-background-color: #e7ebee26; 
+/*background-color: #e7ebee26;*/ 
 }
 
 
