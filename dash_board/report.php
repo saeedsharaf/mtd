@@ -31,15 +31,15 @@ include'../main_page.php';
 				<th class="noborder"> Offered calls </th>
 				<th class="noborder"> Answered calls</th>
 				<th class="noborder"> Outbound call </th>
-				<th class="noborder"> SL </th>
-				<th class="noborder"> AHT </th>
+				<th class="noborder"> SL <br> ( 80% ) </th>
+				<th class="noborder"> AHT <br> ( 260 ) </th>
 				<th class="noborder"> Aban Calls </th>
 				<th class="noborder"> Accessibility </th>
-				<th class="noborder"> Adherence  </th>
-				<th class="noborder"> Absent </th>
+				<th class="noborder"> Adherence <br> ( 95% ) </th>
+				<!-- <th class="noborder"> Absent </th> -->
 				<th class="noborder"> Aban % </th>
-				<th class="noborder"> hold %  </th>
-				<th class="noborder"> ACW% </th>
+				<th class="noborder"> hold <br> ( 3% )  </th>
+				<th class="noborder"> ACW <br> ( 5% ) </th>
 				<th class="noborder"> Outbound % </th>
 			</tr>
 			</thead>
@@ -92,8 +92,8 @@ include'../main_page.php';
 				<td class="" style="<?php echo $aht_color ?>"> <?php echo round($aht) ?></th>
 				<td class=""> <?php echo number_format($aban_calls) ?> </th>
 				<td class=""> <?php echo round($access,2)  ?> % </th>
-				<td class=""> Tel Opti </th>
-				<td class=""> Tel Opti</th>
+				<td class="" style="color:#ff0000;"> 93.3 % </th>
+				<!-- <td class=""> Tel Opti</th>  -->
 				<td class=""> <?php echo round($aban_percentage,2)  ?> %  </th>
 				<td class="" style="<?php echo $hold_color  ?>"> <?php echo round($hold_percentage,2)  ?> %  </th>
 				<td class="" style="<?php echo $acw_color ;?> "> <?php echo round($acw_percentage,2)  ?> % </th>

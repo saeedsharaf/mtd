@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
@@ -304,7 +304,7 @@ include'../../../config/connect.php';
 <?php
 $id = $_SESSION['id'];
 
-$sql="select * from august where sv_id = '$id' ";
+$sql="select * from august where sv_id = '$id' order by final_score desc";
 $result=$cont->query($sql);
 if($result->num_rows > 0){
 
@@ -321,9 +321,9 @@ if($result->num_rows > 0){
 		
 
 		
-		$aht = round($row['aht'],2) ;
-		$acw = $row['acw'];
-		$hold = $row['hold'];
+		$aht = round($row['aht']) ;
+		$acw = round($row['acw'],2);
+		$hold = round($row['hold'],2) ;
 		$outbound_aht = $row['outbound'];
 
 		$absent = $row['absent'];
@@ -332,25 +332,35 @@ if($result->num_rows > 0){
 		$ctc = $row['ctc'] ;
 		$ctb = $row['ctb'];
 		$nc = $row['nc'];
-		//$calls_sr = $row['calls_vs_sr'];
-		//$absent = $row['absent'] * 100;
-		//$adherence = $row['adherance'] * 100;
-		//$nps = $row['nps'] * 100;
-		//$ctc = $row['ctc'] ;
-		//$ctb = $row['ctb'];
-		//$nc = $row['nc'];
-		//$compliance = $row['compliance'];
-		//$quality_score = round($row['quality_score']*100);
-		//$attiude = $row['attiude'];
-		//$over_promising = $row['over_promising'];
-		//$wrong_info = $row['wrong_info'];
-		//$wron_transaction = $row['wron_transaction'];
-		//$complaint_score = round($row['complaint_score']*100);
-		
+		$quality_score = $row['quality_score'];
+
+		if($aht == ''){
+			$aht = '';
+		}
+
+
+		if($acw == ''){
+			$acw = '';
+		}else{
+			$acw = round($row['acw'],2) . ' %';
+		}
+
+
+		if($hold == ''){
+			$hold = '';
+		}else{
+			$hold = round($row['hold'],2) . ' %';
+		}
+
+		if($quality_score == ''){
+			$quality_score = '';
+		}else{
+		$quality_score = $row['quality_score']	. ' %';
+		}
 
 
 		$outbound = $row['outbound'];
-
+	/*	
 		$zero_aht = is_nan($aht);
 		$zero_hold= is_nan($hold);
 		$zero_acw = is_nan($acw);
@@ -381,8 +391,18 @@ if($result->num_rows > 0){
 		if($zero_outbound === true){
 			$outbound = 0;
 		}
-
+*/
 		$final_score = $row['final_score'];
+
+		if($final_score == 0){
+			$final_score = '';
+		}else{
+			$final_score = $row['final_score'] . ' %';
+		}
+
+
+
+
 		if($aht > 260 ){
 			$aht_score = 0;
 			$aht_color = 'red';
@@ -434,27 +454,27 @@ if($result->num_rows > 0){
 
 
 	<div style="height:45px; width: 70px; color :<?php echo $aht_color ;?>; " class="saeed purblech">
-		<h1><?php echo round($aht) ?> </h1>
+		<h1><?php echo $aht ?> </h1>
 	</div>
 
 
 	<div style="height:45px; width: 70px; color :<?php echo $acw_color ;?>;" class="saeed graych">
-		<h1><?php  echo round($acw) ?> % </h1>
+		<h1><?php  echo $acw ?>  </h1>
 	</div>
 
 
 	<div style="height:45px; width: 70px; color :<?php echo $hold_color ;?>;" class="saeed gray1ch">
-		<h1><?php  echo round ($hold) ?> %  </h1>
+		<h1><?php  echo $hold ?> </h1>
 	</div>
 
 
 	<div style="height:45px; width: 120px;" class="saeed brownch">
-		<h1><?php echo $quality_score; ?> %</h1>
+		<h1><?php echo $quality_score; ?> </h1>
 	</div>
 
 
 	<div style="height:45px; width: 120px;" class="saeed qch ">
-		<h1><?php echo $final_score; ?> %</h1>
+		<h1><?php echo $final_score; ?> </h1>
 	</div>
 
 							<?php
@@ -474,4 +494,13 @@ if($result->num_rows > 0){
 
 	include'../main_page.php';
 
+
+
 	?>
+
+	<style >
+		.container {
+    height: 0%;
+    width: 0%;
+    /* background-color: #e7ebee26; */
+	</style>

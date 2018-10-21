@@ -25,9 +25,9 @@ if($_GET['acw_not']){
 }else if($_GET['acw']){
 	$sql="select * from august where acw > 5 ";
 }else if($_GET['adh_not']){
-	$sql="select * from august where adherance < 92 ";
+	$sql="select * from august where adherance < 95 ";
 } else if($_GET['adh']){
-	$sql="select * from august where adherance > 92 ";
+	$sql="select * from august where adherance >= 95 ";
 }else if($_GET['aht_not']){
 	$sql="select * from august where aht > 260 ";
 }else if($_GET['aht']){
@@ -82,6 +82,11 @@ else{
 }
 
 
+
+
+
+
+
 $result =$cont->query($sql);
 $output="";
 $x = 0;
@@ -104,7 +109,7 @@ $output .='
 			<th  class="color">Emerg</th>
 			<th  class="color">Absent</th>
 			<th  class="color">Leave early</th>
-			<th  class="color">Adherance </th>
+			<th  class="color">Adherence </th>
 			<th  class="color">NPS Calls </th>
 			<th  class="color">NPS </th>			
 			<th  class="color" style="background-color:#8e2439;">FCR </th>
@@ -120,6 +125,7 @@ $output .='
 			<th  class="color" style="background-color:#8e2439;">Wrong Info </th>
 			<th  class="color" style="background-color:#8e2439;">Wrong Transaction </th>
 			<th  class="color" style="background-color:#8e2439;">Lack Follow </th>
+			
 			<th  class="color" style="background-color:#8e2439;">Complaint Score </th>
 			<th  class="color" style="background-color:#8e2439;">Final score </th>
 			<th  class="color" style="background-color:#8e2439;">Rank </th>
@@ -182,25 +188,26 @@ $output .='
 					$early_color = '#ffffff63';
 				}
 
-				if($row['adherance'] < 92){
+				if($row['adherance'] < 95 and $row['adherance'] !== ''){
 					$adh_color = '#ffc7ce';
-				}else{
+				}else {
 					$adh_color = '#ffffff63';
 				}
+				
 
-				if($row['nps'] < 45){
+				if($row['nps'] < 45 and $row['nps'] !== ''){
 					$nps_color = '#ffc7ce';
 				}else{
 					$nps_color = '#ffffff63';
 				}
 
-				if($row['fcr'] < 60){
+				if($row['fcr'] < 60 and $row['fcr'] !== ''){
 					$fcr_color = '#ffc7ce';
 				}else{
 					$fcr_color = '#ffffff63';
 				}
 
-				if($row['agent_ttb'] < 80){
+				if($row['agent_ttb'] < 80 and $row['agent_ttb'] !== ''){
 					$agent_color = '#ffc7ce';
 				}else{
 					$agent_color = '#ffffff63';
@@ -254,7 +261,7 @@ $output .='
 					$wrong_color = '#ffffff63';
 				}
 
-				if($row['wrong_transaction'] > 0){
+				if($row['wron_transaction'] > 0){
 					$transaction_color = '#ffc7ce';
 				}else{
 					$transaction_color = '#ffffff63';
@@ -265,6 +272,100 @@ $output .='
 				}else{
 					$follow_color = '#ffffff63';
 				}
+
+
+				if($row['lack_follow'] > 0){
+					$lack_color = '#ffc7ce';
+				} else{
+					$lack_color = '#ffffff63';
+				}
+
+
+$aht = round($row['aht'],0) ;
+$acw = $row['acw'];
+$hold = $row['hold'];
+$outbound_aht = $row['outbound'];
+$absent = $row['absent'];
+$adherence = $row['adherance'];
+$nps = $row['nps'] ;
+$fcr = $row['fcr'];
+$agent_ttb = $row['agent_ttb'];
+$ctc = $row['ctc'] ;
+$ctb = $row['ctb'];
+$nc = $row['nc'];
+$quality_score = $row['quality_score'];
+$complaint_score = $row['complaint_score'];
+
+$final_score = round($row['final_score'],2);			
+
+
+
+	// below code to remove % and validate value
+		if($aht == ''){
+			$aht = '';
+		}
+
+
+		if($acw == ''){
+			$acw = '';
+		}else{
+			$acw = round($row['acw'],1) . ' %';
+		}
+
+
+		if($hold == ''){
+			$hold = '';
+		}else{
+			$hold = round($row['hold'],2) . ' %';
+		}
+
+		if($quality_score == ''){
+			$quality_score = '';
+		}else{
+		$quality_score = $row['quality_score']	. ' %';
+		}
+
+		$final_score = $row['final_score'];
+
+		if($final_score == 0){
+			$final_score = '';
+		}else{
+			$final_score = $row['final_score'] . ' %';
+		}
+
+
+		if($nps == ''){
+			$nps = '';
+		}else {
+			$nps = $row['nps'] . ' %';
+		}
+
+		if($adherence == ''){
+			$adherence == '';
+		}else{
+			$adherence = $row['adherance'] . ' %';
+		}
+
+		if($fcr == ''){
+			$fcr = '';
+		} else{
+			$fcr = $row['fcr'] . ' %';
+		}
+
+		if($agent_ttb == ''){
+			$agent_ttb = '';
+		}else{
+			$agent_ttb = $row['agent_ttb'] . ' %';
+		}
+
+		if($complaint_score == ''){
+			$complaint_score = '';
+		}else{
+			$complaint_score = $row['complaint_score'] . ' %';
+		}
+
+
+
 
 				
 
@@ -277,31 +378,32 @@ $output .='
 				<td>' .$row['sv'].'</td>
 				<td>' .$row['manger'].'</td>
 				<td>' .$row['no_calls'].'</td>
-				<td style="background-color:'.$aht_color.'">' .round($row['aht'],0).'</td>
-				<td style="background-color:'.$acw_color.'">' .round($row['acw'],1).'%</td>
-				<td style="background-color:'.$hold_color.'">' .round($row['hold'],1).'%</td>
+				<td style="background-color:'.$aht_color.'">' .  $aht .'</td>
+				<td style="background-color:'.$acw_color.'">' . $acw .'</td>
+				<td style="background-color:'.$hold_color.'">' . $hold .'</td>
 				<td style="background-color:'.$outbound_color.'">' .round($row['outbound'],0).'</td>
 				<td style="background-color:'.$sick_color.'">' .$row['sick'].'</td>
 				<td style="background-color:'.$emerg_color.'">' .$row['emerg'].'</td>
 				<td style="background-color:'.$absent_color.'">' .$row['absent'].'</td>
 				<td style="background-color:'.$early_color.'">' .$row['leave_early'].'</td>
-				<td style="background-color:'.$adh_color.'">' .$row['adherance'].' %</td>
+				<td style="background-color:'.$adh_color.'">' . $adherence.' </td>
 				<td >' .$row['nps_calls'].'</td>
-				<td style="background-color:'.$nps_color.'">' .$row['nps'].'%</td>
-				<td style="background-color:'.$fcr_color.'">' .$row['fcr'].'%</td>
-				<td style="background-color:'.$agent_color.'">' .$row['agent_ttb'].' %</td>
+				<td style="background-color:'.$nps_color.'">' . $nps .'</td>
+				<td style="background-color:'.$fcr_color.'">' . $fcr.'</td>
+				<td style="background-color:'.$agent_color.'">' . $agent_ttb .' </td>
 				<td style="background-color:'.$ctc_color.'">' .$row['ctc'].'</td>
 				<td style="background-color:'.$ctb_color.'">' .$row['ctb'].'</td>
 				<td style="background-color:'.$compl_color.'">' .$row['compliance'].'</td>
 				<td style="background-color:'.$nc_color.'">' .$row['nc'].'</td>
-				<td>' .$row['quality_score']. ' ' . ' %</td>
+				<td>' .  $quality_score . ' </td>
 				
 				<td style="background-color:'.$attiude_color.'">' .$row['attiude'].'</td>
 				<td style="background-color:'.$over_color.'">' .$row['over_promising'].'</td>
 				<td style="background-color:'.$wrong_color.'">' .$row['wrong_info'].'</td>
 				<td style="background-color:'.$transaction_color.'">' .$row['wron_transaction'].'</td>
-				<td style="background-color:'.$follow_color.'">' .$row['lack_follow'].'</td>
-				<td >' .$row['complaint_score'].' %</td>
+				<td style="background-color:'.$lack_color.'">' .$row['lack_follow'].'</td>
+				
+				<td >' . $complaint_score .' </td>
 				<td>' .$row['final_score'].'%</td>
 				<td>' .$x.'</td>
 				
@@ -324,5 +426,7 @@ $output .='
 			header("content-type: application/'xls");
 			header("content-disposition:attachement; filename=KPI.xls") ; 
 			
-	}		
+	}
+
+
 	echo $output ;

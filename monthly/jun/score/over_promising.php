@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
@@ -305,17 +305,22 @@ include'../../../config/connect.php';
 $id = $_GET['id'];
 //$ctc = 0;
 if($id == 2){
+			?>
+				<form action="export.php" method="get">
+					<input type="submit" accesskey="s" name="overpromise_not"  style="display:none;">
+				</form>
+			<?php
 	
 		$sql="select * from jun where over_promising > 0 ";
 		$result=$cont->query($sql);
 		if($result->num_rows > 0){
 
 			while($row = $result->fetch_assoc()){
-				$aht = $row['aht'] * 24 * 3600 ;
-				$acw = $row['acw'] * 100 ;
-				$hold = $row['hold'] *100;
+				$aht = round($row['aht'],2) ;
+				$acw = round($row['acw'],2) ;
+				$hold = round($row['hold'],2);
 				$over_promising = $row['over_promising'] ;
-				$final_score = round($row['final_score']*100);
+				$final_score = $row['final_score'];
 			
 
 if($aht > 260 ){
@@ -402,19 +407,22 @@ if($aht > 260 ){
 							}
 						}
 					}else{
+						?>
+							<form action="export.php" method="get">
+								<input type="submit" accesskey="s" name="overpromise"  style="display:none;">
+							</form>
+						<?php
 
 						$sql="select * from jun where over_promising < 1 ";
 						$result=$cont->query($sql);
 						if($result->num_rows > 0){
 
 							while($row = $result->fetch_assoc()){
-								$aht = $row['aht'] * 24 * 3600 ;
-								$acw = $row['acw'] * 100 ;
-								$hold = $row['hold'] *100;
-								
+								$aht = round($row['aht'],2) ;
+								$acw = round($row['acw'],2) ;
+								$hold = round($row['hold'],2);
 								$over_promising = $row['over_promising'] ;
-							
-								$final_score = round($row['final_score']*100);
+								$final_score = $row['final_score'];
 								
 							
 

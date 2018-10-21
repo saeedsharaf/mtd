@@ -16,7 +16,7 @@ include'../main_page.php';
 		
 			<table class="tf">
 			
-			<caption style="background-color:#a90101; padding:9px; color: white;">Jun 2018</caption>
+			<caption style="background-color:#a90101; padding:9px; color: white;">Oct 2018</caption>
 			<thead>
 			
 			<tr>
@@ -51,9 +51,9 @@ include'../main_page.php';
 			
 
 			if($_GET['id'] == 111){
-			$_SESSION['sv']= array(2,4,8,9,10,11,12,18,26,28,29,31);
-			} else if($_GET['id'] == 222){
-			$_SESSION['sv']= array(3,5,6,13,14,21,22,24,25,27,30);
+			//$_SESSION['sv']= array(9,8,28,4,12,10,29,2,31,31,4,8,26,1,7,11,15,17,19,16,7);
+		} else if($_GET['id'] == 222){
+			$_SESSION['sv']= array(9,8,28,4,12,10,29,2,31,31,4,8,26,1,7,11,15,17,19,16,7,5,13,24,6,3,14,21,27,22,25,30);
 			}else if($_GET['id'] == 333){
 				$_SESSION['sv'] = array(1,7,15,16,17,19,20,23,32);
 			}else if($_GET['id'] == 444){

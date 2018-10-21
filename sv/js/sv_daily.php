@@ -256,7 +256,7 @@ var barChartData1 = {
 
       labels: [<?php
      
-        $a = strtotime('august 01');
+        $a = strtotime('oct 01');
         foreach ($tcalls as $row => $rows) {
           $days = date("m/d", $a);
           $a = strtotime('+1 day',$a);

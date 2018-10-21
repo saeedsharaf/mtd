@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 
@@ -44,7 +44,7 @@ $id = $_GET['id'];
 
 
 
-$sql="select * from jun where manger_id >= 111 and manger_id < 444 ";
+$sql="select * from july ";
 $result=$cont->query($sql);
 $aht_achiever = 0;
 $aht_notachiever = 0;
@@ -77,12 +77,12 @@ $total = 0;
 
 if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()){
-	$aht = $row['aht'] * 24 * 3600 ;
-	$acw = $row['acw'] * 100 ;
-	$hold = $row['hold'] *100;
-	$outbound_aht = $row['outbound'] *24 * 3600;
-	$adherence = $row['adherance'] * 100;
-	$nps = $row['nps'] * 100;
+	$aht = round($row['aht'],2);
+	$acw = round($row['acw'] ,2) ;
+	$hold = round($row['hold'],2);
+	$outbound_aht = round($row['outbound'],2);
+	$adherence = $row['adherance'];
+	$nps = $row['nps'];
 	$ctc = $row['ctc'] ;
 	$ctb = $row['ctb'];
 	$nc = $row['nc'];
@@ -91,6 +91,8 @@ if($result->num_rows > 0){
 	$over_promising = $row['over_promising'];
 	$wrong_info = $row['wrong_info'];
 	$total++;
+
+
 		if($aht > 260 ){
 			$aht_notachiever++;
 		}else{
@@ -118,14 +120,14 @@ if($result->num_rows > 0){
 		}
 
 
-		if($adherence > 92 ){
+		if($adherence >= 95 and $adherence !== ''  ){
 			$adherence_notachiever++;
 		}else{
 			$adherence_achiever++;
 		}
 
 
-		if($nps > 40 ){
+		if($nps > 45 ){
 			$nps_notachiever++;
 		}else{
 			$nps_achiever++;
@@ -250,14 +252,14 @@ if($result->num_rows > 0){
 	<div clas="aht" style="background-color: #01c5ed66; height: 100px; width:210px; margin-right: 50px; position: relative; ">
 			<div style="height: 100% ; background-color: #01c5ed; width: 45%">
 				<img src="../../../style/Adherence.png" style="position: absolute; width: 45px;height: 45px; left: 165; top: 55 ">
-				<span class="content" style="top: 40; left:25;font-size: 20px"> <?php echo $adherence_achiever ?>  </span>
-				<span class="content" style="top: 5; left: 10"> <?php echo round((($adherence_achiever / $total) *100 ),1);?> % </span>
+				<span class="content" style="top: 40; left:25;font-size: 20px"> <?php echo $adherence_notachiever ?>  </span>
+				<span class="content" style="top: 5; left: 10"> <?php echo round((($adherence_notachiever / $total) *100 ),1);?> % </span>
 				<span class="font" style="top:40; left: 145; font-size: 14px;">Adherence </span>
 				<a href="adherance.php?id=1" title="Achiever"><span class="font" style="top : 68; left: 10">Achiever </span> </a>
 
 				<a href="adherance.php?id=2" title="Not"><span class="content black" style="left: 105; top: 68; color: black; font-size: 18px">Not</span></a>
-				<span class="content" style="top: 5; left: 115;color: black"> <?php echo round((($adherence_notachiever / $total) *100 ),1);?> % </span>
-				<span class="content black" style="left: 105; top: 40 ;color: black;font-size: 20px" > <?php echo $adherence_notachiever; ?></span>
+				<span class="content" style="top: 5; left: 115;color: black"> <?php echo round((($adherence_achiever / $total) *100 ),1);?> % </span>
+				<span class="content black" style="left: 105; top: 40 ;color: black;font-size: 20px" > <?php echo $adherence_achiever; ?></span>
 			</div>
 	</div>	
 

@@ -33,9 +33,9 @@ var barChartData1 = {
         data: [
          <?php
          	foreach ($month  as $date ){
-			$e_t = "select * from nps where date = '$date' and manger_id ='555'"; // to select total rows				
-			$e_p = "select * from nps where manger_id= '555' and nps_rating >= 9 and date = '$date' "; // select promoter
-			$e_d = "select * from nps where manger_id ='555' and nps_rating <= 6 and date = '$date' "; // select dertactor
+			$e_t = "select * from nps where date = '$date' and manger_id =''"; // to select total rows				
+			$e_p = "select * from nps where manger_id= '' and nps_rating >= 9 and date = '$date' "; // select promoter
+			$e_d = "select * from nps where manger_id ='' and nps_rating <= 6 and date = '$date' "; // select dertactor
 			$e_tq = $cont->query($e_t); 
 			$e_pq = $cont->query($e_p); 
 			$e_dq = $cont-> query ($e_d);
@@ -75,8 +75,8 @@ var barChartData1 = {
         data: [
          <?php
           foreach ($month  as $date ){
-      $t = "select * from nps where date = '$date' and manger_id ='555'"; // to select total rows       
-      $ag_ttb = "select * from nps where manger_id = '555' and agent_satisfaction > 3 and date='$date' "; // select agent tob box 
+      $t = "select * from nps where date = '$date' and manger_id =''"; // to select total rows       
+      $ag_ttb = "select * from nps where manger_id = '' and agent_satisfaction > 3 and date='$date' "; // select agent tob box 
       
       $tq = $cont->query($t); 
 
@@ -117,8 +117,8 @@ var barChartData1 = {
         data: [
           <?php
           	foreach ($month  as $date ){
-          		$e_t1 = "select * from nps where manger_id='555' and date = '$date'"; // to select total rows
-          		$e_fcr = "select * from nps where manger_id = '555' and ir = '1' and date ='$date' " ;
+          		$e_t1 = "select * from nps where manger_id='' and date = '$date'"; // to select total rows
+          		$e_fcr = "select * from nps where manger_id = '' and ir = '1' and date ='$date' " ;
           		$e_tq1 = $cont->query($e_t1);
           		$e_fcr_q = $cont->query($e_fcr);
               if($e_tq1->num_rows == 0){
@@ -154,8 +154,8 @@ var barChartData1 = {
         data: [
          <?php
          	foreach($month as $date){
-         		$e_t2 = "select * from nps where manger_id='555' and date = '$date'";
-         		$e_ir = "select * from nps where manger_id='555' and ir <=2 and date ='$date' ";
+         		$e_t2 = "select * from nps where manger_id='' and date = '$date'";
+         		$e_ir = "select * from nps where manger_id='' and ir <=2 and date ='$date' ";
          		$e_tq2 = $cont->query ($e_t2);
          		$e_irq = $cont->query($e_ir);
             if($e_tq2->num_rows == 0){
@@ -215,7 +215,7 @@ var barChartData1 = {
         data: [
           <?php
           	foreach($month as $date){
-          		$e_t3 = "select * from nps where manger_id='555' and date = '$date'";
+          		$e_t3 = "select * from nps where manger_id='' and date = '$date'";
           		$e_tq3 = $cont->query($e_t3);
           		echo $e_tq3->num_rows . ',';
           	}

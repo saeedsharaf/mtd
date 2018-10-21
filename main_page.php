@@ -6,12 +6,13 @@ if(!isset($_SESSION['username'])){
 <script>window.location.href='index.php' </script>
 <?php
 }
+include'note.php';
 
 ?>
 
 <html>
 <head>
-<title> We Eye </title>
+<title> WE Score Card</title>
 <link rel="stylesheet" href="../style/style1.php" >
 <link rel="shortcut icon" href="../style/icon.png" />
 
@@ -97,6 +98,36 @@ if(!isset($_SESSION['username'])){
 	right:-35px;
 }
 
+#alret{
+    height: 40px;
+    width: 15%;
+    background-color: #a9016f;
+    position: fixed;
+    top: -100px;
+    left: 45%;
+    text-align: center;
+    border-radius: 7px;
+    transition: 0.5s;
+    color: white;
+    line-height: 6px;
+}
+
+#alret_nps{
+    height: 40px;
+    width: 15%;
+    background-color: #018ca9;
+    position: fixed;
+    top: -100px;
+    left: 45%;
+    text-align: center;
+    border-radius: 7px;
+    transition: 0.5s;
+    color: white;
+    line-height: 6px;
+}
+
+
+
 </style>
 
 
@@ -108,11 +139,44 @@ if(!isset($_SESSION['username'])){
 <body >
 
 
+			<div id="alret">
+                <div style="margin-top:17px" ><?php echo $note ; ?></div>
+            </div>
+            <div id="alret_nps">
+                <div style="margin-top:17px" ><?php echo $nps_note ; ?> </div>
+            </div>
+                
+                <script>
+
+                function out(){
+                    document.getElementById('alret').style.top = "-100px",
+                    document.getElementById('alret_nps').style.top = "-100px"
+
+                }
+
+
+                function redirect(){
+                document.getElementById('alret').style.top = "60px",
+                document.getElementById('alret_nps').style.top = "120px"
+                } 
+                setTimeout(redirect, 1000);
+
+                function redirect1(){
+                document.getElementById('alret').style.top = "-100px",
+                document.getElementById('alret_nps').style.top = "-100px"
+                }                      
+             setTimeout(redirect1, 3500);
+
+                
+                </script>
+
+
+
 	<div class="container" >
 		<div class="head" >
 			
 			<span id="te">telcom<b>egypt </b> </span>
-			<span id="we" style="font-size: 15px; font-family: sans-serif;font-weight: bolder; color:white;margin-top: 25px;">We Eye</span>
+			<span id="we" style="font-size: 15px; font-family: cursive;font-weight: bolder; color:white;margin-top: 25px;width: 120px;">WE Score Card</span>
 			
 			<div class="bbb">
 			

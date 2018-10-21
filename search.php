@@ -7,6 +7,9 @@ if(!isset($_SESSION['username'])){
 <?php
 }
 
+include'config/connect.php';
+
+
 ?>
 
 <html>
@@ -98,6 +101,10 @@ if(!isset($_SESSION['username'])){
 	right:-35px;
 }
 
+.a{
+	color: blue;
+}
+
 </style>
 
 
@@ -135,7 +142,7 @@ if(!isset($_SESSION['username'])){
 			
 
 				<div class="drop" >
-					<a href="monthly/august/score/performance.php" title="Score OverView" class="drop"> <img src="style/all.png" class="left1" width="25px" style="margin-top:11px;" ></a>
+					<a href="monthly/sep/score/performance.php" title="Score OverView" class="drop"> <img src="style/all.png" class="left1" width="25px" style="margin-top:11px;" ></a>
 
 					<?php 
 
@@ -145,7 +152,7 @@ if(!isset($_SESSION['username'])){
 
 					<div class="triangle">
 						<div class="drop_content" style="margin-top: 55px">
-							<a href="monthly/august/score/performance.php" title="Score OverView" ><img src="style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
+							<a href="monthly/oct/score_redirect_page.php" title="Score OverView" ><img src="style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
 						</div>	
 
 			
@@ -163,11 +170,11 @@ if(!isset($_SESSION['username'])){
 
 				<div class="triangle">
 						<div class="drop_content" style="margin-top: 55px">
-							<a href="monthly/august/score/achiever.php" title="Achiever OverView" ><img src="style/aa.png" style="width: 25px; "> <span class="drop_span">Achiever</span> </a>
+							<a href="monthly/sep/score/achiever.php" title="Achiever OverView" ><img src="style/aa.png" style="width: 25px; "> <span class="drop_span">Achiever</span> </a>
 						</div>
 
 						<div class="drop_content" style="margin-top: 90px">
-							<a href="monthly/august/score/performance.php" title="Score OverView" ><img src="style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
+							<a href="monthly/sep/score/performance.php" title="Score OverView" ><img src="style/aa.png" style="width: 25px; "> <span class="drop_span">Score</span> </a>
 						</div>	
 
 			
@@ -233,8 +240,225 @@ if(!isset($_SESSION['username'])){
 
 
 <div style="margin-top:100px;margin-left:43%;" >
-	<form>
-		<input type="text" style="margin: 0 auto;padding-left: 15px;border-radius: 15px;height: 32px;border: none; background-color: #e0e0e0; outline: none;webkit-appearance: unset;"  placeholder="Search by Oracle">
+	<form action="" method="get">
+		<input type="text" style="margin: 0 auto;padding-left: 15px;border-radius: 15px;height: 32px;border: none; background-color: #e0e0e0; outline: none;webkit-appearance: unset;"  placeholder="Search by Login ID" name="oracle" autocomplete="off">
 
 	</form>
+
+
+
 </div>
+
+<style >
+	table{
+		border-collapse: collapse;
+	
+	}
+
+	thead{
+		background-color: #b200ff;
+		color: white;
+	   
+	}
+
+	th{
+		 font-weight: 100;
+		 font-size: 14px;
+	}
+</style>
+<?php
+
+$oracle = $_GET['oracle'];
+
+include'select.php';
+
+
+if($sep_result->num_rows > 0){
+?>
+
+<div class="table" style="width: 80%; margin: 0 auto">
+	<table style="width: 100%">
+		<caption style="background-color: #b200ff;color: white;height: 30px;line-height: 30px;border-top-right-radius: 10px;border-top-left-radius: 10px;"><?php echo $oracle .' '.$sep_row['name'] ;?></caption>
+		<thead>
+			<tr>
+				<th>Month</th>
+				<th>AHT</th>
+				<th>Hold</th>
+				<th>ACW</th>
+				<th>Nps</th>
+				<th>FCR</th>
+				<th>Agent_TTB</th>
+				<th>Absenteeism</th>
+				<th>Adherance</th>
+				<th>Quilty Score</th>
+				<th>Complaint Score</th>
+				<th>Final score</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><a class="a" href="more.php?name=jan&id=<?php echo $oracle; ?>" >Jan</a></td>
+				<td><?php echo round($jan_row['aht'],0) ; ?></td>
+				<td><?php echo round($jan_row['hold'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['acw'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['nps'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['fcr'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['agent_ttb'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['absentscore'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['adherance'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['quality_score'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['complaint_score'],2) ; ?> %</td>
+				<td><?php echo round($jan_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+
+			<tr>
+				<td><a class="a" href="more.php?name=feb&id=<?php echo $oracle; ?>" >Feb</a></td>
+				<td><?php echo round($feb_row['aht'],0) ; ?></td>
+				<td><?php echo round($feb_row['hold'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['acw'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['nps'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['fcr'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['agent_ttb'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['absentscore'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['adherance'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['quality_score'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['complaint_score'],2) ; ?> %</td>
+				<td><?php echo round($feb_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+
+			<tr>
+				<td><a class="a" href="more.php?name=mar&id=<?php echo $oracle; ?>" >Mar</a></td>
+				<td><?php echo round($mar_row['aht'],0) ; ?></td>
+				<td><?php echo round($mar_row['hold'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['acw'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['nps'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['fcr'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['agent_ttb'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['absentscore'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['adherance'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['quality_score'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['complaint_score'],2) ; ?> %</td>
+				<td><?php echo round($mar_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+
+			<tr>
+				<td><a class="a" href="more.php?name=april&id=<?php echo $oracle; ?>" >April</a></td>
+				<td><?php echo round($april_row['aht'],0) ; ?></td>
+				<td><?php echo round($april_row['hold'],2) ; ?></td>
+				<td><?php echo round($april_row['acw'],2) ; ?></td>
+				<td><?php echo round($april_row['nps'],2) ; ?> %</td>
+				<td><?php echo round($april_row['fcr'],2) ; ?> %</td>
+				<td><?php echo round($april_row['agent_ttb'],2) ; ?> %</td>
+				<td><?php echo round($april_row['absentscore'],2) ; ?> %</td>
+				<td><?php echo round($april_row['adherance'],2) ; ?> %</td>
+				<td><?php echo round($april_row['quality_score'],2) ; ?> %</td>
+				<td><?php echo round($april_row['complaint_score'],2) ; ?> %</td>
+				<td><?php echo round($april_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+
+			<tr>
+				<td><a class="a" href="more.php?name=may&id=<?php echo $oracle; ?>" >May</a></td>
+				<td><?php echo round($may_row['aht'],0) ; ?></td>
+				<td><?php echo round($may_row['hold'],2) ; ?></td>
+				<td><?php echo round($may_row['acw'],2) ; ?></td>
+				<td><?php echo round($may_row['nps'],2) ; ?> %</td>
+				<td><?php echo round($may_row['fcr'],2) ; ?> %</td>
+				<td><?php echo round($may_row['agent_ttb'],2) ; ?> %</td>
+				<td><?php echo round($may_row['absentscore'],2) ; ?> %</td>
+				<td><?php echo round($may_row['adherance'],2) ; ?> %</td>
+				<td><?php echo round($may_row['quality_score'],2) ; ?> %</td>
+				<td><?php echo round($may_row['complaint_score'],2) ; ?> %</td>
+				<td><?php echo round($may_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+
+			<tr>
+				<td><a class="a" href="more.php?name=jun&id=<?php echo $oracle; ?>" >June</a></td>
+				<td><?php echo round($jun_row['aht'],0) ; ?></td>
+				<td><?php echo round($jun_row['hold'],2) ; ?></td>
+				<td><?php echo round($jun_row['acw'],2) ; ?></td>
+				<td><?php echo round($jun_row['nps'],2) ; ?> %</td>
+				<td><?php echo round($jun_row['fcr'],2) ; ?> %</td>
+				<td><?php echo round($jun_row['agent_ttb'],2) ; ?> %</td>
+				<td><?php echo round($jun_row['absentscore'],2) ; ?> %</td>
+				<td><?php echo round($jun_row['adherance'],2) ; ?> %</td>
+				<td><?php echo round($jun_row['quality_score'],2) ; ?> %</td>
+				<td><?php echo round($jun_row['complaint_score'],2) ; ?> %</td>
+				<td><?php echo round($jun_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+
+			<tr>
+				<td><a class="a" href="more.php?name=july&id=<?php echo $oracle; ?>" >July</a></td>
+				<td><?php echo round($july_row['aht'],0) ; ?></td>
+				<td><?php echo round($july_row['hold'],2) ; ?></td>
+				<td><?php echo round($july_row['acw'],2) ; ?></td>
+				<td><?php echo round($july_row['nps'],2) ; ?> %</td>
+				<td><?php echo round($july_row['fcr'],2) ; ?> %</td>
+				<td><?php echo round($july_row['agent_ttb'],2) ; ?> %</td>
+				<td><?php echo round($july_row['absentscore'],2) ; ?> %</td>
+				<td><?php echo round($july_row['adherance'],2) ; ?> %</td>
+				<td><?php echo round($july_row['quality_score'],2) ; ?> %</td>
+				<td><?php echo round($july_row['complaint_score'],2) ; ?> %</td>
+				<td><?php echo round($july_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+
+			<tr>
+				<td><a class="a" href="more.php?name=aug&id=<?php echo $oracle; ?>" >Aug</a></td>
+				<td <?php echo $aug_aht_color ;?> > <?php echo round($aug_aht,0) ; ?></td>
+				<td <?php echo $aug_hold_color ;?> ><?php echo round($aug_hold,2) ; ?> %</td>
+				<td <?php echo $aug_acw_color ;?> ><?php echo round($aug_row['acw'],2) ; ?> %</td>
+				<td <?php echo $aug_nps_color ;?> ><?php echo round($aug_row['nps'],2) ; ?> %</td>
+				<td <?php echo $aug_fcr_color ;?> ><?php echo round($aug_row['fcr'],2) ; ?> %</td>
+				<td <?php echo $aug_agent_ttb_color ;?> ><?php echo round($aug_row['agent_ttb'],2) ; ?> %</td>
+				<td <?php echo $aug_absent_color ;?>  ><?php echo round($aug_row['absentscore'],2) ; ?> %</td>
+				<td <?php echo $aug_adh_color ;?> ><?php echo round($aug_row['adherance'],2) ; ?> %</td>
+				<td <?php echo $aug_quality_color ;?> ><?php echo round($aug_row['quality_score'],2) ; ?> %</td>
+				<td <?php echo $aug_comp_color ;?> ><?php echo round($aug_row['complaint_score'],2) ; ?> %</td>
+				<td ><?php echo round($aug_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+
+			<tr>
+				<td><a class="a" href="more.php?name=sep&id=<?php echo $oracle; ?>" >Sep</a></td>
+				<td <?php echo $sep_aht ;?> > <?php echo round($sep_aht,0) ; ?></td>
+				<td <?php echo $sep_hold ;?> ><?php echo round($sep_row['hold'],2) ; ?> %</td>
+				<td <?php echo $sep_acw ;?> ><?php echo round($sep_row['acw'],2) ; ?> %</td>
+				<td <?php echo $sep_nps ;?> ><?php echo round($sep_row['nps'],2) ; ?> %</td>
+				<td <?php echo $sep_fcr ;?> ><?php echo round($sep_row['fcr'],2) ; ?> %</td>
+				<td <?php echo $sep_agent_ttb ;?> ><?php echo round($sep_row['agent_ttb'],2) ; ?> %</td>
+				<td <?php echo $sep_absent ;?>  ><?php echo round($sep_row['absentscore'],2) ; ?> %</td>
+				<td <?php echo $sep_adh ;?> ><?php echo round($sep_row['adherance'],2) ; ?> %</td>
+				<td <?php echo $sep_quality ;?> ><?php echo round($sep_row['quality_score'],2) ; ?> %</td>
+				<td <?php echo $sep_comp ;?> ><?php echo round($sep_row['complaint_score'],2) ; ?> %</td>
+				<td ><?php echo round($sep_row['final_score'],2) ; ?> %</td>
+
+			</tr>
+		</tbody>
+	</table>
+
+	<div  style=" width: 100%; height:300px;margin: 0 auto; margin-top: 20px;margin-bottom: 50px;">
+
+		<canvas id="chart" width="535" ></canvas>
+
+		<?php
+		include'chart.php';
+		?>
+
+	</div>
+
+
+
+	<?php
+	}else{
+	?>
+	<div style="width: 80%;margin: 0 auto; height:50px;text-align: center;">No Result Found</div>
+	<?php
+}	
+
+

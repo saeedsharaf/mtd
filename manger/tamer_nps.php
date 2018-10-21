@@ -59,7 +59,7 @@ include'../main_page.php';
 	
 	
 		
-		$sql1 = "select user_name from member where super = '555'";	
+		$sql1 = "select user_name from member where super = ''";	
 		$result1 = $cont->query($sql1);
 		$rows = $result1->fetch_assoc();
 		 	
@@ -74,7 +74,8 @@ include'../main_page.php';
 			 
 			?>
 				
-				<td class="light"> <!--<a href="more.php?id=555" style="color:blue;" title="click here for more details">--><span><?php echo $rows['user_name']  ;?> </span> </th>
+				<td class="light"> <!--<a href="more.php?id=555" style="color:blue;" title="click here for more details">--><span>Tamer Seif
+ </span> </th>
 				<td class="light"> <?php echo $totalsurvey ;?></th>
 				<td class="light"> <?php echo $pro ;?> </th>
 				<td class="light"> <?php echo $de ;?> </th>

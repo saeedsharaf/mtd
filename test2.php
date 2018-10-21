@@ -2,24 +2,14 @@
 error_reporting(0);
 session_start();
 set_time_limit(0);
-if(!isset($_SESSION['username'])){
-?>
-<script>window.location.href='index.php' </script>
-<?php
-}
-//include'../main_page.php';
-?>
-			
-		
 
-<?php 
 include'config/connect.php';
 ?>
 
 
 <?php
 $id = $_SESSION['id'];
-$sql="select * from august1  ";
+$sql="select * from score  ";
 $result=$cont->query($sql);
 
 if($result->num_rows > 0){
@@ -51,8 +41,10 @@ $nc = $row['nc'];
 $c2compliance = $row['c2compliance'];
 $attitude = $row['attitude'];
 $over_promising = $row['over_promising'];
+$lack_follow = $row['lack_follow'];
 $wrong_info = $row['wrong_info'];
 $wrong_action = $row['wrong_action'];
+$wrong_ts = $row['wrong_ts'];
 
 
 
@@ -62,9 +54,12 @@ $wrong_action = $row['wrong_action'];
 		$zero_outboundaht = is_nan($outbound_aht);
 		$zero_outbound = is_nan($outbound);
 
-		if($zero_aht === true ){
+		if($zero_aht === true or is_infinite($aht) === true){
 			$aht = '';
-		};
+		} 
+
+			
+
 		if($zero_hold === true){
 			$hold = '';
 		};
@@ -81,30 +76,8 @@ $wrong_action = $row['wrong_action'];
 			$outbound = '';
 		};
 
-		/*
-$aht = $row['aht'] * 24 * 3600 ;
-$acw = $row['acw'] * 100 ;
-$hold = $row['hold'] *100;
-$outbound_aht = $row['outbound'] *24 * 3600;
-$calls_sr = $row['calls_vs_sr'];
-$absent = $row['absent'] * 100;
-$adherence = $row['adherance'] * 100;
-$nps = $row['nps'] * 100;
-$ctc = $row['ctc'] ;
-$ctb = $row['ctb'];
-$nc = $row['nc'];
-$compliance = $row['compliance'];
-$quality_score = round($row['quality_score']*100);
-$attiude = $row['attiude'];
-$over_promising = $row['over_promising'];
-$wrong_info = $row['wrong_info'];
-$wron_transaction = $row['wron_transaction'];
-$complaint_score = round($row['complaint_score']*100);
-$final_score = round($row['final_score']*100,2);
 
-*/
-
-if($aht < 260 or $aht == '' ){
+if($aht <= 260 or $aht == '' ){
 	$aht_score = 10;
 
 }else{
@@ -112,19 +85,19 @@ if($aht < 260 or $aht == '' ){
 };
 
 
-if($acw < 5 or $acw == ''){
+if($acw <= 5 or $acw == ''){
 	$acw_score = 5;
 }else{
 	$acw_score = 0;
 };
 
-if($hold < 3 or $hold == ''){
+if($hold <= 3 or $hold == ''){
 	$hold_score = 5;
 }else{
 	$hold_score = 0;
 };
 
-if($outbound_aht < 300 or $outbound_aht == ''  ){
+if($outbound_aht <= 300 or $outbound_aht == ''  ){
 	$outbound_score = 5;
 }else{
 	$outbound_score = 0;
@@ -132,7 +105,7 @@ if($outbound_aht < 300 or $outbound_aht == ''  ){
 
 
 
-if($adherence > 92 ){
+if(round($adherence,1) >= 95 ){
 	$adherence_score = 10;
 }else{
 	$adherence_score = 0;
@@ -141,7 +114,7 @@ if($adherence > 92 ){
 
 
 
-if($fcr > 60 or $fcr == ''  ){
+if($fcr >= 60 or $fcr == ''  ){
 	$fcr_score = 2;
 }else{
 	$fcr_score = 0;
@@ -149,14 +122,14 @@ if($fcr > 60 or $fcr == ''  ){
 
 
 
-if($nps > 45 or $nps == '' ){
+if($nps >= 45 or $nps == '' ){
 	$nps_score = 10;
 }else{
 	$nps_score = 0;
 };
 
 
-if($agent_ttb > 80 or $agent_ttb == '' ){
+if($agent_ttb >= 80 or $agent_ttb == '' ){
 	$agent_t = 8;
 
 }else{
@@ -254,10 +227,13 @@ $qcomplaint_score = 15;
 
 $attitude_score = $attitude * 5 ;
 $over_promising_score = $over_promising * 3;
+$lack_follow_up_score = $lack_follow * 3 ;
 $wrong_info_score = $wrong_info * 3 ;
 $wrong_action_score = $wrong_action * 3;
+$wrong_ts_score = $wrong_ts * 3;
 
-$final_score_complaint = $qcomplaint_score - ($attitude_score + $over_promising_score + $wrong_info_score + $wrong_action_score);
+
+$final_score_complaint = $qcomplaint_score - ($attitude_score + $over_promising_score + $wrong_info_score + $lack_follow_up_score + $wrong_action_score + $wrong_ts_score);
 
 
 /*
@@ -304,11 +280,13 @@ $no_calls = $row['acd_calls'] ;
 $leave_early = $row['leave_early'] /24/3600 ;
 
 
-//$saeed = " update august set no_calls = '$no_calls' , aht = '$aht' , acw = '$acw' , hold = '$hold' , outbound = '$outbound_aht', adherance = '$adherence' , sick = '$sick' , emerg = '$emerg' , absent = '$absent' , nps = '$nps' , fcr = '$fcr' , agent_ttb = '$agent_ttb', nps_calls = '$nps_calls', ctc = '$ctc', ctb = '$ctb', nc = '$nc', compliance = '$c2compliance', attiude = '$attitude', over_promising = '$over_promising', wrong_info = '$wrong_info', wron_transaction = '$wrong_action', final_score = '$final_score' , quality_score = '$final_quality_score' , complaint_score = '$final_score_complaint', leave_early = '$leave_early'  where login_id = '$login' ";
+
+
+$saeed = " update oct set no_calls = '$no_calls' , aht = '$aht' , acw = '$acw' , hold = '$hold' , outbound = '$outbound_aht', adherance = '$adherence' , sick = '$sick' , emerg = '$emerg' , absent = '$absent' , nps = '$nps' , fcr = '$fcr' , agent_ttb = '$agent_ttb', nps_calls = '$nps_calls', ctc = '$ctc', ctb = '$ctb', nc = '$nc', compliance = '$c2compliance', attiude = '$attitude', over_promising = '$over_promising', wrong_info = '$wrong_info', wron_transaction = '$wrong_action', wrong_ts = '$wrong_ts', lack_follow = '$lack_follow', final_score = '$final_score' , quality_score = '$final_quality_score' , complaint_score = '$final_score_complaint', absentscore = '$final_absentscore', leave_early = '$leave_early'  where login_id = '$login' ";
 
 
 
-$saeed = " update august set no_calls = '$no_calls' , aht = '$aht' , acw = '$acw' , hold = '$hold' , outbound = '$outbound_aht', adherance = '$adherence' , sick = '$sick' , emerg = '$emerg' , absent = '$absent' , nps = '$nps' , fcr = '$fcr' , agent_ttb = '$agent_ttb', nps_calls = '$nps_calls' where login_id = '$login' ";
+//$saeed = " update sep set no_calls = '$no_calls' , aht = '$aht' , acw = '$acw' , hold = '$hold' , outbound = '$outbound_aht', adherance = '$adherence' , sick = '$sick' , emerg = '$emerg' , absent = '$absent' , nps = '$nps' , fcr = '$fcr' , agent_ttb = '$agent_ttb', nps_calls = '$nps_calls' where login_id = '$login' ";
 
 
 

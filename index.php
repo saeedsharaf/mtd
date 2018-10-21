@@ -16,8 +16,8 @@ include 'config/login.php';
 <body>
 <div class="login"> 
 	<form action=""  method="post">
-		<label>User Name</label><input type="text" name="username" class="user" placeholder="User name"> <br>
-		<label>Password</label><input type="password" name="pass" class="pass" placeholder="Password"> <br>
+		<label>User Name</label><input type="text" name="username" class="user" placeholder="User name" autocomplete="off"> <br>
+		<label>Password</label><input type="password" name="pass" class="pass" placeholder="Password" autocomplete="off" > <br>
 		<input type="submit" name="submit" class="submit" value="Login">
 	</form>
 	<span> <?php echo $error; ?> </span>

@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
@@ -347,23 +347,49 @@ $aht = round($row['aht'],0) ;
 $acw = $row['acw'];
 $hold = $row['hold'];
 $outbound_aht = $row['outbound'];
-
 $absent = $row['absent'];
 $adherence = $row['adherance'];
 $nps = $row['nps'] ;
 $ctc = $row['ctc'] ;
 $ctb = $row['ctb'];
 $nc = $row['nc'];
-//$compliance = $row['compliance'];
-//$quality_score = round($row['quality_score']*100);
-//$attiude = $row['attiude'];
-//$over_promising = $row['over_promising'];
-//$wrong_info = $row['wrong_info'];
-//$wron_transaction = $row['wron_transaction'];
-//$complaint_score = round($row['complaint_score']*100);
+$quality_score = $row['quality_score'];
 $final_score = round($row['final_score'],2);
 
 
+
+// below code to remove % and validate value
+if($aht == ''){
+			$aht = '';
+		}
+
+
+		if($acw == ''){
+			$acw = '';
+		}else{
+			$acw = round($row['acw'],2) . ' %';
+		}
+
+
+		if($hold == ''){
+			$hold = '';
+		}else{
+			$hold = round($row['hold'],2) . ' %';
+		}
+
+		if($quality_score == ''){
+			$quality_score = '';
+		}else{
+		$quality_score = $row['quality_score']	. ' %';
+		}
+
+		$final_score = $row['final_score'];
+
+		if($final_score == 0){
+			$final_score = '';
+		}else{
+			$final_score = $row['final_score'] . ' %';
+		}
 
 if($aht > 260){
 	$aht_score = 0;
@@ -458,21 +484,21 @@ if($absent == 1){
 
 
 	<div style="height:45px; width: 70px; color :<?php echo $acw_color ;?>; " class="saeed graych">
-		<h1><?php  echo round($acw,2) ?> % </h1>
+		<h1><?php  echo $acw ?>  </h1>
 	</div>
 
 
 	<div style="height:45px; width: 70px; color :<?php echo $hold_color ;?>;" class="saeed gray1ch">
-		<h1><?php  echo round ($hold,2) ?> %  </h1>
+		<h1><?php  echo $hold ?>   </h1>
 	</div>
 
 
 	<div style="height:45px; width: 120px;" class="saeed brownch">
-		<h1><?php echo $quality_score ; ?> %</h1>
+		<h1><?php echo $quality_score ; ?> </h1>
 	</div>
 
 	<div style="height:45px; width: 120px;" class="saeed qch ">
-		<h1><?php echo $final_score ; ?> %</h1>
+		<h1><?php echo $final_score ; ?> </h1>
 	</div>
 
 							<?php
@@ -493,3 +519,10 @@ if($absent == 1){
 	include'../main_page.php';
 
 	?>
+
+	<style >
+	.container {
+    height: 0%;
+    width: 0%;
+    /* background-color: #e7ebee26; */
+	</style>

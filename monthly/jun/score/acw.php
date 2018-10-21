@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
@@ -301,18 +301,19 @@ include'../../../config/connect.php';
 ?>
 
 
+
 <?php
 $id = $_GET['id'];
 if($id == 2){
 	
-		$sql="select * from jun where acw > 0.05 ";
+		$sql="select * from jun where acw > 5 ";
 		$result=$cont->query($sql);
 		if($result->num_rows > 0){
 
 			while($row = $result->fetch_assoc()){
-				$aht = $row['aht'] * 24 * 3600 ;
-				$acw = $row['acw'] * 100 ;
-				$hold = $row['hold'] *100;
+				$aht = round($row['aht'],2);
+				$acw = round($row['acw'],2) ;
+				$hold = round($row['hold'],2);
 				$quality_score = round($row['quality_score']*100);
 				$final_score = round($row['final_score']*100);
 			
@@ -345,6 +346,7 @@ if($aht > 260 ){
 
 
 		?>
+
 
 	<div style="height:45px; width: 100px;" class="saeed redch">
 		<h1><a href="more.php?id=<?php echo $row['login_id'] ?>" style="color:blue" title="More"> <?php echo $row['login_id']; ?> </a></h1>
@@ -394,20 +396,29 @@ if($aht > 260 ){
 
 							}
 						}
+						?>
+						<form action="export.php" method="get">
+						<input type="submit" accesskey="s" name="acw_not"  style="display:none;">
+						</form>
+						<?php
 					}else{
-
-						$sql="select * from jun where acw < 0.05 ";
+							?>
+						<form action="export.php" method="get">	
+						<input type="submit" accesskey="s" name="acw"  style="display:none;">
+						</form>
+						<?php
+						$sql="select * from jun where acw < 5 ";
 						$result=$cont->query($sql);
 						if($result->num_rows > 0){
 
 							while($row = $result->fetch_assoc()){
-								$aht = $row['aht'] * 24 * 3600 ;
-								$acw = $row['acw'] * 100 ;
-								$hold = $row['hold'] *100;
+								$aht = round($row['aht'],2) ;
+								$acw = round($row['acw'],2) ;
+								$hold = round($row['hold'],2);
 								
-								$quality_score = round($row['quality_score']*100);
+								$quality_score = $row['quality_score'];
 							
-								$final_score = round($row['final_score']*100);
+								$final_score = $row['final_score'];
 								
 							
 

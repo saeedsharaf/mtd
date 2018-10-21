@@ -52,53 +52,7 @@ var barChartData1 = {
 
       },
 
-
-      
-      {
-
-        type: 'line',
-        label: 'AHT',
-        borderColor: '#283747',
-        
-        borderWidth: 1,
-        fill: false,
-
-        data: [
-         <?php
-          foreach ($month  as $date ){
-      $e_t = "select * from dashboard where date = '$date'"; // to select total rows        
-      $e_tq = $cont->query($e_t); 
-      $rows = $e_tq->fetch_assoc();
-      if($row['acd_call'] == 0){
-        continue;
-      }else{
-      echo round((($rows['acd_time'] + $rows['acw_time'] + $rows['hold_time']) / $rows['acd_call'])) . ',';
-      
-      }}
-      
-         ?>
-
-        ],
-        yAxisID: 'y-axis-1',
-          datalabels:{
-          backgroundColor : '#283747',
-          borderRadius: 9,
-          color: 'white',
-          align: 'center',
-          anchor: 'end',
-          formatter: function(value, context) {
-              value = Math.round(value * 100) / 100;
-                            return context.active
-                                ? context.dataset.label + '\n' + value + ' ' + 'sec'
-                                : Math.round(value);
-      
-
-      }
-    }
-
-      },
-
-	
+      	
 
       {
         

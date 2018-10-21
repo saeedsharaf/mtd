@@ -2,21 +2,21 @@
 
 //error_reporting(0);
 
-$sql = "select * from nps where manger_id = '555'";
+$sql = "select * from nps where manger_id = ''";
 	
 			$result = $cont->query($sql);
 			$totalsurvey =  $result->num_rows ;
 	
-			$promoter = "select * from nps where nps_rating >= 9 and manger_id = '555'"; // select all promoter rows that's higher tahn 9
-			$passive = "select * from nps where nps_rating > 6 and nps_rating < 9 and manger_id = '555' "; // select passive rows 
-			$detractor = "select * from nps where nps_rating <= 6 and manger_id = '555'"; // select detractor rows  
+			$promoter = "select * from nps where nps_rating >= 9 and manger_id = ''"; // select all promoter rows that's higher tahn 9
+			$passive = "select * from nps where nps_rating > 6 and nps_rating < 9 and manger_id = '' "; // select passive rows 
+			$detractor = "select * from nps where nps_rating <= 6 and manger_id = ''"; // select detractor rows  
 			
-			$cs_ttb = "select * from nps where sats > 3 and manger_id = '555' ";
-			$cs_bb = "select * from nps where sats < 2 and manger_id = '555'";
+			$cs_ttb = "select * from nps where sats > 3 and manger_id = '' ";
+			$cs_bb = "select * from nps where sats < 2 and manger_id = ''";
 			
 			
-			$fcr = "select * from nps where ir = '1' and manger_id = '555'";
-			$ir = "select * from nps where  ir = '2' and manger_id = '555'";
+			$fcr = "select * from nps where ir = '1' and manger_id = ''";
+			$ir = "select * from nps where  ir = '2' and manger_id = ''";
 
 			$result_pro = $cont->query($promoter); // promter query
 			$result_pass = $cont->query($passive); // passive query
@@ -30,11 +30,11 @@ $sql = "select * from nps where manger_id = '555'";
 			$de = $result_de->num_rows;
 			
 			//////////////////////////////////////////
-			$cs_ttb = "select * from nps where sats > 3  and manger_id = '555'";
-			$cs_bb = "select * from nps where sats < 2 and manger_id = '555'";
+			$cs_ttb = "select * from nps where sats > 3  and manger_id = ''";
+			$cs_bb = "select * from nps where sats < 2 and manger_id = ''";
 			
-			$ag_ttb = "select * from nps where agent_satisfaction > 3 and manger_id = '555' "; // select agent tob box 
-			$ag_bb = "select * from nps where agent_satisfaction < 2 and manger_id = '555' "; // select agent bottom box 
+			$ag_ttb = "select * from nps where agent_satisfaction > 3 and manger_id = '' "; // select agent tob box 
+			$ag_bb = "select * from nps where agent_satisfaction < 2 and manger_id = '' "; // select agent bottom box 
 			
 			
 			$result_agttb = $cont->query($ag_ttb);

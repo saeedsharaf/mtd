@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
@@ -407,7 +407,7 @@ if($aht > 260 ){
 						</form>
 					<?php
 
-						$sql="select * from jun where aht < 260 ";
+						$sql="select * from august where aht < 260 ";
 						$result=$cont->query($sql);
 						if($result->num_rows > 0){
 

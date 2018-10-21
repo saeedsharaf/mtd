@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
@@ -178,7 +178,7 @@ section h1{
 
 
 
-	<div class="reset " id="main" style="width:1227px;">
+	<div class="reset " id="main" style="width:1227px; min-width:1227px ">
 			<div style="height: 100px; width: 100px;" class="saeed">
 		<header>
 			  <div class="header__bg red"></div>
@@ -305,17 +305,22 @@ include'../../../config/connect.php';
 $id = $_GET['id'];
 //$ctc = 0;
 if($id == 2){
+	?>
+		<form action="export.php" method="get">
+  			 <input type="submit" accesskey="s" name="attiude_not"  style="display:none;">
+		</form>
+	<?php
 	
 		$sql="select * from may where attiude > 0 ";
 		$result=$cont->query($sql);
 		if($result->num_rows > 0){
 
 			while($row = $result->fetch_assoc()){
-				$aht = $row['aht'] * 24 * 3600 ;
-				$acw = $row['acw'] * 100 ;
-				$hold = $row['hold'] *100;
+				$aht = round($row['aht'],2) ;
+				$acw = round($row['acw'],2) ;
+				$hold = round($row['hold'],2);
 				$attiude = $row['attiude'];
-				$final_score = round($row['final_score']*100);
+				$final_score = $row['final_score'];
 			
 
 if($aht > 260 ){
@@ -402,19 +407,24 @@ if($aht > 260 ){
 							}
 						}
 					}else{
+						?>
+							<form action="export.php" method="get">
+					  			 <input type="submit" accesskey="s" name="attiude"  style="display:none;">
+							</form>
+						<?php
 
 						$sql="select * from may where attiude < 1 ";
 						$result=$cont->query($sql);
 						if($result->num_rows > 0){
 
 							while($row = $result->fetch_assoc()){
-								$aht = $row['aht'] * 24 * 3600 ;
-								$acw = $row['acw'] * 100 ;
-								$hold = $row['hold'] *100;
+								$aht = round($row['aht'],2) ;
+								$acw = round($row['acw'],2) ;
+								$hold = round($row['hold'],2);
 								
 								$attiude = $row['attiude'];;
 							
-								$final_score = round($row['final_score']*100);
+								$final_score =$row['final_score'];
 								
 							
 

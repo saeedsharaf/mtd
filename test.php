@@ -5,17 +5,11 @@
 session_start();
 set_time_limit(0);
 echo ini_get('max_execution_time');
-if(!isset($_SESSION['username'])){
-?>
-<script>window.location.href='index.php' </script>
-<?php
-}
 
-?>
 		
 		
 		
-			<?php 
+			
 			include'config/connect.php';
 			//include'../month.php';
 	
@@ -122,7 +116,7 @@ if(!isset($_SESSION['username'])){
 
 
 
-			$score = "update august1 set nps = $nps , fcr = $fcr_precentage , agent_target = round($per_agttb) , nps_calls = $result->num_rows where login_id = $id  ";
+			$score = "update score set nps = $nps , fcr = $fcr_precentage , agent_target = round($per_agttb) , nps_calls = $result->num_rows where login_id = $id  ";
 
 			if($cont->query($score) === true){
 				

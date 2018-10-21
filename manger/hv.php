@@ -16,7 +16,7 @@ include'../main_page.php';
 		
 			<table class="tf">
 			
-			<caption style="background-color:#a90101; padding:9px; color: white;">Jun 2018</caption>
+			<caption style="background-color:#a90101; padding:9px; color: white;">Oct 2018</caption>
 			<thead>
 			
 			<tr>
@@ -74,7 +74,7 @@ include'../main_page.php';
 			 
 			?>
 				
-				<td class="light"> <a href="main_nps.php" style="color:blue;" title="click here for more details">High Value </a> </td>
+				<td class="light"> <a href="main_nps.php" style="color:blue;" title="click here for more details">Prepaid </a> </td>
 				<td class="light"> <?php echo $totalsurvey ;?></td>
 				<td class="light"> <?php echo $pro ;?> </td>
 				<td class="light"> <?php echo $de ;?> </td>
@@ -96,7 +96,7 @@ include'../main_page.php';
 			</tr>	
 			
 			<?php
-
+/*
 			include'tamer_seif.php';
 
 			?>
@@ -122,7 +122,9 @@ include'../main_page.php';
 			
 			</tr>	
 
-			 
+
+	*/
+			?>		 
 
 </table>
 

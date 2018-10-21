@@ -16,7 +16,7 @@ include'../main_page.php';
 		
 			<table class="tf">
 			
-			<caption style="background-color:#a90101; padding:9px; color: white;">Jun 2018</caption>
+			<caption style="background-color:#a90101; padding:9px; color: white;">Oct 2018</caption>
 			<thead>
 			
 			<tr>
@@ -56,7 +56,7 @@ include'../main_page.php';
 			
 			
 			
-		$ids = array(111,222,333);
+		$ids = array(111,222);
 		foreach($ids as $id){
 		
 		$sql1 = "select user_name from member where super = '$id'";	
@@ -116,11 +116,12 @@ include'../main_page.php';
 		<div class="inbound" >
 			<canvas id="t_in" width="535" ></canvas>
 		</div> 
--->
+
 
 		<div class="inbound1" style="width: 100%; height:500px;">
 			<canvas id="ezz" width="500" height="140"></canvas>
 		</div>
+		-->
 		<div class="inbound1" style="width: 100%; height:500px;">
 			<canvas id="abdalha" width="500" height="140"></canvas>
 		</div>
@@ -130,7 +131,7 @@ include'../main_page.php';
 	
 	
 	include'js/abdalha_daily.php';
-	include'js/ezz_daily.php';
+	//include'js/ezz_daily.php';
 	
 	
 	

@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 
@@ -20,7 +20,7 @@ if(!isset($_SESSION['username'])){
 .content{
 	position: absolute;
 	color: white;
-	font-size: 25px;
+	font-size: 21px;
 	font-weight: bolder;
 
 }
@@ -118,6 +118,13 @@ $Over_Promising = $row['over_promising'];
 $attitude = $row['attiude'];
 
 
+if($leave_early <= 7200 and $leave_early > 0 ){
+	$leave = 1 ;
+} else if ($leave_early > 7200 ){
+	$leave = 2;
+}
+
+
 
 ////////////////////////////////////////////////////// Punctuality  score /////////////////////////////////////
 if($sick > 0){
@@ -182,7 +189,7 @@ if($outbound_aht > 300 ){
 
 /////////////////////////////////////////////////////////// nps Score //////////////////////////////////////////
 
-if($fcr > 60 ){
+if($fcr > 60 or $fcr == '' ){
 	$fcr_score = 2;
 }else{
 	$fcr_score = 0;
@@ -190,14 +197,14 @@ if($fcr > 60 ){
 
 
 
-if($nps > 45 ){
+if($nps > 45 or $nps == ''){
 	$nps_score = 10;
 }else{
 	$nps_score = 0;
 }
 
 
-if($agent_ttb > 80){
+if($agent_ttb > 80 or $agent_ttb == ''){
 	$agent_t = 8;
 
 }else{
@@ -437,7 +444,7 @@ if($wron_transaction > 0){
 
 	<div clas="aht" style="background-color: #dd4d33a8; height:130px; width:210px; margin-right: 50px; position: relative;margin-bottom: -70px; ">
 			<div style="height: 35% ; background-color: #dd4d33; width: 100%">
-				<span class="content black" style="top: 80px; left: 100"> <?php ?> </span>
+				<span class="content black" style="top: 70px; left: 80"> <?php echo $row['absentscore']?> % </span>
 				<span class="font" style="top : 10px; left: 40px">Absenteeism Score </span>
 				
 			</div>
@@ -453,10 +460,10 @@ if($wron_transaction > 0){
 	</div>
 
 
-	<div clas="aht" style="background-color: #01c5ed66; height:60px; width:87px; margin-right: 50px; position: relative;margin-top: -28px; ">
-			<div style="height: 40% ; background-color: #01c5ed; width: 100%">
-				<span class="content black" style="top: 30px; left:38px"> <?php $rejection ?> </span>
-				<span class="font" style="top : 3px; left: 12px">Rejection </span>
+	<div clas="aht" style="background-color: unset; height:60px; width:87px; margin-right: 50px; position: relative;margin-top: -28px; ">
+			<div style="height: 40% ; background-color: unset; width: 100%">
+				<span class="content black" style="top: 30px; left:38px">  </span>
+				<span class="font" style="top : 3px; left: 12px"> </span>
 				
 			</div>
 	</div>
@@ -480,7 +487,7 @@ if($wron_transaction > 0){
 
 	<div clas="aht" style="background-color: #f39817ab; height:60px; width:212px; margin-right: 50px; position: relative;margin-top: -28px ">
 			<div style="height: 10% ; background-color: #f39817; width: 100%">
-				<span class="content black" style="top: 30px; left: 100px"> <?php echo $leave_early?> </span>
+				<span class="content black" style="top: 30px; left: 100px"> <?php echo $leave?> </span>
 				<span class="font black" style="top : 9; left: 65 ;">Leave Early </span>
 				
 			</div>

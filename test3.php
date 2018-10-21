@@ -19,7 +19,7 @@ include'config/connect.php';
 
 <?php
 $id = $_SESSION['id'];
-$sql="select * from august  ";
+$sql="select * from sep  ";
 $result=$cont->query($sql);
 
 if($result->num_rows > 0){
@@ -307,7 +307,7 @@ $leave_early = $row['leave_early'] /24/3600 ;
 
 
 
-$saeed = " update august set final_score = '$final_score' where login_id = '$login' ";
+$saeed = " update sep set final_score = '$final_score' where login_id = '$login' ";
 
 
 

@@ -1,19 +1,21 @@
 <?php
+session_start();
 
-$sql = "select * from nps where team_id = '$teamid' ";
+$id = $_SESSION['id'];
+$sql = "select * from nps where team_id = '$id' ";
 			$result = $cont->query($sql);
 			$totalsurvey +=  $result->num_rows ;
 	
-			$promoter = "select * from nps where team_id= '$teamid' and nps_rating >= 9 "; // select all promoter rows that's higher tahn 9
-			$passive = "select * from nps where team_id= '$teamid' and nps_rating > 6 and nps_rating < 9 "; // select passive rows 
-			$detractor = "select * from nps where team_id= '$teamid' and nps_rating <= 6 "; // select detractor rows  
+			$promoter = "select * from nps where team_id= '$id' and nps_rating >= 9 "; // select all promoter rows that's higher tahn 9
+			$passive = "select * from nps where team_id= '$id' and nps_rating > 6 and nps_rating < 9 "; // select passive rows 
+			$detractor = "select * from nps where team_id= '$id' and nps_rating <= 6 "; // select detractor rows  
 			
-			$cs_ttb = "select * from nps where team_id = '$teamid' and sats > 3 ";
-			$cs_bb = "select * from nps where team_id = '$teamid' and sats < 2";
+			$cs_ttb = "select * from nps where team_id = '$id' and sats > 3 ";
+			$cs_bb = "select * from nps where team_id = '$id' and sats < 2";
 			
 			
-			$fcr = "select * from nps where team_id= '$teamid' and ir = '1' ";
-			$ir = "select * from nps where team_id= '$teamid' and ir = '2' ";
+			$fcr = "select * from nps where team_id= '$id' and ir = '1' ";
+			$ir = "select * from nps where team_id= '$id' and ir = '2' ";
 
 			$result_pro = $cont->query($promoter); // promter query
 			$result_pass= $cont->query($passive); // passive query
@@ -27,11 +29,11 @@ $sql = "select * from nps where team_id = '$teamid' ";
 			$de += $result_de->num_rows;
 			
 			//////////////////////////////////////////
-			$cs_ttb = "select * from nps where team_id = '$teamid' and sats > 3 ";
-			$cs_bb = "select * from nps where team_id = '$teamid' and sats < 2";
+			$cs_ttb = "select * from nps where team_id = '$id' and sats > 3 ";
+			$cs_bb = "select * from nps where team_id = '$id' and sats < 2";
 			
-			$ag_ttb = "select * from nps where team_id = '$teamid' and agent_satisfaction > 3 "; // select agent tob box 
-			$ag_bb = "select * from nps where team_id= '$teamid' and agent_satisfaction < 2 "; // select agent bottom box 
+			$ag_ttb = "select * from nps where team_id = '$id' and agent_satisfaction > 3 "; // select agent tob box 
+			$ag_bb = "select * from nps where team_id= '$id' and agent_satisfaction < 2 "; // select agent bottom box 
 			
 			
 			$result_agttb = $cont->query($ag_ttb);

@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
@@ -569,3 +569,9 @@ if($nps > 40 ){
 	include'../main_page.php';
 
 	?>
+	<style >
+		.container {
+    height: 0%;
+    width: 0%;
+    /* background-color: #e7ebee26; */
+	</style>

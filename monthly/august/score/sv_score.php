@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 
@@ -20,7 +20,7 @@ if(!isset($_SESSION['username'])){
 .content{
 	position: absolute;
 	color: white;
-	font-size: 25px;
+	font-size: 21px;
 	font-weight: bolder;
 
 }
@@ -88,10 +88,15 @@ $attiude = $row['attiude'];
 $over_promising = $row['over_promising'];
 $wrong_info = $row['wrong_info'];
 $wron_transaction = $row['wron_transaction'];
-$complaint_score = round($row['complaint_score']*100);
+$complaint_score = round($row['complaint_score']);
 $final_score = round($row['final_score'],2);
 $agent_ttb = $row['agent_ttb'];
 $fcr = round($row['fcr'],0);
+$sick = $row['sick'];
+$over_promising = $row['over_promising'];
+$leave_early = $row['leave_early'] ;
+$attitude = $row['attiude'];
+
 
 
 $zero_aht = is_nan($aht);
@@ -156,7 +161,7 @@ if($adherence > 92 ){
 
 
 
-if($fcr > 60 ){
+if($fcr > 60 or $fcr == ''){
 	$fcr_score = 2;
 }else{
 	$fcr_score = 0;
@@ -164,14 +169,14 @@ if($fcr > 60 ){
 
 
 
-if($nps > 45 ){
+if($nps > 45 or $nps == '' ){
 	$nps_score = 10;
 }else{
 	$nps_score = 0;
 }
 
 
-if($agent_ttb > 80){
+if($agent_ttb > 80 or $agent_ttb == ''){
 	$agent_t = 8;
 
 }else{
@@ -191,7 +196,11 @@ if($row['sick'] < 1){
 	$sick_score = 0;
 }
 
-
+if($leave_early <= 7200 and $leave_early > 0 ){
+	$leave = 1 ;
+} else if ($leave_early > 7200 ){
+	$leave = 2;
+}
 
 /*
 $aht = $row['aht'] * 24 * 3600 ;
@@ -217,6 +226,7 @@ $final_score = round($row['final_score']*100);
 */
 
 }else if($id >= 111 and $id <= 555){
+	$idd = $_GET['id'];
 
 	$sql="select * from august where manger_id = '$id'";
 $result=$cont->query($sql);
@@ -248,14 +258,21 @@ $outbound_aht = ($aux_out_time + $acw_out_time) / ($acw_out_time + $aux_out_call
 
 
 
-
-
+if($result->num_rows > 0){
 
 ?>
+<div style=" margin:0 auto ; margin-top: 100px ;width: 35%; height:70px;background-color: #1b1b1b38; text-align: center;position: relative;">
+	<span class="content" style="left: 160px;font-size: 19px;top:10px; color: black"><?php echo $row['name']; ?> </span>
+	
+	<div style="position: absolute; background-color: #01c5ed; width: 30%;height: 100%">
+		<span class="content" style="left:29px;top: 5px;"><?php echo $idd ; ?>  </span>
+		<span class="content" style="left: 30px;font-size: 17px;top:40px;">Login Id </span>
+
+	</div>	
+</div>
 
 
-
-<div class="s" style="width:80%; margin: 0 auto;  height:90% ; display: flex; margin-top: 100px;flex-wrap: wrap; margin-left: 175px;">
+<div class="s" style="max-width:1080px;min-width:1080px; margin: 0 auto;  height:595px ; display: flex; margin-top: 40px;flex-wrap: wrap; margin-left: 175px;">
 	
 		<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:210px; margin-right: 50px; position: relative; ">
 			<div style="height: 100% ; background-color: #01c5ed; width: 35%">
@@ -263,15 +280,15 @@ $outbound_aht = ($aux_out_time + $acw_out_time) / ($acw_out_time + $aux_out_call
 				<span class="content" style="top: 10; left: 10"> <?php echo round($aht) ;?> </span>
 				<span class="font" style="top : 45; left: 10">AHT </span>
 				<span class="content black" style="left: 100; top: 49; color: black; font-size: 18px">Score</span>
-				<span class="content black" style="left: 100; top: 10 ;color: black;" ><?php echo $aht_score ;?> %</span>
+				<span class="content black" style="left: 100; top: 10 ;color: black;" ><?php echo $aht_score; ?> %</span>
 			</div>
 		</div>
 		
 
 	<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:210px; margin-right: 50px; position: relative; ">
-			<div style="height: 100% ; background-color: #09a55c; width: 35%">
+			<div style="height: 100% ; background-color: #09a55c; width: 40%">
 				<img src="../../../style/acw.png" height="40px" width="40px" style="position: absolute; left: 160; top: 35;" >
-				<span class="content" style="top: 10; left: 10"> <?php echo $acw ?> % </span>
+				<span class="content" style="top: 10; left: 10"> <?php echo round($acw) ?> % </span>
 				<span class="font" style="top : 50; left: 10 ;">ACW </span>
 				<span class="content black" style="left: 108; top: 49; font-size: 18px">Score</span>
 				<span class="content black" style="left: 108; top: 10;" > <?php echo $acw_score; ?> %</span>
@@ -299,28 +316,31 @@ $outbound_aht = ($aux_out_time + $acw_out_time) / ($acw_out_time + $aux_out_call
 				<span class="content black" style="left: 145; top: 49; color: black; font-size: 18px">Score</span>
 				<span class="content black" style="left: 145; top: 10; color: black;" > <?php echo $outbound_score; ?> %</span>
 			</div>
-		</div>	
+		</div>
+		
 <!---------------------------------------------------------------------------------------------------------------------- -->
-
+	
 	<div clas="aht" style="background-color: #01c5ed; height: 100px; width:210px; margin-right: 50px; position: relative; ">
 			<div style="height: 100% ; background-color: #009bbb; width: 45%">
 				<img src="../../../style/call.png" style="position: absolute; width: 50px;height: 50px; left: 20; top: 25 ">
-				<span class="content" style="top:30; left: 130 ; font-size: 20px;"> <?php echo $row['sick'] ?>  </span>
-				<span class="font" style="top:5; left: 125">Sick </span>
+				<span class="content" style="top:30; left: 130 ; font-size: 20px;"> <?php echo $fcr ?> % </span>
+				<span class="font" style="top:5; left: 130">FCR</span>
 
 				<span class="content black" style="left: 130; top: 55;  font-size: 18px">Score</span>
-				<span class="content black" style="left: 129; top:76; font-size: 20px;" > <?php echo $sick_score; ?> %</span>
+				<span class="content black" style="left: 129; top:76; font-size: 20px;" > <?php echo $fcr_score ; ?> %</span>
 			</div>
 	</div>	
 
 
-	<div clas="aht" style="background-color: #01c5ed; height: 100px; width:210px; margin-right: 50px; position: relative; ">
-			<div style="height: 100% ; background-color: #009bbb; width: 45%">
+	<div clas="aht" style="background-color: #09a55c96; height: 100px; width:210px; margin-right: 50px; position: relative; ">
+			<div style="height: 100% ; background-color: #09a55c; width: 45%">
 				<img src="../../../style/absent.png" style="position: absolute; width: 70px;height: 70px; left: 15; top: 10 ">
-				<span class="content" style="top:30; left: 130 ; font-size: 20px;"> <?php echo round($absent) ?>  </span>
-				<span class="font" style="top:5; left: 110">Absenteeism </span>
+				<span class="content" style="top:30; left: 130 ; font-size: 20px;"> <?php echo $agent_ttb ?> % </span>
+				<span class="font" style="top:5; left: 110">Agent TTB </span>
+
 				<span class="content black" style="left: 130; top: 55;  font-size: 18px">Score</span>
-				<span class="content black" style="left: 129; top:76; font-size: 20px;" > <?php echo $absnt_score ; ?> %</span>
+				<span class="content black" style="left: 129; top:76; font-size: 20px;" > <?php echo $agent_t ; ?> %</span>
+				
 
 				
 			</div>
@@ -351,15 +371,15 @@ $outbound_aht = ($aux_out_time + $acw_out_time) / ($acw_out_time + $aux_out_call
 				<span class="content black" style="left: 129; top:76; font-size: 20px;" ><?php echo $nps_score; ?> %</span>
 			</div>
 	</div>			
-
+	
 
 
 <!------------------------------------------------------------------------------------------------------------------------->
-
-	<div clas="aht" style="background-color: #01c5ed66; height:80px; width:160px; margin-right: 50px; position: relative; ">
+	
+	<div clas="aht" style="background-color: #01c5ed66; height:60px; width:87px; margin-right: 35px; position: relative; ">
 				<div style="height: 40% ; background-color: #01c5ed; width: 100%">
-					<span class="content black" style="top: 45; left: 75"> <?php echo $ctc ;?> </span>
-					<span class="font" style="top : 7; left: 65">CTC</span>
+					<span class="content black" style="top: 27; left: 37"> <?php echo $ctc + $compliance ;?> </span>
+					<span class="font" style="top : 3; left: 24">CTC</span>
 					
 				</div>
 	</div>
@@ -367,85 +387,153 @@ $outbound_aht = ($aux_out_time + $acw_out_time) / ($acw_out_time + $aux_out_call
 
 
 
-	<div clas="aht" style="background-color: #09a55c96; height:80px; width:160px; margin-right: 50px; position: relative; ">
-			<div style="height: 40% ; background-color: #09a55c; width: 100%">
-				<span class="content black" style="top: 45; left: 75"> <?php echo $ctb ?> </span>
-				<span class="font" style="top : 7; left: 65 ;">CTB </span>
+	<div clas="aht" style="background-color: #01c5ed66; height:60px; width:87px; margin-right: 49px; position: relative; ">
+			<div style="height: 40% ; background-color: #01c5ed; width: 100%">
+				<span class="content black" style="top: 27; left: 37"> <?php echo $ctb ?> </span>
+				<span class="font" style="top : 3; left: 24 ;">CTB </span>
 				
 			</div>
 	</div>
 
-	<div clas="aht" style="background-color: #f39817a1; height:80px; width:160px; margin-right: 50px; position: relative; ">
+	<div clas="aht" style="background-color: #09a55c96; height:127px; width:210px; margin-right: 50px; position: relative;margin-bottom: -70px;">
+			<div style="height: 35% ; background-color: #09a55c; width: 100%">
+				<span class="content black" style="top: 80px; left: 87px"> <?php echo $quality_score ?> %</span>
+				<span class="font" style="top : 10px; left: 58px">Quality Score </span>
+				
+			</div>
+	</div>
+
+
+	<div clas="aht" style="background-color: #f39817ab; height:60px; width:87px; margin-right: 35px; position: relative; ">
+				<div style="height: 40% ; background-color: #f39817; width: 100%">
+					<span class="content black" style="top: 27; left: 37"> <?php echo $sick  ;?> </span>
+					<span class="font" style="top : 3; left: 28">Sick</span>
+					
+				</div>
+	</div>
+
+
+
+
+	<div clas="aht" style="background-color: #f39817ab; height:60px; width:87px; margin-right: 50px; position: relative; ">
 			<div style="height: 40% ; background-color: #f39817; width: 100%">
-				<span class="content black" style="top: 45; left:75"> <?php echo $nc;?> </span>
-				<span class="font" style="top : 7; left: 68">NC </span>
+				<span class="content black" style="top: 27; left: 37"> <?php echo $absent; ?> </span>
+				<span class="font" style="top : 3; left: 20 ;">Absent </span>
 				
 			</div>
 	</div>
 
 
-	<div clas="aht" style="background-color: #dd4d33a8; height:80px; width:160px; margin-right: 50px; position: relative; ">
-			<div style="height: 40% ; background-color: #dd4d33; width: 100%">
-				<span class="content black" style="top: 45; left: 75"> <?php echo $compliance;?> </span>
-				<span class="font" style="top : 7; left: 40">Compliance </span>
+
+	<div clas="aht" style="background-color: #dd4d33a8; height:130px; width:210px; margin-right: 50px; position: relative;margin-bottom: -70px; ">
+			<div style="height: 35% ; background-color: #dd4d33; width: 100%">
+				<span class="content black" style="top: 70px; left: 80"> <?php echo $row['absentscore']?> % </span>
+				<span class="font" style="top : 10px; left: 40px">Absenteeism Score </span>
 				
 			</div>
 	</div>
 
-	<div clas="aht" style="background-color: #dd4d33a8; height:80px; width:160px; margin-right: 50px; position: relative; ">
-			<div style="height: 40% ; background-color: #dd4d33; width: 100%">
-				<span class="content black" style="top: 45; left: 75"> <?php echo $quality_score ?> %</span>
-				<span class="font" style="top : 7; left: 40">Quality Score </span>
+
+	<div clas="aht" style="background-color: #01c5ed66; height:60px; width:87px; margin-right: 34px; position: relative;margin-top: -28px; ">
+			<div style="height: 40% ; background-color: #01c5ed; width: 100%">
+				<span class="content black" style="top: 30px; left:38px"> <?php echo $nc;?> </span>
+				<span class="font" style="top : 3px; left: 32">NC </span>
 				
 			</div>
 	</div>
+
+
+	<div clas="aht" style="background-color: unset; height:60px; width:87px; margin-right: 50px; position: relative;margin-top: -28px; ">
+			<div style="height: 40% ; background-color: unset; width: 100%">
+				<span class="content black" style="top: 30px; left:38px">  </span>
+				<span class="font" style="top : 3px; left: 12px"> </span>
+				
+			</div>
+	</div>
+
+
+	
+
+	
+
 
 
 <!--------------------------------------------------------------------------------------------------------------->
-<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:160px; margin-right: 50px; position: relative; ">
-				<div style="height: 10% ; background-color: #01c5ed; width: 100%">
+
+<div clas="aht" style="/*background-color: #1b1b1b38;*/ height:80px; width:160px; margin-right: 100px; position: relative; ">
+			<!--	<div style="height: 10% ; background-color: #01c5ed; width: 100%">
 					<span class="content black" style="top: 45; left: 75"> <?php echo $attiude ;?> </span>
 					<span class="font black" style="top : 15; left: 50">Attitude</span>
 					
-				</div>
+				</div>  -->
+	</div>
+
+	<div clas="aht" style="background-color: #f39817ab; height:60px; width:212px; margin-right: 50px; position: relative;margin-top: -28px ">
+			<div style="height: 10% ; background-color: #f39817; width: 100%">
+				<span class="content black" style="top: 30px; left: 100px"> <?php echo $leave?> </span>
+				<span class="font black" style="top : 9; left: 65 ;">Leave Early </span>
+				
+			</div>
 	</div>
 
 
 
 
-	<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:160px; margin-right: 50px; position: relative; ">
-			<div style="height: 10% ; background-color: #09a55c; width: 100%">
+
+
+	<div clas="aht" style="/*background-color: #1b1b1b38; */height:80px; width:160px; margin-right: 50px; position: relative; ">
+		<!--	<div style="height: 10% ; background-color: #09a55c; width: 100%">
 				<span class="content black" style="top: 45; left: 75"> <?php echo $over_promising ;?> </span>
 				<span class="font black" style="top : 15; left: 30 ;">Over Promising </span>
 				
+			</div>-->
+	</div>
+
+	<div clas="aht" style="background-color: #1b1b1b38; height:60px; width:210px; margin-right: 50px; position: relative;margin-top: -55px; ">
+			<div style="height: 10% ; background-color: #01c5ed; width: 100%">
+				<span class="content black" style="top: 30px; left:100px"> <?php echo $over_promising ;?> </span>
+				<span class="font black" style="top : 8px; left: 53px">Over Promising </span>
+				
 			</div>
 	</div>
 
-	<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:160px; margin-right: 50px; position: relative; ">
+
+	<div clas="aht" style="background-color: #1b1b1b38; height:60px; width:210px; margin-right: 50px; position: relative;margin-top: -55px ">
+			<div style="height: 10% ; background-color: #09a55c; width: 100%">
+				<span class="content black" style="top: 30px; left: 100px"> <?php echo $wron_transaction ;?> </span>
+				<span class="font black" style="top : 8; left: 40"> Wrong Transaction </span>
+				
+			</div>
+	</div>
+
+	<div clas="aht" style="background-color: #1b1b1b38; height:60px; width:100px; margin-right: 10px; position: relative;margin-top: -55px ">
 			<div style="height: 10% ; background-color: #f39817; width: 100%">
-				<span class="content black" style="top: 45; left:75"> <?php echo $wrong_info;?> </span>
-				<span class="font black" style="top : 15; left: 35">Wrong Info </span>
+				<span class="content black" style="top: 30px; left: 45px"> <?php echo $attitude ?> </span>
+				<span class="font black" style="top : 8; left: 23px">Attitude </span>
 				
 			</div>
 	</div>
 
 
-	<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:160px; margin-right: 50px; position: relative; ">
+	<div clas="aht" style="background-color: #1b1b1b38; height:60px; width:100px; margin-right: 50px; position: relative;margin-top: -55px ">
+			<div style="height: 10% ; background-color: #f39817; width: 100%">
+				<span class="content black" style="top: 30px; left: 45px"> <?php echo $wrong_info?> </span>
+				<span class="font black" style="top : 8px; left: 10px">Wrong Info  </span>
+				
+			</div>
+	</div>
+
+
+	<div clas="aht" style="background-color: #1b1b1b38; height:60px; width:210px; margin-right: 50px; position: relative;margin-top: -55px ">
 			<div style="height: 10% ; background-color: #dd4d33; width: 100%">
-				<span class="content black" style="top: 45; left: 75"> <?php echo $wron_transaction ;?> </span>
-				<span class="font black" style="top : 15; left: 15"> Wrong Transaction </span>
+				<span class="content black" style="top: 30; left: 90"> <?php echo $complaint_score ;?> %</span>
+				<span class="font black" style="top : 8; left: 48">Complaints Score </span>
 				
 			</div>
 	</div>
 
-	<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:160px; margin-right: 50px; position: relative; ">
-			<div style="height: 10% ; background-color: #dd4d33; width: 100%">
-				<span class="content black" style="top: 45; left: 75"> <?php echo $complaint_score ;?> %</span>
-				<span class="font black" style="top : 15; left: 15">Complaints Score </span>
-				
-			</div>
-	</div>
 	<!---------------------------------------------------------------------------------------------------->
+	
 	<?php 
 	if($id < 111){
 		?>
@@ -459,10 +547,10 @@ $outbound_aht = ($aux_out_time + $acw_out_time) / ($acw_out_time + $aux_out_call
 
 	?>
 
-		<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:160px;margin:0 auto;  position: relative;margin-left: 423px; ">
+		<div clas="aht" style="background-color: #1b1b1b38; height:80px; width:210px;margin:0 auto;  position: relative;margin-left: 410px; ">
 				<div style="height: 10% ; background-color: #dd4d33; width: 100%">
-					<span class="content black" style="top: 45; left: 60"> <?php echo $final_score;?> %</span>
-					<span class="font black" style="top : 15; left: 45">Final Score </span>
+					<span class="content black" style="top: 45px; left: 75px"> <?php echo $final_score;?> %</span>
+					<span class="font black" style="top : 13px; left: 70px">Final Score </span>
 					
 				</div>
 		</div>
@@ -475,6 +563,12 @@ $outbound_aht = ($aux_out_time + $acw_out_time) / ($acw_out_time + $aux_out_call
 
 
 <?php
+} else{
+	?>
+	<div style="margin:0 auto ; height:100px; width: 200px; margin-top: 100px;"> No Result Found
+	</div>
+	<?php
+}
 
 include'../main_page.php';
 

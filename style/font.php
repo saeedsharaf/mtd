@@ -1,7 +1,7 @@
 <?php
 error_reporting(0);
 
-if($nps < 40 ){
+if($nps < 45 ){
 $nps_color = 'color: #ff0000';
 
 } else {
@@ -33,7 +33,7 @@ if($ir_pre < 60 ){
 };
 
 
-if($aht > 220){
+if($aht > 260){
 	$aht_color = 'color: #ff0000';
 
 } else{
@@ -41,7 +41,7 @@ if($aht > 220){
 }
 
 
-if($hold_percentage > 5){
+if($hold_percentage > 3){
 	$hold_color = 'color: #ff0000';
 
 } else{

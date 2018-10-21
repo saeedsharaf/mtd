@@ -7,7 +7,7 @@ $error="";
  if(isset($_POST['cancel'])){ // if user press cancel
 	
 		 ?>
-                               <script>window.location.href='redirect_page.php'</script>
+                               <script>window.location.href='score_redirect_page.php'</script>
                                <?php
 		}
 
@@ -40,7 +40,7 @@ $error="";
 					if ($cont->query($sql) === true ){
 					$error = 'Password changed' ;
 			
-					header( "refresh:1;url=redirect_page.php" );
+					header( "refresh:1;url=score_redirect_page.php" );
 
 						} 
 			

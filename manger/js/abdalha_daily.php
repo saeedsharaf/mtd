@@ -279,7 +279,7 @@ var barChartData = {
 					responsive: true,
 					title: {
 						display: true,
-						text: 'Mohamed Abdallah'
+						text: 'Tharwat Omara'
 					},
 					tooltips: {
             enabled:false,

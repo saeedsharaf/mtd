@@ -300,8 +300,9 @@ text-decoration: none;
 .tf, .ts {
     border-spacing: 1px;
 	margin:auto;
-font-size: 15px;	
+font-size: 14px;	
 color:#212121f2;
+border-collapse: collapse;
 
 }
 
@@ -323,7 +324,7 @@ th, td {
 }
 
 .noborder{
-border:none;
+/*border:none;*/
 background-color: #cccccc;
 
 }

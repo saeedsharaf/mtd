@@ -1,4 +1,4 @@
-var saeed5 = document.getElementById("t_in");
+var saeed5 = document.getElementById("chart");
 var char = new Chart(saeed5,  {
 	type : 'line',
 	data : {

@@ -8,7 +8,7 @@ if(!isset($_SESSION['username'])){
 <script>window.location.href='index.php' </script>
 <?php
 }
-include'../main_pageagent.php';
+include'../main_page.php';
 ?>
 		
 		
@@ -18,7 +18,7 @@ include'../main_pageagent.php';
 		
 			<table class="tf">
 			
-			<caption style="background-color:#a90101; padding:9px; color: white;">Jun 2018</caption>
+			<caption style="background-color:#a90101; padding:9px; color: white;">Oct 2018</caption>
 			<thead>
 			
 			<tr>

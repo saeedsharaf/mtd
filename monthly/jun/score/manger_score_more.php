@@ -3,10 +3,16 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
+
+
+
+//include'export.php';
+
+
 ?>
 			
 <style>
@@ -176,7 +182,9 @@ section h1{
 
 
 
-
+<form action="export.php" method="get">
+	<input type="submit" accesskey="s" style="display:none">
+</form>
 
 	<div class="reset " id="main" style="width:1227px; min-width:1227px ">
 			<div style="height: 100px; width: 100px;" class="saeed">
@@ -309,53 +317,148 @@ if($result->num_rows > 0){
 
 
 	while($row = $result->fetch_assoc()){
-$aht = $row['aht'] * 24 * 3600 ;
-$acw = $row['acw'] * 100 ;
-$hold = $row['hold'] *100;
-$outbound_aht = $row['outbound'] *24 * 3600;
-$calls_sr = $row['calls_vs_sr'];
-$absent = $row['absent'] * 100;
-$adherence = $row['adherance'] * 100;
-$nps = $row['nps'] * 100;
+		/*
+		$login = $row['login_id'];
+
+		$aht = ($row['acd_time'] + $row['hold_time'] + $row['acw_time']) / $row['acd_calls'];
+		$acw = ($row['acw_time']) / ($row['hold_time'] + $row['acw_time'] + $row['acd_time']) * 100;
+		$hold = ($row['hold_time']) / ($row['hold_time'] + $row['acw_time'] + $row['acd_time']) * 100 ;
+		$outbound_aht = ($row['aux_out_time'] + $row['acw_out_time']) / ($row['acw_out_time'] + $row['aux_out_calls']) ;
+
+*/
+$nps = $row['nps'];
+$fcr = $row['fcr'];
+$agent_ttb = $row['agent_target'];
+$absent = $row['absent'];
+$adherence = $row['adh'] * 100 ;
+
+
+
+$zero_aht = is_nan($aht);
+		$zero_hold= is_nan($hold);
+		$zero_acw = is_nan($acw);
+		$zero_outboundaht = is_nan($outbound_aht);
+		$zero_outbound = is_nan($outbound);
+
+		if($zero_aht === true ){
+			$aht = 0;
+		}
+		if($zero_hold === true){
+			$hold = 0;
+		}
+
+		if($zero_acw === true){
+			$acw = 0;
+		}
+
+		if($zero_outboundaht === true){
+			$outbound_aht = 0;
+		}
+
+		if($zero_outbound === true){
+			$outbound = 0;
+		}
+
+		
+$aht = round($row['aht'],2) ;
+$acw = $row['acw'];
+$hold = $row['hold'];
+$outbound_aht = $row['outbound'];
+
+$absent = $row['absent'];
+$adherence = $row['adherance'];
+$nps = $row['nps'] ;
 $ctc = $row['ctc'] ;
 $ctb = $row['ctb'];
 $nc = $row['nc'];
-$compliance = $row['compliance'];
-$quality_score = round($row['quality_score']*100);
-$attiude = $row['attiude'];
-$over_promising = $row['over_promising'];
-$wrong_info = $row['wrong_info'];
-$wron_transaction = $row['wron_transaction'];
-$complaint_score = round($row['complaint_score']*100);
-$final_score = round($row['final_score']*100,2);
+$quality_score = $row['quality_score'];
+//$compliance = $row['compliance'];
+//$quality_score = round($row['quality_score']*100);
+//$attiude = $row['attiude'];
+//$over_promising = $row['over_promising'];
+//$wrong_info = $row['wrong_info'];
+//$wron_transaction = $row['wron_transaction'];
+//$complaint_score = round($row['complaint_score']*100);
+$final_score = round($row['final_score'],2);
 
 
 
-if($aht > 260 ){
-			$aht_score = 0;
-			$aht_color = 'red';
-		}else{
-			$aht_score = 10;
-			$aht_color = 'green';
-		}
+if($aht > 260){
+	$aht_score = 0;
 
-		if($hold > 5 ){
-			$hold_score = 0;
-			$hold_color = 'red';
-		}else{
-			$hold_score = 10;
-			$hold_color = 'green';
-		}
+}else{
+	$aht_score = 10;
+}
 
-		if($acw > 5 ){
-			$acw_score = 0;
-			$acw_color ='red';
-		}else{
-			$acw_score = 10;
-			$acw_color = 'green';
-		}
+if($acw > 5){
+	$acw_score = 0;
+}else{
+	$acw_score = 5;
+}
+
+if($hold > 3){
+	$hold_score = 0;
+}else{
+	$hold_score = 5;
+}
+
+if($outbound_aht > 300 ){
+	$outbound_score = 0;
+}else{
+	$outbound_score = 5;
+}
 
 
+
+if($adherence > 92 ){
+	$adherence_score = 10;
+}else{
+	$adherence_score = 0;
+}
+
+
+
+
+if($fcr > 60 ){
+	$fcr_score = 2;
+}else{
+	$fcr_score = 0;
+}
+
+
+
+if($nps > 45 ){
+	$nps_score = 10;
+}else{
+	$nps_score = 0;
+}
+
+
+if($agent_ttb > 80){
+	$agent_t = 8;
+
+}else{
+	$agent_t = 0;
+};
+
+if($absent == 1){
+	$absnt_score = 5;
+}else{
+	$absent_score= 0;
+}
+
+//$final_score = $aht_score + $acw_score +$hold_score + $outbound_score + $adherence_score + $nps_score + $fcr_score + $agent_t + $absent_score ;
+
+
+/*
+$saeed = "update jun set final_score = $final_score where login_id = $login";
+
+if($cont->query($saeed) === true){
+
+}else{
+	echo 'no' ;
+}
+*/
 
 
 		?>
@@ -466,3 +569,9 @@ if($nps > 40 ){
 	include'../main_page.php';
 
 	?>
+	<style >
+		.container {
+    height: 0%;
+    width: 0%;
+    /* background-color: #e7ebee26; */
+	</style>

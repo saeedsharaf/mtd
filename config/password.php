@@ -93,7 +93,7 @@ color: white;
     
 	<div class="password">
             <label style="margin-right:15px; color: white;">Old Password </label>
-            <input type="password" name="password" placeholder="Password" id="name" > 
+            <input type="password" name="password" placeholder="Password" id="name" autocomplete="off" > 
 			
             <!--
 		<input type="checkbox" name="check" > <span class="whitecolor">Remember Me </span>
@@ -101,7 +101,7 @@ color: white;
 	</div>
     <div class="newpassword">
 		<label class="white" style="margin-right: 10px;"> New password </label>
-			<input type="password" name="new_password" placeholder="New Password" id="name"> 
+			<input type="password" name="new_password" placeholder="New Password" id="name" autocomplete="off"> 
 	</div>
 	<div class="login" >
 		<input type="submit" name="submit" class="submit" value="Submit">

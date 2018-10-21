@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../../index.php' </script>
 <?php
 }
 //include'../main_page.php';
@@ -304,17 +304,21 @@ include'../../../config/connect.php';
 <?php
 $id = $_GET['id'];
 if($id == 2){
-	
-		$sql="select * from jun where adherance < 0.92 ";
+	?>
+		<form action="export.php" method="get">
+  			 <input type="submit" accesskey="s" name="adh_not"  style="display:none;">
+		</form>
+	<?php
+		$sql="select * from july where adherance < 92 ";
 		$result=$cont->query($sql);
 		if($result->num_rows > 0){
 
 			while($row = $result->fetch_assoc()){
-				$aht = $row['aht'] * 24 * 3600 ;
-				$acw = $row['acw'] * 100 ;
-				$hold = $row['hold'] *100;
-				$adherence = round($row['adherance'] * 100,1);
-				$final_score = round($row['final_score']*100);
+				$aht = round($row['aht'],2);
+				$acw = round($row['acw'],2) ;
+				$hold = round($row['hold'],2);
+				$adherence = $row['adherance'];
+				$final_score = $row['final_score'];
 				
 			
 
@@ -402,19 +406,22 @@ if($id == 2){
 							}
 						}
 					}else{
+						?>
+							<form action="export.php" method="get">
+					  			 <input type="submit" accesskey="s" name="adh"  style="display:none;">
+							</form>
+						<?php
 
-						$sql="select * from jun where adherance > 0.92 ";
+						$sql="select * from july where adherance > 92 ";
 						$result=$cont->query($sql);
 						if($result->num_rows > 0){
 
 							while($row = $result->fetch_assoc()){
-								$aht = $row['aht'] * 24 * 3600 ;
-								$acw = $row['acw'] * 100 ;
-								$hold = $row['hold'] *100;
-								$outbound_aht = round($row['outbound'] *24 * 3600);
-								$adherence = round($row['adherance'] * 100,1);
-							
-								$final_score = round($row['final_score']*100);
+								$aht = round($row['aht'],2);
+								$acw = round($row['acw'],2) ;
+								$hold = round($row['hold'],2);
+								$adherence = $row['adherance'];
+								$final_score = $row['final_score'];
 								
 							
 

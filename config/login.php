@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 			
 			} else {
 			
-				$error= 'Wrong user Name or Paswword';
+				$error= '<span style="margin-left: 110px;">Wrong user Name or Paswword</span>';
 			
 			}
 		

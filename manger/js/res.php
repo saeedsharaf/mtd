@@ -12,10 +12,14 @@
 var barChartData = {
 			labels: [
       <?php
+     
+
+      
         $arraylenght = count($month);
-        for($x = 0; $x < $arraylenght; $x++) {
+        for($x = 1; $x < $arraylenght; $x++) {
           echo '"' . $month[$x] . '"' . ',' ;
         }
+        
         ?>
 			],
 			datasets: [
@@ -37,9 +41,14 @@ var barChartData = {
 			$pq = $cont->query($p); 
 			$dq = $cont-> query ($d);
 
+      if($tq->num_rows == 0){
+        continue ;
+      }else { 
+
 			$eq = (($pq->num_rows - $dq->num_rows) / $tq->num_rows) * 100 ; // get result of nps 
 			echo round($eq) . ','; 
 			}
+      }
 			
          ?>
 
@@ -77,7 +86,7 @@ var barChartData = {
       $ge_ttb1 = $result_agttb->num_rows; // query agent top box
       
       if($tq->num_rows == 0){
-        $agent = 0;
+        continue;
       } else{
 
 
@@ -115,10 +124,17 @@ var barChartData = {
           		$fcr = "select * from nps where ir = '1' and date ='$date' " ;
           		$tq1 = $cont->query($t1);
           		$fcr_q = $cont->query($fcr);
+
+              if($tq1->num_rows == 0){
+                continue;
+              }else{
+
+
+
           		$eq1 = ($fcr_q->num_rows / $tq1->num_rows) * 100 ;
           		echo round($eq1) . ',';
           	}
-
+            }
           ?>
         ],
         yAxisID: 'y-axis-1',
@@ -147,10 +163,17 @@ var barChartData = {
          		$ir = "select * from nps where ir <=2 and date ='$date' ";
          		$tq2 = $cont->query ($t2);
          		$irq = $cont->query($ir);
+
+            if($tq2->num_rows == 0){
+              continue ; 
+            }else{
+
+
          		$eql2 = ($irq->num_rows / $tq2->num_rows) * 100 ;
          		echo round($eql2) . ',';
 
          	}
+          }
 
          ?>
         ],
@@ -199,9 +222,14 @@ var barChartData = {
           <?php
           	foreach($month as $date){
           		$t3 = "select * from nps where date = '$date'";
+
           		$tq3 = $cont->query($t3);
+              if($tq3->num_rows == 0){
+                continue;
+              }else{
           		echo $tq3->num_rows . ',';
           	}
+            }
           ?>
         ],
         yAxisID: 'y-axis-2',

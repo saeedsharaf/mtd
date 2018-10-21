@@ -3,7 +3,7 @@ error_reporting(0);
 session_start();
 if(!isset($_SESSION['username'])){
 ?>
-<script>window.location.href='index.php' </script>
+<script>window.location.href='../../index.php' </script>
 <?php
 }
 
@@ -11,7 +11,7 @@ if(!isset($_SESSION['username'])){
 
 <html>
 <head>
-<title> We Eye </title>
+<title> WE Score Card </title>
 <link rel="stylesheet" href="../../../style/style1.php" >
 <link rel="shortcut icon" href="../../../style/icon.png" />
 
@@ -113,7 +113,7 @@ if(!isset($_SESSION['username'])){
 		<div class="head" >
 			
 			<span id="te">telcom<b>egypt </b> </span>
-			<span id="we" style="font-size: 15px; font-family: sans-serif;font-weight: bolder; color:white;margin-top: 25px;">We Eye</span>
+			<span id="we" style="font-size: 15px; font-family: cursive;font-weight: bolder; color:white;margin-top: 25px;width: 120px;">WE Score Card</span>
 			
 			<div class="bbb">
 			
@@ -206,45 +206,56 @@ if(!isset($_SESSION['username'])){
 
 
 
-		<a href="../../jan/score/sv_score.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #01c5ed ; top: 90px; text-align: center;">
+			<a href="../../jan/score_redirect_page.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #01c5ed ; top: 90px; text-align: center;">
 			<span class="month" style="">Jan </span>
 			
 		</div> </a>	
 
-		<a href="../../feb/score/sv_score.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #09a55c ; top: 140px; text-align: center;">
+		<a href="../../feb/score_redirect_page.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #09a55c ; top: 130px; text-align: center;">
 			<span class="month" style="">Feb </span>
 			
 		</div> </a>
 
-		<a href="../../mar/score/sv_score.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #f39817 ; top: 190px; text-align: center;">
+		<a href="../../mar/score_redirect_page.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #f39817 ; top: 170px; text-align: center;">
 			<span class="month" style="">Mar</span>
 			
 		</div> </a>
 
-		<a href="../../april/score/sv_score.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #dd4d33 ; top: 240px; text-align: center;">
+		<a href="../../april/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #dd4d33 ; top: 210px; text-align: center;">
 			<span class="month" style="">April </span>
 
 			
 
 		</div></a>
 
-		<a href="../../may/score_redirect_page.php" > <div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #1b1b1b38 ; top: 290px; text-align: center;">
+		<a href="../../may/score_redirect_page.php" > <div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #1b1b1b38 ; top: 250px; text-align: center;">
 			<span class="month" style="">May </span>
 			
 		</div></a>
 
-		<a href="../../jun/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 340px; text-align: center;">
+		<a href="../../jun/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff000087 ; top: 290px; text-align: center;">
 			<span class="month" style="">Jun </span>
 			
 		</div> </a>
 
-		<a href="../../july/score_redirect_page.php"><div class="monthly active" style="position: fixed;height: 40px;width: 100px;background-color: #0d00ff87 ; top: 390px; text-align: center;">
+		<a href="../../july/score_redirect_page.php"><div class="monthly active " style="position: fixed;height: 40px;width: 100px;background-color: #0d00ff87 ; top: 330px; text-align: center;">
 			<span class="month" style="">July </span>
 			
 		</div> </a>
-
-		<a href="../../august/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff0055db ; top: 440px; text-align: center;">
+		
+		<a href="../../august/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #ff0055db ; top: 370px; text-align: center;">
 			<span class="month" style="">Aug </span>
+			
+		</div> </a>
+
+		<a href="../../sep/score_redirect_page.php"><div class="monthly " style="position: fixed;height: 40px;width: 100px;background-color: #bd00ffdb ; top: 410px; text-align: center;">
+			<span class="month" style="">Sep </span>
+			
+		</div> </a>
+
+
+		<a href="../../oct/score_redirect_page.php"><div class="monthly" style="position: fixed;height: 40px;width: 100px;background-color: #005dffdb ; top: 450px; text-align: center;">
+			<span class="month" style="">Oct </span>
 			
 		</div> </a>
 
